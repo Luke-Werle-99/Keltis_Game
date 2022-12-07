@@ -7,17 +7,17 @@ public class Game
     private ArrayList<Stone> Stones = new ArrayList(55);
 
 
-    private static gameStart()
+    private void gameStart()
     {
 
     }
 
-    private static gameEnd()
+    private void gameEnd()
     {
 
     }
 
-    private static addPlayer()
+    private void addPlayer()
     {
 
     }
