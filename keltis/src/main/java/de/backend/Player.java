@@ -2,7 +2,7 @@ package de.backend;
 import java.util.ArrayList;
 import Stein.java;
 
-public class Spieler
+public class Player
 {
     private String name;
     private int age;
@@ -13,11 +13,18 @@ public class Spieler
     private ArrayList<String> rowOrange = new ArrayList<>();
 
     private static uncover(Stone _stone){
-        setStatus.stone = TRUE;
+        _stone.setStatus = true;
+
     }
 
-    private static pull(){
-
+    private static pull(Stone _stone){
+        switch _stone.color {
+            case 'b':
+                rowBlue.add(_stone);
+                break;
+            default:
+                System.out.println("Error")
+        }
         return stone;
     }
 
