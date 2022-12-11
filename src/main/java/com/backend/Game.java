@@ -59,7 +59,6 @@ public class Game
         }
 
         */
-
     }
     public static void addPlayers() {
         //commandline as temporary interface input
@@ -77,7 +76,7 @@ public class Game
             Players.add(player);
         }
         scanner.close();
-        //print inout for debugging
+        //print input for debugging
         for (Player x: Players) {
             System.out.println(x.getName() + " " + x.getAge());
         }
