@@ -12,10 +12,12 @@ public class Player
     private ArrayList<Stone> rowPink = new ArrayList<>();
     private ArrayList<Stone> rowOrange = new ArrayList<>();
 
-    private void uncover(Stone _stone){
-        _stone.setStatus(true);
-
+    public Player(String _name, int _age){
+        name = _name;
+        age = _age;
     }
+
+    private void uncover(Stone _stone){_stone.setStatus(true);}
 
     private void pull(Stone _stone){
         switch (_stone.getColor()) {
@@ -28,7 +30,7 @@ public class Player
 
     }
 
-    public int  calcpoints (){
+    public int  calcPoints (){
         int stoneAmount = rowBlue.size() + rowYellow.size() + rowRed.size() + rowPink.size() + rowOrange.size();
         int bonusPoints = 0;
         int wishingStone = 0;
@@ -114,7 +116,7 @@ public class Player
         return points;
     }
 
-    private int getPointsOfRow(ArrayList<Stone> rowColor, int points) {
+    public int getPointsOfRow(ArrayList<Stone> rowColor, int points) {
         switch (rowColor.size()) {
             case 0:
                 break;
@@ -138,4 +140,8 @@ public class Player
         }
         return points;
     }
+    public void setName(String _name){this.name = _name;}
+    public String getName(){return this.name;}
+    public void setAge(int _age){this.age = _age;}
+    public int getAge(){return  this.age;}
 }
