@@ -7,7 +7,7 @@ public class Stone
     private int bonusPoints;
     private boolean wishingStone;
     private boolean clover;
-    private boolean status;
+    //private boolean status;
 
 
 
@@ -17,7 +17,7 @@ public class Stone
         this.bonusPoints = _bonusPoints;
         this.wishingStone = _wishingStone;
         this.clover = _clover;
-        this.status = _status;
+        //this.status = _status;
 
     }
     public Stone(){
@@ -26,7 +26,7 @@ public class Stone
         this.bonusPoints = 0;
         this.wishingStone = false;
         this.clover = false;
-        this.status = true;
+        //this.status = true;
 
     }
     public int getNumber() { return number;}
@@ -39,8 +39,8 @@ public class Stone
     public void setWishingStone(boolean _wishingStone){this.wishingStone = _wishingStone;}
     public boolean isClover() {return this.clover;}
     public void setClover(boolean _clover){this.clover = _clover;}
-    public void setStatus(boolean _status){this.status = _status;}
-    public boolean getStatus(){return this.status;}
+    //public void setStatus(boolean _status){this.status = _status;}
+    //public boolean getStatus(){return this.status;}
 
 
 

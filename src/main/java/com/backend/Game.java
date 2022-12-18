@@ -1,11 +1,14 @@
 package com.backend;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Collections;
+
 
 public class Game
 {
-    private static ArrayList<Player> Players = new ArrayList(4);
-    private static ArrayList<Stone> Stones = new ArrayList(55);
+    private ArrayList<Player> Players = null;
+    private ArrayList<Stone> Stones = new ArrayList(55);
+    private ArrayList<Stone> UncoveredStones = new ArrayList<>(55);
 
 
     private void gameStart()
@@ -17,7 +20,7 @@ public class Game
     {
 
     }
-    public static void generateStones() {
+    public void generateStones() {
         //initialize red Stones
         for(int i = 0; i < 11; i++){
             Stone stein = new Stone();
@@ -59,10 +62,34 @@ public class Game
         }
 
         */
+        Collections.shuffle(Stones); // uses java.collections
 
     }
-    public static void addPlayers() {
-        //commandline as temporary interface input
+    public void addPlayers(ArrayList<Player> _players) {
+       Players = _players;
+    }
+
+    public Stone uncoverStone(){
+        UncoveredStones.add(0, Stones.get(0));
+        Stones.remove(0);
+        return UncoveredStones.get(0);
+    }
+    private void playerTurn(Player _player, Stone _stone){
+        if (_stone != null){
+            UncoveredStones.remove(_stone);
+        }
+
+        //_stone.setStatus(true);
+    }
+
+    public ArrayList<Stone> getUncoveredStones(){return UncoveredStones;}
+
+    public static void main(String[] args) {
+        ArrayList<Player> Players = new ArrayList(4);
+        Game g = new Game();
+        g.generateStones();
+
+            //commandline as temporary interface input
         Scanner scanner = new Scanner(System.in);
         int amount = 0;
         System.out.println("Please enter the amount of players: ");
@@ -77,15 +104,10 @@ public class Game
             Players.add(player);
         }
         scanner.close();
-        //print inout for debugging
+        //print input for debugging
         for (Player x: Players) {
             System.out.println(x.getName() + " " + x.getAge());
         }
+        g.addPlayers(Players);
     }
-
-    public static void main(String[] args) {
-        generateStones();
-        addPlayers();
-    }
-
 }
