@@ -17,17 +17,117 @@ public class Player
         age = _age;
     }
 
-    private void uncover(Stone _stone){_stone.setStatus(true);}
+    public boolean pull(Stone _stone)
+    {
+        switch (_stone.getColor())
+        {
+            //logical checks to see if move is legal
 
-    private void pull(Stone _stone){
-        switch (_stone.getColor()) {
+            case 'r':
+                if (rowRed.size() == 0 || rowRed.size() == 1)
+                {
+                    rowRed.add(_stone);
+                    return true;
+                }
+                if(rowRed.size() >= 2)
+                {
+                    if((rowRed.get(0).getNumber() < rowRed.get(1).getNumber()) && _stone.getNumber() > rowRed.get(rowRed.size() - 1).getNumber())
+                    {
+                        rowRed.add(_stone);
+                        return true;
+                    }
+                    else if((rowRed.get(0).getNumber() > rowRed.get(1).getNumber()) && _stone.getNumber() < rowRed.get(rowRed.size() - 1).getNumber())
+                    {
+                        rowRed.add(_stone);
+                        return true;
+                    }
+                }
+                break;
+            case 'o':
+                if (rowOrange.size() == 0 || rowOrange.size() == 1)
+                {
+                    rowOrange.add(_stone);
+                    return true;
+                }
+                if(rowOrange.size() >= 2)
+                {
+                    if((rowOrange.get(0).getNumber() < rowOrange.get(1).getNumber()) && _stone.getNumber() > rowOrange.get(rowOrange.size() - 1).getNumber())
+                    {
+                        rowOrange.add(_stone);
+                        return true;
+                    }
+                    else if((rowOrange.get(0).getNumber() > rowOrange.get(1).getNumber()) && _stone.getNumber() < rowOrange.get(rowOrange.size() - 1).getNumber())
+                    {
+                        rowOrange.add(_stone);
+                        return true;
+                    }
+                }
+                break;
+            case 'p':
+                if (rowPink.size() == 0 || rowPink.size() == 1)
+                {
+                    rowPink.add(_stone);
+                    return true;
+                }
+                if(rowPink.size() >= 2)
+                {
+                    if((rowPink.get(0).getNumber() < rowPink.get(1).getNumber()) && _stone.getNumber() > rowPink.get(rowPink.size() - 1).getNumber())
+                    {
+                        rowPink.add(_stone);
+                        return true;
+                    }
+                    else if((rowPink.get(0).getNumber() > rowPink.get(1).getNumber()) && _stone.getNumber() < rowPink.get(rowPink.size() - 1).getNumber())
+                    {
+                        rowPink.add(_stone);
+                        return true;
+                    }
+                }
+                break;
+            case 'y':
+                if (rowYellow.size() == 0 || rowYellow.size() == 1)
+                {
+                    rowYellow.add(_stone);
+                    return true;
+                }
+                if(rowYellow.size() >= 2)
+                {
+                    if((rowYellow.get(0).getNumber() < rowYellow.get(1).getNumber()) && _stone.getNumber() > rowYellow.get(rowYellow.size() - 1).getNumber())
+                    {
+                        rowYellow.add(_stone);
+                        return true;
+                    }
+                    else if((rowYellow.get(0).getNumber() > rowYellow.get(1).getNumber()) && _stone.getNumber() < rowYellow.get(rowYellow.size() - 1).getNumber())
+                    {
+                        rowYellow.add(_stone);
+                        return true;
+                    }
+                }
+                break;
             case 'b':
-                rowBlue.add(_stone);
+                if (rowBlue.size() == 0 || rowBlue.size() == 1)
+                {
+                    rowBlue.add(_stone);
+                    return true;
+                }
+                if(rowBlue.size() >= 2)
+                {
+                    if((rowBlue.get(0).getNumber() < rowBlue.get(1).getNumber()) && _stone.getNumber() > rowBlue.get(rowBlue.size() - 1).getNumber())
+                    {
+                        rowBlue.add(_stone);
+                        return true;
+                    }
+                    else if((rowBlue.get(0).getNumber() > rowBlue.get(1).getNumber()) && _stone.getNumber() < rowBlue.get(rowBlue.size() - 1).getNumber())
+                    {
+                        rowBlue.add(_stone);
+                        return true;
+                    }
+                }
                 break;
             default:
                 System.out.println("Error");
+                return false;
         }
-
+    return false;
     }
 
     public int  calcPoints (){

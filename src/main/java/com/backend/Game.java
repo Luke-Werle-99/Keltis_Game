@@ -19,6 +19,10 @@ public class Game
     private void gameEnd()
     {
 
+        for(int i = 0; i<10;i++)
+        {
+            System.out.println("This is a test");
+        }
     }
     public void generateStones() {
         //initialize red Stones
