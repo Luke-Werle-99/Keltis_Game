@@ -17,7 +17,7 @@ public class Player
         age = _age;
     }
 
-    private void uncover(Stone _stone){_stone.setStatus(true);}
+
 
     private void pull(Stone _stone){
         switch (_stone.getColor()) {

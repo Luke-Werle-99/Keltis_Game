@@ -26,6 +26,15 @@ public class Game
             Stone stein = new Stone();
             stein.setNumber(i);
             stein.setColor('r');
+            if(i == 1|| i == 4){
+                stein.setWishingStone(true);
+            } else if (i == 2 || i == 9) {
+                stein.setClover(true);
+            } else if (i == 5 ) {
+                stein.setBonusPoints(1);
+            }else if (i == 7 ) {
+                stein.setBonusPoints(3);
+            }
             Stones.add(stein);
         }
         //initialize blue Stones
@@ -33,6 +42,15 @@ public class Game
             Stone stein = new Stone();
             stein.setNumber(i);
             stein.setColor('b');
+            if(i == 2|| i == 3){
+                stein.setWishingStone(true);
+            } else if (i == 5 || i == 6) {
+                stein.setClover(true);
+            } else if (i == 8 ) {
+                stein.setBonusPoints(3);
+            }else if (i == 9) {
+                stein.setBonusPoints(1);
+            }
             Stones.add(stein);
         }
         //initialize pink Stones
@@ -40,6 +58,15 @@ public class Game
             Stone stein = new Stone();
             stein.setNumber(i);
             stein.setColor('p');
+            if(i == 6|| i == 9){
+                stein.setWishingStone(true);
+            } else if (i == 3 || i == 4) {
+                stein.setClover(true);
+            } else if (i == 1 ) {
+                stein.setBonusPoints(1);
+            }else if (i == 5 ) {
+                stein.setBonusPoints(3);
+            }
             Stones.add(stein);
         }
         //initialize orange Stones
@@ -47,6 +74,15 @@ public class Game
             Stone stein = new Stone();
             stein.setNumber(i);
             stein.setColor('o');
+            if(i == 7|| i == 4){
+                stein.setWishingStone(true);
+            } else if (i == 5 || i == 8) {
+                stein.setClover(true);
+            } else if (i == 2 ) {
+                stein.setBonusPoints(3);
+            }else if (i == 6 ) {
+                stein.setBonusPoints(1);
+            }
             Stones.add(stein);
         }
         //initialize yellow Stones
@@ -54,6 +90,15 @@ public class Game
             Stone stein = new Stone();
             stein.setNumber(i);
             stein.setColor('y');
+            if(i == 6|| i == 8){
+                stein.setWishingStone(true);
+            } else if (i == 1 || i == 7) {
+                stein.setClover(true);
+            } else if (i == 3 ) {
+                stein.setBonusPoints(3);
+            }else if (i == 4 ) {
+                stein.setBonusPoints(1);
+            }
             Stones.add(stein);
         }
         //display the generated Stones for debugging
