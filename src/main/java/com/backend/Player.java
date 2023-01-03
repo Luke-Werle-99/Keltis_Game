@@ -11,6 +11,7 @@ public class Player
     private ArrayList<Stone> rowRed = new ArrayList<>();
     private ArrayList<Stone> rowPink = new ArrayList<>();
     private ArrayList<Stone> rowOrange = new ArrayList<>();
+    private int score;
 
     public Player(String _name, int _age){
         name = _name;
@@ -266,4 +267,5 @@ public class Player
     public String getName(){return this.name;}
     public void setAge(int _age){this.age = _age;}
     public int getAge(){return  this.age;}
+    public int getScore(){return this.score;}
 }

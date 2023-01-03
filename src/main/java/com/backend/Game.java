@@ -18,12 +18,32 @@ public class Game
 
     private void gameEnd()
     {
+        System.out.println("GAME OVER !");
 
-        for(int i = 0; i<10;i++)
+        ArrayList<Integer> scores = new ArrayList<Integer>();
+
+        for(int i=0 ; i < Players.size() ; i++)
         {
-            System.out.println("This is a test");
+            scores.add(Players.get(i).calcPoints());
+        }
+
+        Collections.sort(scores,Collections.reverseOrder());
+
+        for(int i=1 ; i <= Players.size() ; i++)
+        {
+            String name = "";
+            for (Player x:Players)
+            {
+                if (x.getScore() == scores.get(i-1))
+                {
+                    name = x.getName();
+                }
+            }
+
+            System.out.println( i + ". place is " + name + "with" + scores.get(i-1) + "points !!!");
         }
     }
+
     public void generateStones() {
         //initialize red Stones
         for(int i = 0; i < 11; i++){
