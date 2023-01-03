@@ -40,6 +40,11 @@ public class Player
                     {
                         rowRed.add(_stone);
                         return true;
+                    }else
+                    {
+                            System.out.println("Error");
+                            System.out.println("Stone is not placeable");
+                            return false;
                     }
                 }
                 break;
@@ -60,6 +65,11 @@ public class Player
                     {
                         rowOrange.add(_stone);
                         return true;
+                    }else
+                    {
+                        System.out.println("Error");
+                        System.out.println("Stone is not placeable");
+                        return false;
                     }
                 }
                 break;
@@ -80,6 +90,11 @@ public class Player
                     {
                         rowPink.add(_stone);
                         return true;
+                    }else
+                    {
+                        System.out.println("Error");
+                        System.out.println("Stone is not placeable");
+                        return false;
                     }
                 }
                 break;
@@ -100,6 +115,11 @@ public class Player
                     {
                         rowYellow.add(_stone);
                         return true;
+                    }else
+                    {
+                        System.out.println("Error");
+                        System.out.println("Stone is not placeable");
+                        return false;
                     }
                 }
                 break;
@@ -120,12 +140,14 @@ public class Player
                     {
                         rowBlue.add(_stone);
                         return true;
+                    }else
+                    {
+                        System.out.println("Error");
+                        System.out.println("Stone is not placeable");
+                        return false;
                     }
                 }
                 break;
-            default:
-                System.out.println("Error");
-                return false;
         }
     return false;
     }
