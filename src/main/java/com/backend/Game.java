@@ -139,7 +139,7 @@ public class Game {
         g.findOldestPlayer();
         int turn = 0;
         while(Stones.size() > 0){
-            if(turn > g.Players.size()){turn = 0;}
+            if(turn >= g.Players.size()){turn = 0;}
             Player currentPlayer = g.Players.get(turn);
             //Stone currentStone = Stones.get(0);
             newOrUncovered(currentPlayer);
@@ -220,6 +220,7 @@ public class Game {
             }
         }
         Player first = Players.get(0);
+        Players.remove(oldest);
         Players.set(0, oldest);
         if(!Players.contains(first)){
             Players.add(first);
