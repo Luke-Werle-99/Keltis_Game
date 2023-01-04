@@ -171,7 +171,7 @@ public class Player
         for (int i = 0; i < rowYellow.size(); i++) {
             if ( rowYellow.size() > 0) {
                 bonusPoints += rowYellow.get(i).getBonusPoints();
-                if (rowBlue.get(i).getWishingStone() == true){
+                if (rowYellow.get(i).getWishingStone() == true){
                 wishingStone++;
                 }
             }
@@ -179,7 +179,7 @@ public class Player
         for (int i = 0; i < rowRed.size(); i++) {
             if ( rowRed.size() > 0) {
                 bonusPoints += rowRed.get(i).getBonusPoints();
-                if (rowBlue.get(i).getWishingStone() == true){
+                if (rowRed.get(i).getWishingStone() == true){
                 wishingStone++;
                 }
             }
@@ -187,7 +187,7 @@ public class Player
         for (int i = 0; i < rowPink.size(); i++) {
             if ( rowPink.size() > 0) {
                 bonusPoints += rowPink.get(i).getBonusPoints();
-                if (rowBlue.get(i).getWishingStone() == true){
+                if (rowPink.get(i).getWishingStone() == true){
                     wishingStone++;
                 }
             }
@@ -195,7 +195,7 @@ public class Player
         for (int i = 0; i < rowOrange.size(); i++) {
             if ( rowOrange.size() > 0) {
                 bonusPoints += rowOrange.get(i).getBonusPoints();
-                if (rowBlue.get(i).getWishingStone() == true){
+                if (rowOrange.get(i).getWishingStone() == true){
                     wishingStone++;
                 }
             }

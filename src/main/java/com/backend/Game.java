@@ -24,7 +24,6 @@ public class Game {
             Player player = new Player(split[0], Integer.parseInt(split[1]));
             Players.add(player);
         }
-
     }
 
     private void gameEnd() {
@@ -45,7 +44,6 @@ public class Game {
                     name = x.getName();
                 }
             }
-
             System.out.println(i + ". place is " + name + "with" + scores.get(i - 1) + "points !!!");
         }
     }
