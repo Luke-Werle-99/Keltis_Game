@@ -153,14 +153,14 @@ public class Game {
 
     private static void newOrUncovered(Player currentPlayer) {
 
-        int input = 0;
+        int input2;
         System.out.println(currentPlayer.getName() + " would you like to draw a new stone? Yes: 1  No: 2");
 
-        input = scanner.nextInt();
+        input2 = scanner.nextInt();
 
-        if(input == 1){
+        if(input2 == 1){
             drawNewStone(currentPlayer);
-        } else if (input== 2) {
+        } else if (input2== 2) {
             System.out.println("Here is a list of the uncovered Stones: ");
             for (Stone x: UncoveredStones) {
                 displayStone(x);
@@ -181,6 +181,7 @@ public class Game {
         input = scanner.nextLine().toLowerCase();
         if(input.equals("yes")){
             currentPlayer.pull(currentStone);
+            Stones.remove(0);
             if(currentStone.isClover()){
                 System.out.println("You are allowed to draw another Stone");
                 drawNewStone(currentPlayer);
@@ -191,7 +192,6 @@ public class Game {
             System.out.println("Error! Please enter a valid input");
             drawNewStone(currentPlayer);
         }
-        Stones.remove(0);
 
     }
 
