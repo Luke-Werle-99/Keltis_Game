@@ -138,7 +138,7 @@ public class Game {
         g.gameStart();
         g.findOldestPlayer();
         int turn = 0;
-        while(Stones.size() > 0){
+        while(g.Stones.size() > 0){
             if(turn >= g.Players.size()){turn = 0;}
             Player currentPlayer = g.Players.get(turn);
             //Stone currentStone = Stones.get(0);
@@ -151,18 +151,22 @@ public class Game {
 
     private static void newOrUncovered(Player currentPlayer) {
 
-        int input2;
-        System.out.println(currentPlayer.getName() + " would you like to draw a new stone? Yes: 1  No: 2");
+        String input2;
+        System.out.println(currentPlayer.getName() + " would you like to draw a new stone?");
 
-        input2 = scanner.nextInt();
+        input2 = scanner.nextLine().toLowerCase();
 
-        if(input2 == 1){
+        if(input2.equals("yes")){
             drawNewStone(currentPlayer);
-        } else if (input2== 2) {
-            System.out.println("Here is a list of the uncovered Stones: ");
-            for (Stone x: UncoveredStones) {
-                displayStone(x);
+        } else if (input2.equals("no")) {
+            //check if there are any uncovered stones to choose from
+            if(UncoveredStones.size() > 0){
+                drawUncoveredStone(currentPlayer);
+            }else{
+                System.out.println("There are no uncovered stones. You have to choose a new stone");
+                drawNewStone(currentPlayer);
             }
+
         }else{
             System.out.println("Error! Please choose a valid input");
             newOrUncovered(currentPlayer);
@@ -182,13 +186,34 @@ public class Game {
             Stones.remove(0);
             if(currentStone.isClover()){
                 System.out.println("You are allowed to draw another Stone");
-                drawNewStone(currentPlayer);
+                newOrUncovered(currentPlayer);
             }
         } else if (input.equals("no")) {
             UncoveredStones.add(currentStone);
+            Stones.remove(currentStone);
         }else{
             System.out.println("Error! Please enter a valid input");
             drawNewStone(currentPlayer);
+        }
+
+    }
+    private static void drawUncoveredStone(Player currentPlayer){
+        System.out.println("The following stones are uncovered:");
+        for (Stone x : UncoveredStones) {
+            int index = 0;
+            System.out.println("Index: " + index);
+            displayStone(x);
+            System.out.println("___________________________");
+        }
+        int choice;
+        System.out.println("Type the index of the desired stone: ");
+        choice = scanner.nextInt();
+        //check for valid input
+        if(choice <= UncoveredStones.size()){
+            currentPlayer.pull(UncoveredStones.get(choice));
+        }else{
+            System.out.println("Error! Please enter a valid input.");
+            drawUncoveredStone(currentPlayer);
         }
 
     }
@@ -220,10 +245,8 @@ public class Game {
             }
         }
         Player first = Players.get(0);
-        Players.remove(oldest);
+        int indexOldest = Players.indexOf(oldest);
         Players.set(0, oldest);
-        if(!Players.contains(first)){
-            Players.add(first);
-        }
+        Players.set(indexOldest, first);
     }
 }
