@@ -1,4 +1,4 @@
-package com.example.fxscenebuilder;
+package com.frontend.keltis;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
