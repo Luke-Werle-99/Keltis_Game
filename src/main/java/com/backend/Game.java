@@ -32,7 +32,7 @@ public class Game {
         ArrayList<Integer> scores = new ArrayList<Integer>();
 
         for (int i = 0; i < Players.size(); i++) {
-            scores.add(Players.get(i).calcPoints());
+            scores.add(Players.get(i).getScore());
         }
 
         Collections.sort(scores, Collections.reverseOrder());
@@ -142,6 +142,8 @@ public class Game {
             if(turn >= g.Players.size()){turn = 0;}
             Player currentPlayer = g.Players.get(turn);
             //Stone currentStone = Stones.get(0);
+            System.out.println(currentPlayer.getName() + ", you have following rows: ");
+            currentPlayer.displayRows();
             newOrUncovered(currentPlayer);
             turn++;
             currentPlayer.calcPoints();
@@ -178,7 +180,7 @@ public class Game {
         String input;
         Stone currentStone = Stones.get(0);
         System.out.println(currentPlayer.getName() + " your Stone has the following attributes");
-        displayStone(currentStone);
+        currentStone.displayStone();
         System.out.println(currentPlayer.getName() + " would you like to take the stone?");
         input = scanner.nextLine().toLowerCase();
         if(input.equals("yes")){
@@ -199,42 +201,27 @@ public class Game {
     }
     private static void drawUncoveredStone(Player currentPlayer){
         System.out.println("The following stones are uncovered:");
+        int index = 0;
         for (Stone x : UncoveredStones) {
-            int index = 0;
             System.out.println("Index: " + index);
-            displayStone(x);
+            x.displayStone();
+            index++;
             System.out.println("___________________________");
         }
         int choice;
-        System.out.println("Type the index of the desired stone: ");
+        System.out.println("Type the index of the desired stone, or -1 to draw a new stone: ");
         choice = scanner.nextInt();
         //check for valid input
         if(choice <= UncoveredStones.size()){
             currentPlayer.pull(UncoveredStones.get(choice));
-        }else{
+        } else if (choice < 0) {
+            drawNewStone(currentPlayer);
+        } else{
             System.out.println("Error! Please enter a valid input.");
             drawUncoveredStone(currentPlayer);
         }
 
     }
-
-    private static void displayStone(Stone currentStone) {
-        System.out.println("Color:  " + currentStone.getColor());
-        System.out.println("Number:  " + currentStone.getNumber());
-        System.out.println("Bonus Points:  " + currentStone.getBonusPoints());
-        if(currentStone.isClover()){
-            System.out.println("Has a clover");
-        }else {
-            System.out.println("Has NO a clover");
-        }
-        if(currentStone.getWishingStone()){
-            System.out.println("Has a wishing Stone");
-        }else {
-            System.out.println("Has NO a wishing Stone");
-        }
-
-    }
-
     private void findOldestPlayer() {
         Player oldest = null;
         int oldestAge = 0;

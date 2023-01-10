@@ -2,11 +2,11 @@ package com.backend;
 
 public class Stone
 {
-    private int number;
-    private char color;
-    private int bonusPoints;
-    private boolean wishingStone;
-    private boolean clover;
+    private  int number;
+    private  char color;
+    private  int bonusPoints;
+    private  boolean wishingStone;
+    private  boolean clover;
     //private boolean status;
 
 
@@ -29,6 +29,22 @@ public class Stone
         //this.status = true;
 
     }
+    public void displayStone() {
+    System.out.println("Color:  " + this.color);
+    System.out.println("Number:  " + this.number);
+    System.out.println("Bonus Points:  " + this.bonusPoints );
+    if(this.clover == true){
+        System.out.println("Has a clover");
+    }else {
+        System.out.println("Has NO a clover");
+    }
+    if(this.wishingStone == true){
+        System.out.println("Has a wishing Stone");
+    }else {
+        System.out.println("Has NO a wishing Stone");
+    }
+
+}
     public int getNumber() { return number;}
     public void setNumber(int _number){ this.number = _number;}
     public char getColor(){ return this.color;}
