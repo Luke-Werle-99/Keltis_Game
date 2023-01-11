@@ -10,7 +10,7 @@ public class MainKeltis extends Application {
     @Override
     public void start(Stage stage) {
         try {
-            Image icon = new Image("C:/Users/tassi/IdeaProjects/Keltis_Game2/src/Titel.png");
+            Image icon = new Image("file:src/Titel.png");
             stage.getIcons().add(icon);
             FXMLLoader fxmlLoader = new FXMLLoader(MainKeltis.class.getResource("StartMenu.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 420, 420);
