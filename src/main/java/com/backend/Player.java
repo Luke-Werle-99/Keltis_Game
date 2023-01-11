@@ -17,7 +17,45 @@ public class Player
         name = _name;
         age = _age;
     }
+    public void displayRows(){
+        if(rowBlue.size() > 0){
+            System.out.println("Blue Row: ");
+            for (Stone x : rowBlue) {
+                x.displayStone();
+            }
+            System.out.println("__________________________________________");
+        }
+        if(rowYellow.size() > 0){
+            System.out.println("Yellow Row: ");
+            for (Stone x : rowYellow) {
+                x.displayStone();
+            }
+            System.out.println("__________________________________________");
+        }
+        if(rowRed.size() > 0){
+            System.out.println("Red Row: ");
+            for (Stone x : rowRed) {
+                x.displayStone();
+            }
+            System.out.println("__________________________________________");
 
+        }
+        if(rowPink.size() > 0){
+            System.out.println("Pink Row: ");
+            for (Stone x : rowPink) {
+                x.displayStone();
+            }
+            System.out.println("__________________________________________");
+
+        }
+        if(rowOrange.size() > 0) {
+            System.out.println("Orange Row: ");
+            for (Stone x : rowOrange) {
+                x.displayStone();
+            }
+            System.out.println("__________________________________________");
+        }
+    }
     public boolean pull(Stone _stone)
     {
         switch (_stone.getColor())
@@ -153,7 +191,8 @@ public class Player
     return false;
     }
 
-    public int  calcPoints (){
+    public  void calcPoints (){
+        //kann raus
         int stoneAmount = rowBlue.size() + rowYellow.size() + rowRed.size() + rowPink.size() + rowOrange.size();
         int bonusPoints = 0;
         int wishingStone = 0;
@@ -236,7 +275,7 @@ public class Player
         //Points for Bonus points
         points += bonusPoints;
 
-        return points;
+        this.score = points;
     }
 
     public int getPointsOfRow(ArrayList<Stone> rowColor, int points) {
