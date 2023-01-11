@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.frontend.keltis.PlayerController">
+   <children>
+      <Label fx:id="myLabel3" layoutX="73.0" layoutY="33.0" text="How many players are there?">
+         <font>
+            <Font name="System Italic" size="36.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="myAmount" layoutX="235.0" layoutY="188.0" prefWidth="150.0">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </ChoiceBox>
+      <Button fx:id="submitButton" layoutX="264.0" layoutY="262.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="72.0" text="Submit" />
+   </children>
+</AnchorPane>
