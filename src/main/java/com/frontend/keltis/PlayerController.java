@@ -77,17 +77,19 @@ public class PlayerController implements Initializable {
         Stage stage = (Stage)namePane2.getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load(), 800, 600);
         GameController gaayController = fxmlLoader.getController();
+        gaayController.setSetting();
+        gaayController.game.setPlayers();
+
 
         String name1Text = name1.getText();
         String age1Text = age1.getText();
         String name2Text = name2.getText();
         String age2Text = age2.getText();
+
         if(!name3.getText().equals(0)) {
             String name3Text = name3.getText();
             String age3Text = age3.getText();
 
-            gaayController.setSetting(name3Text);
-            gaayController.setSetting(age3Text);
         }
         else if(!name4.getText().equals(0)) {
 
@@ -96,18 +98,8 @@ public class PlayerController implements Initializable {
             String name4Text = name4.getText();
             String age4Text = age4.getText();
 
-            gaayController.setSetting(name4Text);
-            gaayController.setSetting(name4Text);
 
         }
-
-        gaayController.setSetting(name1Text);
-        gaayController.setSetting(age1Text);
-        gaayController.setSetting(name2Text);
-        gaayController.setSetting(age2Text);
-
-
-
 
         stage.setScene(scene);
         stage.show();

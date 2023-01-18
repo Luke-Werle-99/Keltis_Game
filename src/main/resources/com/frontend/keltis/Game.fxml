@@ -6,7 +6,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.frontend.keltis.GameController">
    <children>
-      <Text fx:id="player1" layoutX="207.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="79.199951171875" />
+      <Text fx:id="Player1Text" layoutX="207.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="79.199951171875" />
       <Button layoutX="282.0" layoutY="293.0" mnemonicParsing="false" onAction="#showName" text="Button" />
    </children>
 </AnchorPane>

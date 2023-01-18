@@ -1,5 +1,5 @@
 package com.frontend.keltis;
-
+import com.backend.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,20 +8,23 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class GameController {
+    public Text Player1Text;
     @FXML
-    public Text player1;
 
 
 
-    String playerString1 = "";
+    Game game;
+
+
 
     //int
-    public void setSetting( String player1){
-        this.playerString1 = player1;
+    public void setSetting(){
+        game = new Game();
     }
 
 
     public void showName(ActionEvent event) {
-        player1.setText(playerString1);
+        int test = 0;
+        game.gameEnd();
     }
 }
