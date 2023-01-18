@@ -13,8 +13,8 @@ public class MainKeltis extends Application {
             Image icon = new Image("file:src/Titel.png");
             stage.getIcons().add(icon);
             FXMLLoader fxmlLoader = new FXMLLoader(MainKeltis.class.getResource("StartMenu.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 420, 420);
-            // stage.setFullScreen(true);
+            Scene scene = new Scene(fxmlLoader.load(), 400, 400);
+            //stage.setFullScreen(true);
             stage.setTitle("Keltis");
             stage.setScene(scene);
             stage.show();
