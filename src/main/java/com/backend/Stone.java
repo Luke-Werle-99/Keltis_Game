@@ -7,28 +7,15 @@ public class Stone
     private  int bonusPoints;
     private  boolean wishingStone;
     private  boolean clover;
-    //private boolean status;
 
-
-
-    public Stone(int _number, char _color, int _bonusPoints, boolean _wishingStone, boolean _clover, boolean _status){
-        this.number = _number;
-        this.color = _color;
-        this.bonusPoints = _bonusPoints;
-        this.wishingStone = _wishingStone;
-        this.clover = _clover;
-        //this.status = _status;
-
-    }
     public Stone(){
         this.number = 1;
         this.color = 'r';
         this.bonusPoints = 0;
         this.wishingStone = false;
         this.clover = false;
-        //this.status = true;
-
     }
+
     public void displayStone() {
     System.out.println("Color:  " + this.color);
     System.out.println("Number:  " + this.number);

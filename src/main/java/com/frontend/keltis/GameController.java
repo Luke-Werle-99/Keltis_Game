@@ -11,18 +11,10 @@ public class GameController {
     public Text Player1Text;
     @FXML
 
-
-
     Game game;
-
-
-
-    //int
     public void setSetting(){
         game = new Game();
     }
-
-
     public void showName(ActionEvent event) {
         int test = 0;
         game.gameEnd();

@@ -53,7 +53,6 @@ public class PlayerController implements Initializable {
         myAmount.getSelectionModel()
                 .selectedItemProperty()
                 .addListener( (ObservableValue<? extends String> observable, String oldValue, String newValue) -> getPlayer(newValue));
-
     }
 
 
@@ -78,31 +77,32 @@ public class PlayerController implements Initializable {
         Scene scene = new Scene(fxmlLoader.load(), 800, 600);
         GameController gaayController = fxmlLoader.getController();
         gaayController.setSetting();
-        gaayController.game.setPlayers();
-
 
         String name1Text = name1.getText();
         String age1Text = age1.getText();
+        Player player1 = new Player(name1Text, Integer.parseInt(age1Text));
+        gaayController.game.addPlayer(player1);
+
         String name2Text = name2.getText();
         String age2Text = age2.getText();
+        Player player2 = new Player(name2Text, Integer.parseInt(age2Text));
+        gaayController.game.addPlayer(player2);
 
         if(!name3.getText().equals(0)) {
             String name3Text = name3.getText();
             String age3Text = age3.getText();
+            Player player3 = new Player(name3Text, Integer.parseInt(age3Text));
+            gaayController.game.addPlayer(player3);
 
         }
         else if(!name4.getText().equals(0)) {
-
-            String name3Text = name3.getText();
-            String age3Text = age3.getText();
             String name4Text = name4.getText();
             String age4Text = age4.getText();
-
+            Player player4 = new Player(name4Text, Integer.parseInt(age4Text));
+            gaayController.game.addPlayer(player4);
 
         }
-
         stage.setScene(scene);
         stage.show();
-
     }
 }

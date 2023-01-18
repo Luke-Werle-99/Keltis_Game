@@ -5,13 +5,12 @@ import java.util.Collections;
 
 
 public class Game {
-
     private ArrayList<Player> Players = new ArrayList<>(4);
     private static ArrayList<Stone> Stones = new ArrayList(55);
     private static ArrayList<Stone> UncoveredStones = new ArrayList<>(55);
     public static Scanner scanner = new Scanner(System.in);
-    public void setPlayers(ArrayList<Player> Players){this.Players = Players;}
-    public void gameStart() {
+
+    private void gameStart() {
         //commandline as temporary interface input
         int amount = 0;
         System.out.println("Please enter the amount of players: ");
@@ -47,6 +46,9 @@ public class Game {
             }
             System.out.println(i + ". place is " + name + "with" + scores.get(i - 1) + "points !!!");
         }
+    }
+    public void addPlayer(Player x){
+        Players.add(x);
     }
 
     public void generateStones() {
@@ -152,7 +154,7 @@ public class Game {
         }
     }
 
-    private static void newOrUncovered(Player currentPlayer) {
+    public static void newOrUncovered(Player currentPlayer) {
 
         String input2;
         System.out.println(currentPlayer.getName() + " would you like to draw a new stone?");
@@ -177,7 +179,7 @@ public class Game {
 
     }
 
-    private static void drawNewStone(Player currentPlayer) {
+    public static void drawNewStone(Player currentPlayer) {
         String input;
         Stone currentStone = Stones.get(0);
         System.out.println(currentPlayer.getName() + " your Stone has the following attributes");
@@ -200,7 +202,7 @@ public class Game {
         }
 
     }
-    private static void drawUncoveredStone(Player currentPlayer){
+    public static void drawUncoveredStone(Player currentPlayer){
         System.out.println("The following stones are uncovered:");
         int index = 0;
         for (Stone x : UncoveredStones) {
@@ -223,7 +225,7 @@ public class Game {
         }
 
     }
-    private void findOldestPlayer() {
+    public void findOldestPlayer() {
         Player oldest = null;
         int oldestAge = 0;
         for (Player x : Players) {
