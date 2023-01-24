@@ -25,22 +25,11 @@ public class GameController {
         imageview.setImage(i);
         game = new Game();
     }
-
-
-
-
-
-
-    //int
-
-
-
     public void showName(ActionEvent event) {
         Player1Text.setText(game.Players.get(0).getName());
         int test = 0;
         game.gameEnd();
     }
-
     public void setMusic(ActionEvent actionEvent) {
 
     }
