@@ -5,12 +5,13 @@ import java.util.Collections;
 
 
 public class Game {
-    private ArrayList<Player> Players = new ArrayList<>(4);
+
+    public ArrayList<Player> Players = new ArrayList<>(4);
     private static ArrayList<Stone> Stones = new ArrayList(55);
     private static ArrayList<Stone> UncoveredStones = new ArrayList<>(55);
     public static Scanner scanner = new Scanner(System.in);
-
-    private void gameStart() {
+    public void setPlayers(ArrayList<Player> Players){this.Players = Players;}
+    public void gameStart() {
         //commandline as temporary interface input
         int amount = 0;
         System.out.println("Please enter the amount of players: ");
@@ -44,7 +45,7 @@ public class Game {
                     name = x.getName();
                 }
             }
-            System.out.println(i + ". place is " + name + "with" + scores.get(i - 1) + "points !!!");
+            System.out.println(i + ". place is " + name + " with " + scores.get(i - 1) + " points !!!");
         }
     }
     public void addPlayer(Player x){

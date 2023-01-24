@@ -1,12 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.frontend.keltis.GameController">
-   <children>
-      <Text fx:id="Player1Text" layoutX="207.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="79.199951171875" />
-      <Button layoutX="282.0" layoutY="293.0" mnemonicParsing="false" onAction="#showName" text="Button" />
-   </children>
-</AnchorPane>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.frontend.keltis.GameController">
+   <top>
+      <Text fx:id="Player1Text" strokeType="OUTSIDE" strokeWidth="0.0" text="Player Name" wrappingWidth="165.0" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Text>
+   </top>
+   <center>
+      <Button mnemonicParsing="false" onAction="#showName" text="Button" BorderPane.alignment="CENTER" />
+   </center>
+   <left>
+      <ImageView fx:id="imageview" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+   </left>
+   <bottom>
+      <Button mnemonicParsing="false" onAction="#setMusic" text="Button" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>
