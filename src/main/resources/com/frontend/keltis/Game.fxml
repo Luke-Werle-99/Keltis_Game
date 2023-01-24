@@ -15,7 +15,7 @@
       </Text>
    </top>
    <center>
-      <Button mnemonicParsing="false" onAction="#showName" text="Button" BorderPane.alignment="CENTER" />
+      <Button mnemonicParsing="false" onAction="#showName" prefHeight="25.0" prefWidth="81.0" text="Button" BorderPane.alignment="CENTER" />
    </center>
    <left>
       <ImageView fx:id="imageview" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
