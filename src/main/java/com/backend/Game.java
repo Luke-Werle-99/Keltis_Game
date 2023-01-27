@@ -1,6 +1,5 @@
 package com.backend;
 import java.util.ArrayList;
-import java.util.Scanner;
 import java.util.Collections;
 
 
@@ -9,10 +8,14 @@ public class Game {
     public ArrayList<Player> Players = new ArrayList<>(4);
     private static ArrayList<Stone> Stones = new ArrayList(55);
     private static ArrayList<Stone> UncoveredStones = new ArrayList<>(55);
-    public static Scanner scanner = new Scanner(System.in);
-    public void setPlayers(ArrayList<Player> Players){this.Players = Players;}
+    public Game() {
+        this.Players = new ArrayList<>(4);
+        this.Stones = new ArrayList<>(55);
+        this.UncoveredStones = new ArrayList<>(55);
+    }
+
     public void gameStart() {
-        //commandline as temporary interface input
+       /* //commandline as temporary interface input
         int amount = 0;
         System.out.println("Please enter the amount of players: ");
         amount = scanner.nextInt();
@@ -25,6 +28,8 @@ public class Game {
             Player player = new Player(split[0], Integer.parseInt(split[1]));
             Players.add(player);
         }
+
+        */
     }
 
     public void gameEnd() {
@@ -135,7 +140,7 @@ public class Game {
         }
         Collections.shuffle(Stones);
     }
-
+/*
     public static void main(String[] args) {
         Game g = new Game();
         g.generateStones();
@@ -155,8 +160,10 @@ public class Game {
         }
     }
 
-    public static void newOrUncovered(Player currentPlayer) {
 
+ */
+    public static void newOrUncovered(Player currentPlayer) {
+        /*
         String input2;
         System.out.println(currentPlayer.getName() + " would you like to draw a new stone?");
 
@@ -178,9 +185,12 @@ public class Game {
             newOrUncovered(currentPlayer);
         }
 
+
+         */
     }
 
     public static void drawNewStone(Player currentPlayer) {
+/*
         String input;
         Stone currentStone = Stones.get(0);
         System.out.println(currentPlayer.getName() + " your Stone has the following attributes");
@@ -225,6 +235,8 @@ public class Game {
             drawUncoveredStone(currentPlayer);
         }
 
+
+ */
     }
     public void findOldestPlayer() {
         Player oldest = null;
