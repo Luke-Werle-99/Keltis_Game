@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
@@ -19,6 +20,8 @@ public class GameController {
     private ImageView imageview;
     public Game game;
 
+    Button button1 = new Button();
+
     //@Override
     public void initialize() {
         Image i = new Image(new File("images/813343350508748820.gif").toURI().toString());
@@ -32,6 +35,11 @@ public class GameController {
     }
     public void setMusic(ActionEvent actionEvent) {
 
+    }
+
+    public void ButtonPressed(ActionEvent actionEvent) {
+        Button x = (Button) actionEvent.getSource();
+        System.out.println(x.getId());
     }
 }
 
