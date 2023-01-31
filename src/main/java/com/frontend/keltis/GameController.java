@@ -11,6 +11,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.InterruptedIOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -23,9 +24,11 @@ public class GameController {
 
     Button button1 = new Button();
 
+
+
     public void initialize() {
-        Image i = new Image(new File("images/813343350508748820.gif").toURI().toString());
-        imageview.setImage(i);
+     //   Image i = new Image(new File("/images/813343350508748820.gif").toURI().toString());
+       // imageview.setImage(i);
         //gameInstance = new Game();
     }
     public void showName(ActionEvent event) {
