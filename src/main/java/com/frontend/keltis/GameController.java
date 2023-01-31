@@ -34,6 +34,7 @@ public class GameController {
     public void initialize() {
         gameInstance = new Game();
         gameInstance.generateStones();
+        gameInstance.findOldestPlayer();
     }
 
     public void ButtonPressed(ActionEvent event) throws IOException {
