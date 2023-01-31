@@ -34,11 +34,10 @@ public class GameController {
     public void initialize() {
         gameInstance = new Game();
         gameInstance.generateStones();
-        gameInstance.findOldestPlayer();
     }
 
     public void ButtonPressed(ActionEvent event) throws IOException {
-
+        gameInstance.findOldestPlayer();
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirm Your Action");
         alert.setHeaderText("Do you want to use the Stone?");
@@ -51,6 +50,7 @@ public class GameController {
         if (result.get() == buttonTypeOne){
             //TODO: Add the Stone to currentPlayer
             System.out.println("Successfully added the Stone ");
+
 
         } else if (result.get() == buttonTypeTwo) {
             //TODO: Leave the Stone uncovered
