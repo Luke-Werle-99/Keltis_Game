@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -273,7 +274,7 @@
             <Image url="@images/gruen1.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="g2" fitHeight="35.0" fitWidth="35.0" layoutX="663.0" layoutY="468.0" pickOnBounds="true" preserveRatio="true" rotate="-1.1">
+      <ImageView fx:id="g2" fitHeight="35.0" fitWidth="35.0" layoutX="680.0" layoutY="475.0" pickOnBounds="true" preserveRatio="true" rotate="-1.1">
          <image>
             <Image url="@images/gruen2.png" />
          </image>
@@ -298,12 +299,12 @@
             <Image url="@images/gruen6.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="g7" fitHeight="35.0" fitWidth="35.0" layoutX="652.0" layoutY="500.0" pickOnBounds="true" preserveRatio="true" rotate="-1.1">
+      <ImageView fx:id="g7" fitHeight="35.0" fitWidth="35.0" layoutX="645.0" layoutY="517.0" pickOnBounds="true" preserveRatio="true" rotate="-1.1">
          <image>
             <Image url="@images/gruen7.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="g8" fitHeight="35.0" fitWidth="35.0" layoutX="694.0" layoutY="501.0" pickOnBounds="true" preserveRatio="true" rotate="-1.1">
+      <ImageView fx:id="g8" fitHeight="35.0" fitWidth="35.0" layoutX="712.0" layoutY="519.0" pickOnBounds="true" preserveRatio="true" rotate="-1.1">
          <image>
             <Image url="@images/gruen8.png" />
          </image>
@@ -323,37 +324,37 @@
             <Image url="@images/pink0.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="p1" fitHeight="35.0" fitWidth="35.0" layoutX="818.0" layoutY="366.0" pickOnBounds="true" preserveRatio="true" rotate="-1.1">
+      <ImageView fx:id="p1" fitHeight="35.0" fitWidth="35.0" layoutX="818.0" layoutY="381.0" pickOnBounds="true" preserveRatio="true" rotate="-1.1">
          <image>
             <Image url="@images/pink1.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="p2" fitHeight="35.0" fitWidth="35.0" layoutX="832.0" layoutY="416.0" pickOnBounds="true" preserveRatio="true" rotate="-1.1">
+      <ImageView fx:id="p2" fitHeight="35.0" fitWidth="35.0" layoutX="836.0" layoutY="432.0" pickOnBounds="true" preserveRatio="true" rotate="-1.1">
          <image>
             <Image url="@images/pink2.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="p3" fitHeight="35.0" fitWidth="35.0" layoutX="865.0" layoutY="352.0" pickOnBounds="true" preserveRatio="true" rotate="-1.1">
+      <ImageView fx:id="p3" fitHeight="35.0" fitWidth="35.0" layoutX="881.0" layoutY="357.0" pickOnBounds="true" preserveRatio="true" rotate="-1.1">
          <image>
             <Image url="@images/pink3.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="p4" fitHeight="35.0" fitWidth="35.0" layoutX="881.0" layoutY="405.0" pickOnBounds="true" preserveRatio="true" rotate="-1.1">
+      <ImageView fx:id="p4" fitHeight="35.0" fitWidth="35.0" layoutX="899.0" layoutY="447.0" pickOnBounds="true" preserveRatio="true" rotate="-1.1">
          <image>
             <Image url="@images/pink4.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="p5" fitHeight="35.0" fitWidth="35.0" layoutX="841.0" layoutY="452.0" pickOnBounds="true" preserveRatio="true" rotate="-1.1">
+      <ImageView fx:id="p5" fitHeight="35.0" fitWidth="35.0" layoutX="836.0" layoutY="493.0" pickOnBounds="true" preserveRatio="true" rotate="-1.1">
          <image>
             <Image url="@images/pink5.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="p6" fitHeight="35.0" fitWidth="35.0" layoutX="869.0" layoutY="321.0" pickOnBounds="true" preserveRatio="true" rotate="-1.1">
+      <ImageView fx:id="p6" fitHeight="35.0" fitWidth="35.0" layoutX="881.0" layoutY="313.0" pickOnBounds="true" preserveRatio="true" rotate="-1.1">
          <image>
             <Image url="@images/pink6.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="p7" fitHeight="35.0" fitWidth="35.0" layoutX="841.0" layoutY="305.0" pickOnBounds="true" preserveRatio="true" rotate="-1.1">
+      <ImageView fx:id="p7" fitHeight="35.0" fitWidth="35.0" layoutX="841.0" layoutY="269.0" pickOnBounds="true" preserveRatio="true" rotate="-1.1">
          <image>
             <Image url="@images/pink7.png" />
          </image>
@@ -363,7 +364,7 @@
             <Image url="@images/pink8.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="p10" fitHeight="35.0" fitWidth="35.0" layoutX="851.0" layoutY="387.0" pickOnBounds="true" preserveRatio="true" rotate="-1.1">
+      <ImageView fx:id="p10" fitHeight="35.0" fitWidth="35.0" layoutX="899.0" layoutY="398.0" pickOnBounds="true" preserveRatio="true" rotate="-1.1">
          <image>
             <Image url="@images/pink10.png" />
          </image>
@@ -373,5 +374,60 @@
             <Image url="@images/pink9.png" />
          </image>
       </ImageView>
+      <Button fx:id="b2" layoutX="320.0" layoutY="368.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b1" layoutX="392.0" layoutY="348.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b54" layoutX="899.0" layoutY="395.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b53" layoutX="699.0" layoutY="276.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b52" layoutX="775.0" layoutY="265.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b51" layoutX="841.0" layoutY="268.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b50" layoutX="881.0" layoutY="313.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b49" layoutX="836.0" layoutY="494.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b48" layoutX="898.0" layoutY="446.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b47" layoutX="881.0" layoutY="356.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b46" layoutX="836.0" layoutY="425.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b45" layoutX="818.0" layoutY="382.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b44" layoutX="817.0" layoutY="329.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b43" layoutX="431.0" layoutY="536.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b42" layoutX="775.0" layoutY="488.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b41" layoutX="712.0" layoutY="518.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b40" layoutX="514.0" layoutY="520.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b39" layoutX="579.0" layoutY="507.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b38" layoutX="645.0" layoutY="518.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b37" layoutX="786.0" layoutY="451.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b36" layoutX="728.0" layoutY="459.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b35" layoutX="680.0" layoutY="476.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b34" layoutX="622.0" layoutY="473.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b33" layoutX="569.0" layoutY="474.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b32" layoutX="508.0" layoutY="469.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b31" layoutX="449.0" layoutY="486.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b30" layoutX="394.0" layoutY="492.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b29" layoutX="329.0" layoutY="474.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b28" layoutX="286.0" layoutY="461.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b27" layoutX="748.0" layoutY="407.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b26" layoutX="686.0" layoutY="411.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b25" layoutX="645.0" layoutY="431.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b24" layoutX="594.0" layoutY="421.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b23" layoutX="545.0" layoutY="413.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b22" layoutX="490.0" layoutY="435.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b21" layoutX="432.0" layoutY="439.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b20" layoutX="371.0" layoutY="435.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b19" layoutX="326.0" layoutY="421.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b18" layoutX="273.0" layoutY="395.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b17" layoutX="732.0" layoutY="363.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b16" layoutX="771.0" layoutY="329.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b15" layoutX="715.0" layoutY="321.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b14" layoutX="668.0" layoutY="321.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b13" layoutX="680.0" layoutY="358.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b12" layoutX="625.0" layoutY="372.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b11" layoutX="612.0" layoutY="334.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b10" layoutX="447.0" layoutY="308.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b9" layoutX="395.0" layoutY="309.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b8" layoutX="314.0" layoutY="309.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b7" layoutX="557.0" layoutY="368.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b6" layoutX="505.0" layoutY="380.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b5" layoutX="528.0" layoutY="340.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b4" layoutX="440.0" layoutY="392.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b3" layoutX="380.0" layoutY="390.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Button fx:id="b0" layoutX="462.0" layoutY="348.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
    </children>
 </AnchorPane>
