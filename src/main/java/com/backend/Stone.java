@@ -3,14 +3,16 @@ package com.backend;
 public class Stone
 {
     private  int number;
-    private  char color;
+    private  String color;
     private  int bonusPoints;
     private  boolean wishingStone;
     private  boolean clover;
 
+    private String ID;
+
     public Stone(){
         this.number = 1;
-        this.color = 'r';
+        this.color = "r";
         this.bonusPoints = 0;
         this.wishingStone = false;
         this.clover = false;
@@ -34,16 +36,16 @@ public class Stone
 }
     public int getNumber() { return number;}
     public void setNumber(int _number){ this.number = _number;}
-    public char getColor(){ return this.color;}
-    public void setColor(char _color){ this.color = _color;}
+    public String getColor(){ return this.color;}
+    public void setColor(String _color){ this.color = _color;}
     public int getBonusPoints(){return this.bonusPoints;}
     public void setBonusPoints(int _bonusPoints){this.bonusPoints = _bonusPoints;}
     public boolean getWishingStone(){return this.wishingStone;}
     public void setWishingStone(boolean _wishingStone){this.wishingStone = _wishingStone;}
     public boolean isClover() {return this.clover;}
     public void setClover(boolean _clover){this.clover = _clover;}
-    //public void setStatus(boolean _status){this.status = _status;}
-    //public boolean getStatus(){return this.status;}
+    public String getID() {return ID;}
+    public void setID(String ID) {this.ID = ID;}
 
 
 
