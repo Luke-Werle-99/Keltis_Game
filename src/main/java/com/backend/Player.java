@@ -8,9 +8,9 @@ public class Player
     private int age;
     private ArrayList<Stone> rowBlue = new ArrayList<>();
     private ArrayList<Stone> rowYellow = new ArrayList<>();
-    private ArrayList<Stone> rowRed = new ArrayList<>();
+    private ArrayList<Stone> rowGreen = new ArrayList<>();
     private ArrayList<Stone> rowPink = new ArrayList<>();
-    private ArrayList<Stone> rowOrange = new ArrayList<>();
+    private ArrayList<Stone> rowBrown = new ArrayList<>();
     private int score;
 
     public Player(String _name, int _age){
@@ -32,9 +32,9 @@ public class Player
             }
             System.out.println("__________________________________________");
         }
-        if(rowRed.size() > 0){
-            System.out.println("Red Row: ");
-            for (Stone x : rowRed) {
+        if(rowGreen.size() > 0){
+            System.out.println("Green Row: ");
+            for (Stone x : rowGreen) {
                 x.displayStone();
             }
             System.out.println("__________________________________________");
@@ -48,9 +48,9 @@ public class Player
             System.out.println("__________________________________________");
 
         }
-        if(rowOrange.size() > 0) {
-            System.out.println("Orange Row: ");
-            for (Stone x : rowOrange) {
+        if(rowBrown.size() > 0) {
+            System.out.println("Brown Row: ");
+            for (Stone x : rowBrown) {
                 x.displayStone();
             }
             System.out.println("__________________________________________");
@@ -63,21 +63,21 @@ public class Player
             //logical checks to see if move is legal
 
             case 'r':
-                if (rowRed.size() == 0 || rowRed.size() == 1)
+                if (rowGreen.size() == 0 || rowGreen.size() == 1)
                 {
-                    rowRed.add(_stone);
+                    rowGreen.add(_stone);
                     return true;
                 }
-                if(rowRed.size() >= 2)
+                if(rowGreen.size() >= 2)
                 {
-                    if((rowRed.get(0).getNumber() < rowRed.get(1).getNumber()) && _stone.getNumber() > rowRed.get(rowRed.size() - 1).getNumber())
+                    if((rowGreen.get(0).getNumber() < rowGreen.get(1).getNumber()) && _stone.getNumber() > rowGreen.get(rowGreen.size() - 1).getNumber())
                     {
-                        rowRed.add(_stone);
+                        rowGreen.add(_stone);
                         return true;
                     }
-                    else if((rowRed.get(0).getNumber() > rowRed.get(1).getNumber()) && _stone.getNumber() < rowRed.get(rowRed.size() - 1).getNumber())
+                    else if((rowGreen.get(0).getNumber() > rowGreen.get(1).getNumber()) && _stone.getNumber() < rowGreen.get(rowGreen.size() - 1).getNumber())
                     {
-                        rowRed.add(_stone);
+                        rowGreen.add(_stone);
                         return true;
                     }else
                     {
@@ -88,21 +88,21 @@ public class Player
                 }
                 break;
             case 'o':
-                if (rowOrange.size() == 0 || rowOrange.size() == 1)
+                if (rowBrown.size() == 0 || rowBrown.size() == 1)
                 {
-                    rowOrange.add(_stone);
+                    rowBrown.add(_stone);
                     return true;
                 }
-                if(rowOrange.size() >= 2)
+                if(rowBrown.size() >= 2)
                 {
-                    if((rowOrange.get(0).getNumber() < rowOrange.get(1).getNumber()) && _stone.getNumber() > rowOrange.get(rowOrange.size() - 1).getNumber())
+                    if((rowBrown.get(0).getNumber() < rowBrown.get(1).getNumber()) && _stone.getNumber() > rowBrown.get(rowBrown.size() - 1).getNumber())
                     {
-                        rowOrange.add(_stone);
+                        rowBrown.add(_stone);
                         return true;
                     }
-                    else if((rowOrange.get(0).getNumber() > rowOrange.get(1).getNumber()) && _stone.getNumber() < rowOrange.get(rowOrange.size() - 1).getNumber())
+                    else if((rowBrown.get(0).getNumber() > rowBrown.get(1).getNumber()) && _stone.getNumber() < rowBrown.get(rowBrown.size() - 1).getNumber())
                     {
-                        rowOrange.add(_stone);
+                        rowBrown.add(_stone);
                         return true;
                     }else
                     {
@@ -193,7 +193,7 @@ public class Player
 
     public  void calcPoints (){
         //kann raus
-        int stoneAmount = rowBlue.size() + rowYellow.size() + rowRed.size() + rowPink.size() + rowOrange.size();
+        int stoneAmount = rowBlue.size() + rowYellow.size() + rowGreen.size() + rowPink.size() + rowBrown.size();
         int bonusPoints = 0;
         int wishingStone = 0;
         int points = 0;
@@ -215,10 +215,10 @@ public class Player
                 }
             }
         }
-        for (int i = 0; i < rowRed.size(); i++) {
-            if ( rowRed.size() > 0) {
-                bonusPoints += rowRed.get(i).getBonusPoints();
-                if (rowRed.get(i).getWishingStone() == true){
+        for (int i = 0; i < rowGreen.size(); i++) {
+            if ( rowGreen.size() > 0) {
+                bonusPoints += rowGreen.get(i).getBonusPoints();
+                if (rowGreen.get(i).getWishingStone() == true){
                 wishingStone++;
                 }
             }
@@ -231,10 +231,10 @@ public class Player
                 }
             }
         }
-        for (int i = 0; i < rowOrange.size(); i++) {
-            if ( rowOrange.size() > 0) {
-                bonusPoints += rowOrange.get(i).getBonusPoints();
-                if (rowOrange.get(i).getWishingStone() == true){
+        for (int i = 0; i < rowBrown.size(); i++) {
+            if ( rowBrown.size() > 0) {
+                bonusPoints += rowBrown.get(i).getBonusPoints();
+                if (rowBrown.get(i).getWishingStone() == true){
                     wishingStone++;
                 }
             }
@@ -245,11 +245,11 @@ public class Player
 
         points = getPointsOfRow(rowYellow, points);
 
-        points = getPointsOfRow(rowRed, points);
+        points = getPointsOfRow(rowGreen, points);
 
         points = getPointsOfRow(rowPink, points);
 
-        points = getPointsOfRow(rowOrange, points);
+        points = getPointsOfRow(rowBrown, points);
 
 
         //Points for Wishing stones
