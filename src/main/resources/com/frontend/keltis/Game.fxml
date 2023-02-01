@@ -208,7 +208,7 @@
             <Image url="@images/braun10.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="y1" fitHeight="35.0" fitWidth="35.0" layoutX="490.0" layoutY="433.0" pickOnBounds="true" preserveRatio="true" rotate="-1.1">
+      <ImageView fx:id="y0" fitHeight="35.0" fitWidth="35.0" layoutX="490.0" layoutY="433.0" pickOnBounds="true" preserveRatio="true" rotate="-1.1">
          <image>
             <Image url="@images/gelb0.png" />
          </image>
