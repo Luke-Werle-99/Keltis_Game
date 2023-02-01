@@ -30,6 +30,9 @@ public class GameController {
     public void initialize() {
         gameInstance = new Game();
         gameInstance.generateStones();
+        for (Stone x : gameInstance.Stones) {
+
+        }
     }
     public void ButtonPressed(ActionEvent event) throws IOException {
         //Oldest Player starts -> becomes first in ArrayList
@@ -56,8 +59,6 @@ public class GameController {
         GetConfirmation.getButtonTypes().setAll(YesButton, NoButton);
         Optional<ButtonType> result = GetConfirmation.showAndWait();
 
-
-
         if (result.get() == YesButton){
             if(!(currentPlayer.pull(ChosenStone))){
                 Alert WrongMove = new Alert(Alert.AlertType.CONFIRMATION);
@@ -67,6 +68,9 @@ public class GameController {
                 ButtonType Ok = new ButtonType("OK");
                 WrongMove.getButtonTypes().setAll(YesButton, NoButton);
                 Optional<ButtonType> result2 = WrongMove.showAndWait();
+                if (result2.get() == Ok){
+                    //TODO: Implement logic to retry the move
+                }
             }
 
         } else if (result.get() == NoButton) {
