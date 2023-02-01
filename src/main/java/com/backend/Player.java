@@ -62,7 +62,7 @@ public class Player
         {
             //logical checks to see if move is legal
 
-            case "Green":
+            case "g":
                 if (rowGreen.size() == 0 || rowGreen.size() == 1)
                 {
                     rowGreen.add(_stone);
@@ -87,7 +87,7 @@ public class Player
                     }
                 }
                 break;
-            case "Brown":
+            case "br":
                 if (rowBrown.size() == 0 || rowBrown.size() == 1)
                 {
                     rowBrown.add(_stone);
@@ -112,7 +112,7 @@ public class Player
                     }
                 }
                 break;
-            case "Pink":
+            case "p":
                 if (rowPink.size() == 0 || rowPink.size() == 1)
                 {
                     rowPink.add(_stone);
@@ -137,7 +137,7 @@ public class Player
                     }
                 }
                 break;
-            case "Yellow":
+            case "y":
                 if (rowYellow.size() == 0 || rowYellow.size() == 1)
                 {
                     rowYellow.add(_stone);
@@ -162,7 +162,7 @@ public class Player
                     }
                 }
                 break;
-            case "Blue":
+            case "bl":
                 if (rowBlue.size() == 0 || rowBlue.size() == 1)
                 {
                     rowBlue.add(_stone);
