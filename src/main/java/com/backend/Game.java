@@ -6,7 +6,7 @@ import java.util.Collections;
 public class Game {
 
     public ArrayList<Player> Players = new ArrayList<>(4);
-    private static ArrayList<Stone> Stones = new ArrayList(55);
+    public static ArrayList<Stone> Stones = new ArrayList(55);
     private static ArrayList<Stone> UncoveredStones = new ArrayList<>(55);
     public Game() {
         this.Players = new ArrayList<>(4);
@@ -58,11 +58,16 @@ public class Game {
     }
 
     public void generateStones() {
-        //initialize red Stones
+        StringBuilder sb = new StringBuilder();
+        //initialize pink Stones
+
         for (int i = 0; i < 11; i++) {
             Stone stein = new Stone();
             stein.setNumber(i);
-            stein.setColor('r');
+            stein.setColor("p");
+            sb.append('p');
+            sb.append(i);
+            stein.setID(sb.toString());
             if (i == 1 || i == 4) {
                 stein.setWishingStone(true);
             } else if (i == 2 || i == 9) {
@@ -73,12 +78,16 @@ public class Game {
                 stein.setBonusPoints(3);
             }
             Stones.add(stein);
+            sb.setLength(0);
         }
         //initialize blue Stones
         for (int i = 0; i < 11; i++) {
             Stone stein = new Stone();
             stein.setNumber(i);
-            stein.setColor('b');
+            stein.setColor("b");
+            sb.append("bl");
+            sb.append(i);
+            stein.setID(sb.toString());
             if (i == 2 || i == 3) {
                 stein.setWishingStone(true);
             } else if (i == 5 || i == 6) {
@@ -89,12 +98,15 @@ public class Game {
                 stein.setBonusPoints(1);
             }
             Stones.add(stein);
+            sb.setLength(0);
         }
-        //initialize pink Stones
+        //initialize brown Stones
         for (int i = 0; i < 11; i++) {
             Stone stein = new Stone();
             stein.setNumber(i);
-            stein.setColor('p');
+            stein.setColor("br");
+            sb.append("br");
+            sb.append(i);
             if (i == 6 || i == 9) {
                 stein.setWishingStone(true);
             } else if (i == 3 || i == 4) {
@@ -105,12 +117,15 @@ public class Game {
                 stein.setBonusPoints(3);
             }
             Stones.add(stein);
+            sb.setLength(0);
         }
-        //initialize orange Stones
+        //initialize grün Stones
         for (int i = 0; i < 11; i++) {
             Stone stein = new Stone();
             stein.setNumber(i);
-            stein.setColor('o');
+            stein.setColor("g");
+            sb.append('g');
+            sb.append(i);
             if (i == 7 || i == 4) {
                 stein.setWishingStone(true);
             } else if (i == 5 || i == 8) {
@@ -121,12 +136,15 @@ public class Game {
                 stein.setBonusPoints(1);
             }
             Stones.add(stein);
+            sb.setLength(0);
         }
         //initialize yellow Stones
         for (int i = 0; i < 11; i++) {
             Stone stein = new Stone();
             stein.setNumber(i);
-            stein.setColor('y');
+            stein.setColor("y");
+            sb.append('y');
+            sb.append(i);
             if (i == 6 || i == 8) {
                 stein.setWishingStone(true);
             } else if (i == 1 || i == 7) {
@@ -137,6 +155,7 @@ public class Game {
                 stein.setBonusPoints(1);
             }
             Stones.add(stein);
+            sb.setLength(0);
         }
         Collections.shuffle(Stones);
     }
