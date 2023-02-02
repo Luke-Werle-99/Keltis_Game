@@ -48,24 +48,41 @@ public class GameController {
             image.setImage(Temp);
         }
     }
+    public void uncover(String ButtonID){
+
+        if(ButtonID.equals("b0")){
+            URL PicLocation = getClass().getResource("images/blau0.png");
+            Image Temp = new Image(String.valueOf(PicLocation));
+            bl0.setImage(Temp);
+        } else if (ButtonID.equals("b1")) {
+            URL PicLocation = getClass().getResource("images/blau1.png");
+            Image Temp = new Image(String.valueOf(PicLocation));
+            bl1.setImage(Temp);
+        } else if(ButtonID.equals("b2")){
+            URL PicLocation = getClass().getResource("images/blau2.png");
+            Image Temp = new Image(String.valueOf(PicLocation));
+            bl2.setImage(Temp);
+        }
+
+    }
     public void initialize() {
         gameInstance = new Game();
         gameInstance.generateStones();
-        for (Stone x : gameInstance.Stones) {
-
-        }
+        cover();
     }
     public void ButtonPressed(ActionEvent event) throws IOException {
-        //Oldest Player starts -> becomes first in ArrayList
-        gameInstance.findOldestPlayer();
-        cover();
+
         //Check whether the turn exceeds the player count
-        if(turn > gameInstance.Players.size()){turn = 0;}
+        if(turn >= gameInstance.Players.size()){turn = 0;}
         Player currentPlayer = gameInstance.Players.get(turn);
+        //for debug purposes
 
         //fetch button ID to retrieve Stone
         Button ButtonPressed = (Button) event.getSource();
-        String ButtonId = ButtonPressed.getId();
+        String ButtonID = ButtonPressed.getId();
+        uncover(ButtonID);
+        System.out.println(currentPlayer.getName() + " chose Button: ");
+        System.out.println(ButtonID);
         //temporary for debugging purposes
         //TODO: find a way to fetch the Stone ID from Button ID
         Stone ChosenStone = gameInstance.Stones.get(0);

@@ -79,6 +79,7 @@ public class PlayerController implements Initializable {
         gameController.initialize();
 
 
+
         String name1Text = name1.getText();
         String age1Text = age1.getText();
         Player player1 = new Player(name1Text, Integer.parseInt(age1Text));
@@ -103,6 +104,8 @@ public class PlayerController implements Initializable {
             gameController.gameInstance.addPlayer(player4);
 
         }
+        //Oldest Player starts -> becomes first in ArrayList
+        gameController.gameInstance.findOldestPlayer();
         stage.setScene(scene);
         stage.show();
     }
