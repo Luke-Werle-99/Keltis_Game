@@ -20,8 +20,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InterruptedIOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -35,7 +33,11 @@ public class GameController {
     public ImageView p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10;
     public ImageView g0, g1, g2, g3, g4, g5, g6, g7, g8, g9, g10;
     //button Reihenfolge b0 - b54 aufsteigend sortiert nach blau, braun, gelb, grün, pink
-    ArrayList<String> ImageURL = new ArrayList<>(55);
+    public Button b0, b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17, b18, b19,
+            b20, b21, b22, b23, b24, b25, b26, b27, b28, b29, b30, b31, b32, b33, b34, b35, b36, b37, b38, b39, b40,
+            b41, b42, b43, b44, b45, b46, b47, b48, b49, b50, b51, b52, b53, b54;
+
+    public ArrayList<String> ImageURL = new ArrayList<>(55);
 
     public void cover(){
         ImageView[] stones = {bl0,bl1,bl2,bl3,bl4,bl5,bl6,bl7,bl8,bl9,bl10,
@@ -49,7 +51,6 @@ public class GameController {
             Image Temp = new Image(String.valueOf(PicLocation));
             image.setImage(Temp);
         }
-
     }
 
     public void initialize() {
@@ -146,7 +147,6 @@ public class GameController {
         turn++;
     }
     public void uncover(String ButtonID) {
-
 
         if (ButtonID.equals("b0")) {
             Image Temp = new Image(ImageURL.get(0));
