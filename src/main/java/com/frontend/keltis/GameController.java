@@ -20,6 +20,8 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InterruptedIOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -33,7 +35,7 @@ public class GameController {
     public ImageView p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10;
     public ImageView g0, g1, g2, g3, g4, g5, g6, g7, g8, g9, g10;
     //button Reihenfolge b0 - b54 aufsteigend sortiert nach blau, braun, gelb, grün, pink
-
+    ArrayList<String> ImageURL = new ArrayList<>(55);
 
     public void cover(){
         ImageView[] stones = {bl0,bl1,bl2,bl3,bl4,bl5,bl6,bl7,bl8,bl9,bl10,
@@ -47,12 +49,55 @@ public class GameController {
             Image Temp = new Image(String.valueOf(PicLocation));
             image.setImage(Temp);
         }
+
     }
 
     public void initialize() {
         gameInstance = new Game();
         gameInstance.generateStones();
         cover();
+        for (int i = 0; i < 11; i++) {
+            StringBuilder sb = new StringBuilder("images/blau");
+            sb.append(i);
+            sb.append(".png");
+            URL PicLocation = getClass().getResource(sb.toString());
+            String URL = String.valueOf(PicLocation);
+            ImageURL.add(URL);
+        }
+        for (int i = 0; i < 11; i++) {
+            StringBuilder sb = new StringBuilder("images/braun");
+            sb.append(i);
+            sb.append(".png");
+            URL PicLocation = getClass().getResource(sb.toString());
+            String URL = String.valueOf(PicLocation);
+            ImageURL.add(URL);
+        }
+        for (int i = 0; i < 11; i++) {
+            StringBuilder sb = new StringBuilder("images/gelb");
+            sb.append(i);
+            sb.append(".png");
+            URL PicLocation = getClass().getResource(sb.toString());
+            String URL = String.valueOf(PicLocation);
+            ImageURL.add(URL);
+        }
+        for (int i = 0; i < 11; i++) {
+            StringBuilder sb = new StringBuilder("images/gruen");
+            sb.append(i);
+            sb.append(".png");
+            URL PicLocation = getClass().getResource(sb.toString());
+            String URL = String.valueOf(PicLocation);
+            ImageURL.add(URL);
+        }
+        for (int i = 0; i < 11; i++) {
+            StringBuilder sb = new StringBuilder("images/pink");
+            sb.append(i);
+            sb.append(".png");
+            URL PicLocation = getClass().getResource(sb.toString());
+            String URL = String.valueOf(PicLocation);
+            ImageURL.add(URL);
+        }
+        Collections.shuffle(ImageURL);
+
     }
     public void ButtonPressed(ActionEvent event) throws IOException {
         //Ask currentPlayer if they want the stone
@@ -102,225 +147,178 @@ public class GameController {
     }
     public void uncover(String ButtonID) {
 
+
         if (ButtonID.equals("b0")) {
-            URL PicLocation = getClass().getResource("images/blau0.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+            Image Temp = new Image(ImageURL.get(0));
             bl0.setImage(Temp);
         } else if (ButtonID.equals("b1")) {
-            URL PicLocation = getClass().getResource("images/blau1.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+            Image Temp = new Image(ImageURL.get(1));
             bl1.setImage(Temp);
         } else if (ButtonID.equals("b2")) {
-            URL PicLocation = getClass().getResource("images/blau2.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+            Image Temp = new Image(ImageURL.get(2));
             bl2.setImage(Temp);
         } else if (ButtonID.equals("b3")) {
-            URL PicLocation = getClass().getResource("images/blau3.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+
+            Image Temp = new Image(ImageURL.get(3));
             bl3.setImage(Temp);
         } else if (ButtonID.equals("b4")) {
-            URL PicLocation = getClass().getResource("images/blau4.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+            Image Temp = new Image(ImageURL.get(4));
             bl4.setImage(Temp);
         } else if (ButtonID.equals("b5")) {
-            URL PicLocation = getClass().getResource("images/blau5.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+            Image Temp = new Image(ImageURL.get(5));
             bl5.setImage(Temp);
         } else if (ButtonID.equals("b6")) {
-            URL PicLocation = getClass().getResource("images/blau6.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+            Image Temp = new Image(ImageURL.get(6));
             bl6.setImage(Temp);
         } else if (ButtonID.equals("b7")) {
-            URL PicLocation = getClass().getResource("images/blau7.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+
+            Image Temp = new Image(ImageURL.get(7));
             bl7.setImage(Temp);
         } else if (ButtonID.equals("b8")) {
-            URL PicLocation = getClass().getResource("images/blau8.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+            Image Temp = new Image(ImageURL.get(8));
             bl8.setImage(Temp);
         } else if (ButtonID.equals("b9")) {
-            URL PicLocation = getClass().getResource("images/blau9.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+            Image Temp = new Image(ImageURL.get(9));
             bl9.setImage(Temp);
         } else if (ButtonID.equals("b10")) {
-            URL PicLocation = getClass().getResource("images/blau10.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+            Image Temp = new Image(ImageURL.get(10));
             bl10.setImage(Temp);
         } else if (ButtonID.equals("b11")) {
-            URL PicLocation = getClass().getResource("images/braun0.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+            Image Temp = new Image(ImageURL.get(11));
             br0.setImage(Temp);
         } else if (ButtonID.equals("b12")) {
-            URL PicLocation = getClass().getResource("images/braun1.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+            Image Temp = new Image(ImageURL.get(12));
             br1.setImage(Temp);
         } else if (ButtonID.equals("b13")) {
-            URL PicLocation = getClass().getResource("images/braun2.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+            Image Temp = new Image(ImageURL.get(13));
             br2.setImage(Temp);
         } else if (ButtonID.equals("b14")) {
-            URL PicLocation = getClass().getResource("images/braun3.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+
+            Image Temp = new Image(ImageURL.get(14));
             br3.setImage(Temp);
         } else if (ButtonID.equals("b15")) {
-            URL PicLocation = getClass().getResource("images/braun4.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+
+            Image Temp = new Image(ImageURL.get(15));
             br4.setImage(Temp);
         } else if (ButtonID.equals("b16")) {
-            URL PicLocation = getClass().getResource("images/braun5.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+            Image Temp = new Image(ImageURL.get(16));
             br5.setImage(Temp);
         } else if (ButtonID.equals("b17")) {
-            URL PicLocation = getClass().getResource("images/braun6.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+            Image Temp = new Image(ImageURL.get(17));
             br6.setImage(Temp);
         } else if (ButtonID.equals("b18")) {
-            URL PicLocation = getClass().getResource("images/braun7.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+            Image Temp = new Image(ImageURL.get(18));
             br7.setImage(Temp);
         } else if (ButtonID.equals("b19")) {
-            URL PicLocation = getClass().getResource("images/braun8.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+            Image Temp = new Image(ImageURL.get(19));
             br8.setImage(Temp);
         } else if (ButtonID.equals("b20")) {
-            URL PicLocation = getClass().getResource("images/braun9.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+
+            Image Temp = new Image(ImageURL.get(20));
             br9.setImage(Temp);
         } else if (ButtonID.equals("b21")) {
-            URL PicLocation = getClass().getResource("images/braun10.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+            Image Temp = new Image(ImageURL.get(21));
             br10.setImage(Temp);
         } else if (ButtonID.equals("b22")) {
-            URL PicLocation = getClass().getResource("images/gelb0.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+
+            Image Temp = new Image(ImageURL.get(22));
             y0.setImage(Temp);
         } else if (ButtonID.equals("b23")) {
-            URL PicLocation = getClass().getResource("images/gelb1.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+
+            Image Temp = new Image(ImageURL.get(23));
             y1.setImage(Temp);
         } else if (ButtonID.equals("b24")) {
-            URL PicLocation = getClass().getResource("images/gelb2.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+            Image Temp = new Image(ImageURL.get(24));
             y2.setImage(Temp);
         } else if (ButtonID.equals("b25")) {
-            URL PicLocation = getClass().getResource("images/gelb3.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+            Image Temp = new Image(ImageURL.get(25));
             y3.setImage(Temp);
         } else if (ButtonID.equals("b26")) {
-            URL PicLocation = getClass().getResource("images/gelb4.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+            Image Temp = new Image(ImageURL.get(26));
             y4.setImage(Temp);
         } else if (ButtonID.equals("b27")) {
-            URL PicLocation = getClass().getResource("images/gelb5.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+            Image Temp = new Image(ImageURL.get(27));
             y5.setImage(Temp);
         } else if (ButtonID.equals("b28")) {
-            URL PicLocation = getClass().getResource("images/gelb6.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+            Image Temp = new Image(ImageURL.get(28));
             y6.setImage(Temp);
         } else if (ButtonID.equals("b29")) {
-            URL PicLocation = getClass().getResource("images/gelb7.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+            Image Temp = new Image(ImageURL.get(29));
             y7.setImage(Temp);
         } else if (ButtonID.equals("b30")) {
-            URL PicLocation = getClass().getResource("images/gelb8.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+            Image Temp = new Image(ImageURL.get(30));
             y8.setImage(Temp);
         } else if (ButtonID.equals("b31")) {
-            URL PicLocation = getClass().getResource("images/gelb9.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+            Image Temp = new Image(ImageURL.get(31));
             y9.setImage(Temp);
         } else if (ButtonID.equals("b32")) {
-            URL PicLocation = getClass().getResource("images/gelb10.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+            Image Temp = new Image(ImageURL.get(32));
             y10.setImage(Temp);
         } else if (ButtonID.equals("b33")) {
-            URL PicLocation = getClass().getResource("images/gruen0.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+            Image Temp = new Image(ImageURL.get(33));
             g0.setImage(Temp);
         } else if (ButtonID.equals("b34")) {
-            URL PicLocation = getClass().getResource("images/gruen1.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+            Image Temp = new Image(ImageURL.get(34));
             g1.setImage(Temp);
         } else if (ButtonID.equals("b35")) {
-            URL PicLocation = getClass().getResource("images/gruen2.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+            Image Temp = new Image(ImageURL.get(35));
             g2.setImage(Temp);
         } else if (ButtonID.equals("b36")) {
-            URL PicLocation = getClass().getResource("images/gruen3.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+            Image Temp = new Image(ImageURL.get(36));
             g3.setImage(Temp);
         } else if (ButtonID.equals("b37")) {
-            URL PicLocation = getClass().getResource("images/gruen4.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+            Image Temp = new Image(ImageURL.get(37));
             g4.setImage(Temp);
         } else if (ButtonID.equals("b38")) {
-            URL PicLocation = getClass().getResource("images/gruen5.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+            Image Temp = new Image(ImageURL.get(38));
             g5.setImage(Temp);
         } else if (ButtonID.equals("b39")) {
-            URL PicLocation = getClass().getResource("images/gruen6.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+            Image Temp = new Image(ImageURL.get(39));
             g6.setImage(Temp);
         } else if (ButtonID.equals("b40")) {
-            URL PicLocation = getClass().getResource("images/gruen7.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+            Image Temp = new Image(ImageURL.get(40));
             g7.setImage(Temp);
         } else if (ButtonID.equals("b41")) {
-            URL PicLocation = getClass().getResource("images/gruen8.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+            Image Temp = new Image(ImageURL.get(41));
             g8.setImage(Temp);
         } else if (ButtonID.equals("b42")) {
-            URL PicLocation = getClass().getResource("images/gruen9.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+            Image Temp = new Image(ImageURL.get(42));
             g9.setImage(Temp);
         } else if (ButtonID.equals("b43")) {
-            URL PicLocation = getClass().getResource("images/gruen10.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+            Image Temp = new Image(ImageURL.get(43));
             g10.setImage(Temp);
         } else if (ButtonID.equals("b44")) {
-            URL PicLocation = getClass().getResource("images/pink0.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+            Image Temp = new Image(ImageURL.get(44));
             p0.setImage(Temp);
         } else if (ButtonID.equals("b45")) {
-            URL PicLocation = getClass().getResource("images/pink1.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+            Image Temp = new Image(ImageURL.get(45));
             p1.setImage(Temp);
         } else if (ButtonID.equals("b46")) {
-            URL PicLocation = getClass().getResource("images/pink2.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+            Image Temp = new Image(ImageURL.get(46));
             p2.setImage(Temp);
         } else if (ButtonID.equals("b47")) {
-            URL PicLocation = getClass().getResource("images/pink3.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+            Image Temp = new Image(ImageURL.get(47));
             p3.setImage(Temp);
         } else if (ButtonID.equals("b48")) {
-            URL PicLocation = getClass().getResource("images/pink4.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+            Image Temp = new Image(ImageURL.get(48));
             p4.setImage(Temp);
         } else if (ButtonID.equals("b49")) {
-            URL PicLocation = getClass().getResource("images/pink5.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+            Image Temp = new Image(ImageURL.get(49));
             p5.setImage(Temp);
         } else if (ButtonID.equals("b50")) {
-            URL PicLocation = getClass().getResource("images/pink6.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+            Image Temp = new Image(ImageURL.get(50));
             p6.setImage(Temp);
         } else if (ButtonID.equals("b51")) {
-            URL PicLocation = getClass().getResource("images/pink7.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+            Image Temp = new Image(ImageURL.get(51));
             p7.setImage(Temp);
         } else if (ButtonID.equals("b52")) {
-            URL PicLocation = getClass().getResource("images/pink8.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+            Image Temp = new Image(ImageURL.get(52));
             p8.setImage(Temp);
         } else if (ButtonID.equals("b53")) {
-            URL PicLocation = getClass().getResource("images/pink9.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+            Image Temp = new Image(ImageURL.get(53));
             p9.setImage(Temp);
         } else if (ButtonID.equals("b54")) {
-            URL PicLocation = getClass().getResource("images/pink10.png");
-            Image Temp = new Image(String.valueOf(PicLocation));
+            Image Temp = new Image(ImageURL.get(54));
             p10.setImage(Temp);
         }
     }

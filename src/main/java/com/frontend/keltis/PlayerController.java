@@ -74,7 +74,7 @@ public class PlayerController implements Initializable {
     public void submitButton(ActionEvent event) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(MainKeltis.class.getResource("Game.fxml"));
         Stage stage = (Stage)namePane2.getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+        Scene scene = new Scene(fxmlLoader.load(), 1920, 1080);
         GameController gameController = fxmlLoader.getController();
         gameController.initialize();
 
@@ -107,6 +107,7 @@ public class PlayerController implements Initializable {
         //Oldest Player starts -> becomes first in ArrayList
         gameController.gameInstance.findOldestPlayer();
         stage.setScene(scene);
+        stage.setFullScreen(true);
         stage.show();
     }
 }
