@@ -27,6 +27,27 @@ public class GameController {
     public Text PlayerText;
     public Game gameInstance;
     public int turn;
+    public ImageView bl0,bl1,bl2,bl3,bl4,bl5,bl6,bl7,bl8,bl9,bl10;
+    public ImageView br0, br1, br2, br3, br4, br5, br6, br7, br8, br9, br10;
+    public ImageView y0, y1, y2, y3, y4, y5, y6, y7, y8, y9, y10;
+    public ImageView p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10;
+    public ImageView g0, g1, g2, g3, g4, g5, g6, g7, g8, g9, g10;
+    //button Reihenfolge b0 - b54 aufsteigend sortiert nach blau, braun, gelb, grün, pink
+
+
+    public void cover(){
+        ImageView[] stones = {bl0,bl1,bl2,bl3,bl4,bl5,bl6,bl7,bl8,bl9,bl10,
+                br0, br1, br2, br3, br4, br5, br6, br7, br8, br9, br10,
+                y0, y1, y2, y3, y4, y5, y6, y7, y8, y9, y10,
+                p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10,
+                g0, g1, g2, g3, g4, g5, g6, g7, g8, g9, g10};
+
+        for (ImageView image: stones) {
+            URL PicLocation = getClass().getResource("images/stoned.png");
+            Image Temp = new Image(String.valueOf(PicLocation));
+            image.setImage(Temp);
+        }
+    }
     public void initialize() {
         gameInstance = new Game();
         gameInstance.generateStones();
@@ -37,7 +58,7 @@ public class GameController {
     public void ButtonPressed(ActionEvent event) throws IOException {
         //Oldest Player starts -> becomes first in ArrayList
         gameInstance.findOldestPlayer();
-
+        cover();
         //Check whether the turn exceeds the player count
         if(turn > gameInstance.Players.size()){turn = 0;}
         Player currentPlayer = gameInstance.Players.get(turn);

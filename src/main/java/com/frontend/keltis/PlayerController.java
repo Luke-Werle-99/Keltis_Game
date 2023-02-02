@@ -71,12 +71,13 @@ public class PlayerController implements Initializable {
         }
     }
 
-    public void submitButton(ActionEvent event) throws IOException {
+    public void submitButton(ActionEvent event) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(MainKeltis.class.getResource("Game.fxml"));
         Stage stage = (Stage)namePane2.getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load(), 800, 600);
         GameController gameController = fxmlLoader.getController();
         gameController.initialize();
+
 
         String name1Text = name1.getText();
         String age1Text = age1.getText();
