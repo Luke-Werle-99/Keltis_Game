@@ -60,12 +60,11 @@ public class Game {
     public void generateStones() {
         StringBuilder sb = new StringBuilder();
         //initialize pink Stones
-
         for (int i = 0; i < 11; i++) {
             Stone stein = new Stone();
             stein.setNumber(i);
             stein.setColor("p");
-            sb.append('p');
+            sb.append("pink");
             sb.append(i);
             stein.setID(sb.toString());
             if (i == 1 || i == 4) {
@@ -77,6 +76,7 @@ public class Game {
             } else if (i == 7) {
                 stein.setBonusPoints(3);
             }
+
             Stones.add(stein);
             sb.setLength(0);
         }
@@ -85,7 +85,7 @@ public class Game {
             Stone stein = new Stone();
             stein.setNumber(i);
             stein.setColor("b");
-            sb.append("bl");
+            sb.append("blau");
             sb.append(i);
             stein.setID(sb.toString());
             if (i == 2 || i == 3) {
@@ -105,8 +105,9 @@ public class Game {
             Stone stein = new Stone();
             stein.setNumber(i);
             stein.setColor("br");
-            sb.append("br");
+            sb.append("braun");
             sb.append(i);
+            stein.setID(sb.toString());
             if (i == 6 || i == 9) {
                 stein.setWishingStone(true);
             } else if (i == 3 || i == 4) {
@@ -124,8 +125,9 @@ public class Game {
             Stone stein = new Stone();
             stein.setNumber(i);
             stein.setColor("g");
-            sb.append('g');
+            sb.append("gruen");
             sb.append(i);
+            stein.setID(sb.toString());
             if (i == 7 || i == 4) {
                 stein.setWishingStone(true);
             } else if (i == 5 || i == 8) {
@@ -143,8 +145,9 @@ public class Game {
             Stone stein = new Stone();
             stein.setNumber(i);
             stein.setColor("y");
-            sb.append('y');
+            sb.append("gelb");
             sb.append(i);
+            stein.setID(sb.toString());
             if (i == 6 || i == 8) {
                 stein.setWishingStone(true);
             } else if (i == 1 || i == 7) {

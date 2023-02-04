@@ -107,7 +107,7 @@ public class PlayerController implements Initializable {
         //Oldest Player starts -> becomes first in ArrayList
         gameController.gameInstance.findOldestPlayer();
         stage.setScene(scene);
-        stage.setFullScreen(true);
+        //stage.setFullScreen(true);
         stage.show();
     }
 }

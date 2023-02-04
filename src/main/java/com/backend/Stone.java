@@ -16,6 +16,7 @@ public class Stone
         this.bonusPoints = 0;
         this.wishingStone = false;
         this.clover = false;
+        this.ID = "";
     }
 
     public void displayStone() {
@@ -44,7 +45,7 @@ public class Stone
     public void setWishingStone(boolean _wishingStone){this.wishingStone = _wishingStone;}
     public boolean isClover() {return this.clover;}
     public void setClover(boolean _clover){this.clover = _clover;}
-    public String getID() {return ID;}
+    public String getID() {return this.ID;}
     public void setID(String ID) {this.ID = ID;}
 
 
