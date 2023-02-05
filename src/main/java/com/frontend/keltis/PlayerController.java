@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -78,8 +79,6 @@ public class PlayerController implements Initializable {
         GameController gameController = fxmlLoader.getController();
         gameController.initialize();
 
-
-
         String name1Text = name1.getText();
         String age1Text = age1.getText();
         Player player1 = new Player(name1Text, Integer.parseInt(age1Text));
@@ -107,7 +106,7 @@ public class PlayerController implements Initializable {
         //Oldest Player starts -> becomes first in ArrayList
         gameController.gameInstance.findOldestPlayer();
         stage.setScene(scene);
-        //stage.setFullScreen(true);
+        stage.setFullScreen(true);
         stage.show();
     }
 }
