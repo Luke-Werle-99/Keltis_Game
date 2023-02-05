@@ -134,7 +134,10 @@ public class GameController {
         //temporary for debugging purposes
 
         if (result.get() == YesButton){
-            if(!(currentPlayer.pull(ChosenStone))){
+            if((currentPlayer.pull(ChosenStone))){
+                //Set the corresponding Stone invisible
+                setInvisible(ButtonID);
+                }else {
                 Alert WrongMove = new Alert(Alert.AlertType.CONFIRMATION);
                 WrongMove.setTitle("Invalid Move");
                 WrongMove.setHeaderText("You are not allowed to choose this stone");
@@ -144,19 +147,210 @@ public class GameController {
                 Optional<ButtonType> result2 = WrongMove.showAndWait();
                 if (result2.get() == Ok){
                     //TODO: Implement logic to retry the move
+
                 }
             }
-            //Set the corresponding Stone invisible
-            setInvisible(ButtonID);
+
+
 
         } else if (result.get() == NoButton) {
             //TODO: Leave the Stone uncovered
 
         }
+
         turn++;
     }
+
+    public void PlayerStones(String url, int turn){
+        ImageView[][] Player1 = new ImageView[5][11];
+        ImageView [][] Player2 = new ImageView[5][11];
+        ImageView [][] Player3 = new ImageView[5][11];
+        ImageView [][] Player4 = new ImageView[5][11];
+/*
+        if(turn == 0){
+            //TODO: check if the URL contains the color
+            Player1[0][0];
+        } else if (turn == 1) {
+            Player2[0][0];
+        } else if (turn == 2) {
+            Player3[0][0];
+        } else if (turn == 3) {
+            Player4[0][0];
+        }
+
+
+ */
+
+
+    }
     public void setInvisible(String ButtonID){
-        bl0.setVisible(false);
+        if(ButtonID.equals("b0")){
+            bl0.setVisible(false);
+            b0.setDisable(true);
+        } else if (ButtonID.equals("b1")) {
+            bl1.setVisible(false);
+            b1.setDisable(true);
+        }else if (ButtonID.equals("b2")) {
+            bl2.setVisible(false);
+            b2.setDisable(true);
+        }else if (ButtonID.equals("b3")) {
+            bl3.setVisible(false);
+            b3.setDisable(true);
+        }else if (ButtonID.equals("b4")) {
+            bl4.setVisible(false);
+            b4.setDisable(true);
+        }else if (ButtonID.equals("b5")) {
+            bl5.setVisible(false);
+            b5.setDisable(true);
+        }else if (ButtonID.equals("b6")) {
+            bl6.setVisible(false);
+            b6.setDisable(true);
+        }else if (ButtonID.equals("b7")) {
+            bl7.setVisible(false);
+            b7.setDisable(true);
+        }else if (ButtonID.equals("b8")) {
+            bl8.setVisible(false);
+            b8.setDisable(true);
+        }else if (ButtonID.equals("b9")) {
+            bl9.setVisible(false);
+            b9.setDisable(true);
+        }else if (ButtonID.equals("b10")) {
+            bl10.setVisible(false);
+            b10.setDisable(true);
+        }else if (ButtonID.equals("b11")) {
+            br0.setVisible(false);
+            b11.setDisable(true);
+        }else if (ButtonID.equals("b12")) {
+            br1.setVisible(false);
+            b12.setDisable(true);
+        }else if (ButtonID.equals("b13")) {
+            br2.setVisible(false);
+            b13.setDisable(true);
+        }else if (ButtonID.equals("b14")) {
+            br3.setVisible(false);
+            b14.setDisable(true);
+        }else if (ButtonID.equals("b15")) {
+            br4.setVisible(false);
+            b15.setDisable(true);
+        }else if (ButtonID.equals("b16")) {
+            br5.setVisible(false);
+            b16.setDisable(true);
+        }else if (ButtonID.equals("b17")) {
+            br6.setVisible(false);
+            b17.setDisable(true);
+        }else if (ButtonID.equals("b18")) {
+            br7.setVisible(false);
+            b18.setDisable(true);
+        }else if (ButtonID.equals("b19")) {
+            br8.setVisible(false);
+            b19.setDisable(true);
+        }else if (ButtonID.equals("b20")) {
+            br9.setVisible(false);
+            b20.setDisable(true);
+        }else if (ButtonID.equals("b21")) {
+            br10.setVisible(false);
+            b21.setDisable(true);
+        }else if (ButtonID.equals("b22")) {
+            y0.setVisible(false);
+            b22.setDisable(true);
+        }else if (ButtonID.equals("b23")) {
+            y1.setVisible(false);
+            b23.setDisable(true);
+        }else if (ButtonID.equals("b24")) {
+            y2.setVisible(false);
+            b24.setDisable(true);
+        }else if (ButtonID.equals("b25")) {
+            y3.setVisible(false);
+            b25.setDisable(true);
+        }else if (ButtonID.equals("b26")) {
+            y4.setVisible(false);
+            b26.setDisable(true);
+        }else if (ButtonID.equals("b27")) {
+            y5.setVisible(false);
+            b27.setDisable(true);
+        }else if (ButtonID.equals("b28")) {
+            y6.setVisible(false);
+            b28.setDisable(true);
+        }else if (ButtonID.equals("b29")) {
+            y7.setVisible(false);
+            b29.setDisable(true);
+        }else if (ButtonID.equals("b30")) {
+            y8.setVisible(false);
+            b30.setDisable(true);
+        }else if (ButtonID.equals("b31")) {
+            y9.setVisible(false);
+            b31.setDisable(true);
+        }else if (ButtonID.equals("b32")) {
+            y10.setVisible(false);
+            b32.setDisable(true);
+        }else if (ButtonID.equals("b33")) {
+            g0.setVisible(false);
+            b33.setDisable(true);
+        }else if (ButtonID.equals("b34")) {
+            g1.setVisible(false);
+            b34.setDisable(true);
+        }else if (ButtonID.equals("b35")) {
+            g2.setVisible(false);
+            b35.setDisable(true);
+        }else if (ButtonID.equals("b36")) {
+            g3.setVisible(false);
+            b36.setDisable(true);
+        }else if (ButtonID.equals("b37")) {
+            g4.setVisible(false);
+            b37.setDisable(true);
+        }else if (ButtonID.equals("b38")) {
+            g5.setVisible(false);
+            b38.setDisable(true);
+        }else if (ButtonID.equals("b39")) {
+            g6.setVisible(false);
+            b39.setDisable(true);
+        }else if (ButtonID.equals("b40")) {
+            g7.setVisible(false);
+            b40.setDisable(true);
+        }else if (ButtonID.equals("b41")) {
+            g8.setVisible(false);
+            b41.setDisable(true);
+        }else if (ButtonID.equals("b42")) {
+            g9.setVisible(false);
+            b42.setDisable(true);
+        }else if (ButtonID.equals("b43")) {
+            g10.setVisible(false);
+            b43.setDisable(true);
+        }else if (ButtonID.equals("b44")) {
+            p0.setVisible(false);
+            b44.setDisable(true);
+        }else if (ButtonID.equals("b45")) {
+            p1.setVisible(false);
+            b45.setDisable(true);
+        }else if (ButtonID.equals("b46")) {
+            p2.setVisible(false);
+            b46.setDisable(true);
+        }else if (ButtonID.equals("b47")) {
+            p3.setVisible(false);
+            b47.setDisable(true);
+        }else if (ButtonID.equals("b48")) {
+            p4.setVisible(false);
+            b48.setDisable(true);
+        }else if (ButtonID.equals("b49")) {
+            p5.setVisible(false);
+            b49.setDisable(true);
+        }else if (ButtonID.equals("b50")) {
+            p6.setVisible(false);
+            b50.setDisable(true);
+        }else if (ButtonID.equals("b51")) {
+            p7.setVisible(false);
+            b51.setDisable(true);
+        }else if (ButtonID.equals("b52")) {
+            p8.setVisible(false);
+            b52.setDisable(true);
+        }else if (ButtonID.equals("b53")) {
+            p9.setVisible(false);
+            b53.setDisable(true);
+        }else if (ButtonID.equals("b54")) {
+            p10.setVisible(false);
+            b54.setDisable(true);
+        }
+
     }
     public String uncover(String ButtonID) {
         StringBuilder sb = new StringBuilder();
