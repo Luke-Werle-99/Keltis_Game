@@ -28,7 +28,7 @@ public class GameController {
             b20, b21, b22, b23, b24, b25, b26, b27, b28, b29, b30, b31, b32, b33, b34, b35, b36, b37, b38, b39, b40,
             b41, b42, b43, b44, b45, b46, b47, b48, b49, b50, b51, b52, b53, b54;
 
-    public ArrayList<String> ImageURL = new ArrayList<>(55);
+    public static ArrayList<String> ImageURL = new ArrayList<>(55);
     public void cover(){
         ImageView[] stones = {bl0,bl1,bl2,bl3,bl4,bl5,bl6,bl7,bl8,bl9,bl10,
                 br0, br1, br2, br3, br4, br5, br6, br7, br8, br9, br10,
@@ -54,6 +54,7 @@ public class GameController {
             String URL = String.valueOf(PicLocation);
             ImageURL.add(URL);
         }
+
         for (int i = 0; i < 11; i++) {
             StringBuilder sb = new StringBuilder("images/braun");
             sb.append(i);
@@ -61,7 +62,9 @@ public class GameController {
             URL PicLocation = getClass().getResource(sb.toString());
             String URL = String.valueOf(PicLocation);
             ImageURL.add(URL);
+
         }
+
         for (int i = 0; i < 11; i++) {
             StringBuilder sb = new StringBuilder("images/gelb");
             sb.append(i);
@@ -69,7 +72,9 @@ public class GameController {
             URL PicLocation = getClass().getResource(sb.toString());
             String URL = String.valueOf(PicLocation);
             ImageURL.add(URL);
+
         }
+
         for (int i = 0; i < 11; i++) {
             StringBuilder sb = new StringBuilder("images/gruen");
             sb.append(i);
@@ -77,7 +82,9 @@ public class GameController {
             URL PicLocation = getClass().getResource(sb.toString());
             String URL = String.valueOf(PicLocation);
             ImageURL.add(URL);
+
         }
+
         for (int i = 0; i < 11; i++) {
             StringBuilder sb = new StringBuilder("images/pink");
             sb.append(i);
@@ -85,7 +92,9 @@ public class GameController {
             URL PicLocation = getClass().getResource(sb.toString());
             String URL = String.valueOf(PicLocation);
             ImageURL.add(URL);
+
         }
+
         Collections.shuffle(ImageURL);
 
     }
@@ -137,12 +146,17 @@ public class GameController {
                     //TODO: Implement logic to retry the move
                 }
             }
+            //Set the corresponding Stone invisible
+            setInvisible(ButtonID);
 
         } else if (result.get() == NoButton) {
             //TODO: Leave the Stone uncovered
 
         }
         turn++;
+    }
+    public void setInvisible(String ButtonID){
+        bl0.setVisible(false);
     }
     public String uncover(String ButtonID) {
         StringBuilder sb = new StringBuilder();
@@ -296,6 +310,7 @@ public class GameController {
             sb.delete(sb.indexOf(".png"),sb.length());
 
             return sb.toString();
+
         } else if (ButtonID.equals("b14")) {
             sb.setLength(0);
             Image Temp = new Image(ImageURL.get(14));
@@ -306,6 +321,7 @@ public class GameController {
             sb.delete(sb.indexOf(".png"),sb.length());
 
             return sb.toString();
+
         } else if (ButtonID.equals("b15")) {
             sb.setLength(0);
             Image Temp = new Image(ImageURL.get(15));
@@ -316,6 +332,7 @@ public class GameController {
             sb.delete(sb.indexOf(".png"),sb.length());
 
             return sb.toString();
+
         } else if (ButtonID.equals("b16")) {
             sb.setLength(0);
             Image Temp = new Image(ImageURL.get(16));
@@ -326,6 +343,7 @@ public class GameController {
             sb.delete(sb.indexOf(".png"),sb.length());
 
             return sb.toString();
+
         } else if (ButtonID.equals("b17")) {
             sb.setLength(0);
             Image Temp = new Image(ImageURL.get(17));
