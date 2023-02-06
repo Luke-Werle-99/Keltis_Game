@@ -58,6 +58,7 @@ public class Player
     }
     public boolean pull(Stone _stone)
     {
+        System.out.println(_stone.getColor());
         switch (_stone.getColor())
         {
             //logical checks to see if move is legal

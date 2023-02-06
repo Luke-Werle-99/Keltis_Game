@@ -137,6 +137,7 @@ public class GameController {
             if((currentPlayer.pull(ChosenStone))){
                 //Set the corresponding Stone invisible
                 setInvisible(ButtonID);
+                PlayerStones(ChosenStone.getID(),turn,1);
                 }else {
                 Alert WrongMove = new Alert(Alert.AlertType.CONFIRMATION);
                 WrongMove.setTitle("Invalid Move");
@@ -161,28 +162,46 @@ public class GameController {
         turn++;
     }
 
-    public void PlayerStones(String url, int turn){
-        ImageView[][] Player1 = new ImageView[5][11];
-        ImageView [][] Player2 = new ImageView[5][11];
-        ImageView [][] Player3 = new ImageView[5][11];
-        ImageView [][] Player4 = new ImageView[5][11];
-/*
-        if(turn == 0){
-            //TODO: check if the URL contains the color
-            Player1[0][0];
-        } else if (turn == 1) {
-            Player2[0][0];
-        } else if (turn == 2) {
-            Player3[0][0];
-        } else if (turn == 3) {
-            Player4[0][0];
+    public void PlayerStones(String url, int turn, int playerId) {
+        Stone[][] Player = new Stone[5][11];
+        switch (playerId){
+            case 1: {
+                Player = gameInstance.Player1;
+            }
         }
+        if (turn == 0) {
+            int x = Integer.parseInt(url.substring(url.length() - 1));
+            if (url.contains("blau")) {
+                Player[0][x] = new Stone();
+                Player[0][x].setColor("blau");
+                Player[0][x].setNumber(x);
+            }
+            if (url.contains("braun")) {
+                Player[1][x] = new Stone();
+                Player[1][x].setColor("braun");
+                Player[1][x].setNumber(x);
+            }
 
+            if (url.contains("gelb")) {
+                Player[2][x] = new Stone();
+                Player[2][x].setColor("gelb");
+                Player[2][x].setNumber(x);
+            }
+            if (url.contains("gruen")) {
+                Player[3][x] = new Stone();
+                Player[3][x].setColor("gruen");
+                Player[3][x].setNumber(x);
+            }
+            if (url.contains("pink")) {
+                Player[4][x] = new Stone();
+                Player[4][x].setColor("pink");
+                Player[4][x].setNumber(x);
+            }
 
- */
-
-
+        }
     }
+
+
     public void setInvisible(String ButtonID){
         if(ButtonID.equals("b0")){
             bl0.setVisible(false);

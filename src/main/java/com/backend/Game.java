@@ -5,6 +5,10 @@ import java.util.Collections;
 
 public class Game {
 
+    public Stone[][] Player1 = new Stone[5][11];
+    public Stone [][] Player2 = new Stone[5][11];
+    public Stone [][] Player3 = new Stone[5][11];
+    public Stone [][] Player4 = new Stone[5][11];
     public ArrayList<Player> Players = new ArrayList<>(4);
     public static ArrayList<Stone> Stones = new ArrayList(55);
     private static ArrayList<Stone> UncoveredStones = new ArrayList<>(55);

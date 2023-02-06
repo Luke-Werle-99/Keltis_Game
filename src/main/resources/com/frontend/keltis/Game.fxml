@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane id="pane" fx:id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.82" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@CssStyle/GameCss.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.frontend.keltis.GameController">
    <children>
@@ -429,5 +431,25 @@
       <Button fx:id="b4" layoutX="606.0" layoutY="325.0" mnemonicParsing="false" onAction="#ButtonPressed" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
       <Button fx:id="b3" layoutX="546.0" layoutY="323.0" mnemonicParsing="false" onAction="#ButtonPressed" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
       <Button fx:id="b0" layoutX="628.0" layoutY="281.0" mnemonicParsing="false" onAction="#ButtonPressed" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
+      <Label fx:id="player1" layoutX="139.0" layoutY="674.0" text="Player1">
+         <font>
+            <Font name="Century Gothic" size="50.0" />
+         </font>
+      </Label>
+      <Label fx:id="player2" layoutX="562.0" layoutY="674.0" text="Player2">
+         <font>
+            <Font name="Century Gothic" size="50.0" />
+         </font>
+      </Label>
+      <Label fx:id="player3" layoutX="1012.0" layoutY="674.0" text="Player3">
+         <font>
+            <Font name="Century Gothic" size="50.0" />
+         </font>
+      </Label>
+      <Label fx:id="player4" layoutX="1551.0" layoutY="674.0" text="Player4">
+         <font>
+            <Font name="Century Gothic" size="50.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
