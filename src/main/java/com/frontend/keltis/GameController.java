@@ -161,8 +161,11 @@ public class GameController {
             if((currentPlayer.pull(ChosenStone))){
                 //Set the corresponding Stone invisible
                 setInvisible(ButtonID);
-                //PlayerStones(ChosenStone.getID(),turn,1);
                 DisplayStoneForPlayer(gameInstance.Players);
+                if(ChosenStone.getWishingStone()){
+                    if(turn ==0){turn = 0;}
+                    else{turn--;}
+                }
                 }else {
                 Alert WrongMove = new Alert(Alert.AlertType.CONFIRMATION);
                 WrongMove.setTitle("Invalid Move");
@@ -172,8 +175,8 @@ public class GameController {
                 WrongMove.getButtonTypes().setAll(Ok);
                 Optional<ButtonType> result2 = WrongMove.showAndWait();
                 if (result2.get() == Ok){
-                   turn--;
-
+                   if(turn ==0){turn = 0;}
+                   else{turn--;}
                 }
             }
 
