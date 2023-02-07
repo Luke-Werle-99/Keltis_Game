@@ -18,6 +18,7 @@ public class GameController {
     public Text PlayerText;
     public Game gameInstance;
     public int turn;
+    public int uncoveredCount = 0;
     public ImageView bl0,bl1,bl2,bl3,bl4,bl5,bl6,bl7,bl8,bl9,bl10;
     public ImageView br0, br1, br2, br3, br4, br5, br6, br7, br8, br9, br10;
     public ImageView y0, y1, y2, y3, y4, y5, y6, y7, y8, y9, y10;
@@ -102,15 +103,16 @@ public class GameController {
 
         Collections.shuffle(ImageURL);
 
-
-
     }
 
-    public Stone FindStoneObject(String ImageURL) {
+    public Stone FindStoneObject(String ImageURL)
+    {
         Stone currentStone = null;
-        for (int i = 0; i < 55; i++) {
+        for (int i = 0; i < 55; i++)
+        {
             Stone check = gameInstance.Stones.get(i);
-            if (ImageURL.contains(check.getID())) {
+            if (ImageURL.contains(check.getID()))
+            {
                 currentStone = check;
                 currentStone.setURL(ImageURL);
             }
@@ -171,6 +173,10 @@ public class GameController {
 
         }
 
+        if(uncoveredCount>54)
+        {
+            gameInstance.gameEnd();
+        }
         turn++;
     }
 
@@ -431,6 +437,9 @@ public class GameController {
 
     }
     public String uncover(String ButtonID) {
+
+        uncoveredCount++; //count the uncovered stones
+
         StringBuilder sb = new StringBuilder();
         if (ButtonID.equals("b0")) {
             sb.setLength(0);
