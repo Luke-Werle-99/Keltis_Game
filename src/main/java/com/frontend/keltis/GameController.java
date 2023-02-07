@@ -1,12 +1,15 @@
 package com.frontend.keltis;
 import com.backend.*;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -187,9 +190,14 @@ public class GameController {
 
         }
 
-        if(uncoveredCount>54)
+        if(uncoveredCount>6)
         {
-            EndScreenController.gameEnd(Game.Players);
+            FXMLLoader fxmlLoader = new FXMLLoader(MainKeltis.class.getResource("EndScreen.fxml"));
+            Stage stage = (Stage)b1.getScene().getWindow();
+            Scene scene = new Scene(fxmlLoader.load(), 720, 480);
+            EndScreenController endController = fxmlLoader.getController();
+            stage.setScene(scene);
+            endController.gameEnd(Game.Players);
         }
         turn++;
     }
