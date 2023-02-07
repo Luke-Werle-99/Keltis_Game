@@ -6,7 +6,7 @@ import java.util.Collections;
 
 public class Game {
     //A list which contains the initiated players
-    public ArrayList<Player> Players = new ArrayList<>(4);
+    public static ArrayList<Player> Players = new ArrayList<>(4);
     //A list to safe all generated stones
     public static ArrayList<Stone> Stones = new ArrayList(55);
     //constructor for a game instance with parameters
