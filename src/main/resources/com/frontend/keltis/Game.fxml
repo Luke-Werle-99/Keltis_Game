@@ -12,7 +12,86 @@
 
 <AnchorPane id="pane" fx:id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.82" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@CssStyle/GameCss.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.frontend.keltis.GameController">
    <children>
-      <GridPane layoutX="29.0" layoutY="815.0" prefHeight="250.0" prefWidth="395.0">
+      <GridPane layoutX="26.0" layoutY="730.0" prefHeight="250.0" prefWidth="395.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <ImageView fx:id="pl1" fitHeight="27.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="10" />
+            <ImageView fx:id="pl2" fitHeight="25.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="9" />
+            <ImageView fx:id="pl3" fitHeight="23.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="8" />
+            <ImageView fx:id="pl4" fitHeight="27.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="7" />
+            <ImageView fx:id="pl5" fitHeight="27.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="6" />
+            <ImageView fx:id="pl6" fitHeight="26.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="5" />
+            <ImageView fx:id="pl7" fitHeight="24.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="4" />
+            <ImageView fx:id="pl8" fitHeight="29.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3" />
+            <ImageView fx:id="pl9" fitHeight="25.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2" />
+            <ImageView fx:id="pl10" fitHeight="23.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1" />
+            <ImageView fx:id="pl11" fitHeight="25.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="pl12" fitHeight="24.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <ImageView fx:id="pl13" fitHeight="27.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <ImageView fx:id="pl14" fitHeight="25.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <ImageView fx:id="pl15" fitHeight="27.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <ImageView fx:id="pl16" fitHeight="24.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <ImageView fx:id="pl17" fitHeight="26.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <ImageView fx:id="pl18" fitHeight="24.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <ImageView fx:id="pl19" fitHeight="23.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <ImageView fx:id="pl20" fitHeight="24.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <ImageView fx:id="pl21" fitHeight="27.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <ImageView fx:id="pl22" fitHeight="22.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
+            <ImageView fx:id="pl33" fitHeight="27.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" />
+            <ImageView fx:id="pl23" fitHeight="27.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="10" />
+            <ImageView fx:id="pl24" fitHeight="26.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+            <ImageView fx:id="pl25" fitHeight="26.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+            <ImageView fx:id="pl26" fitHeight="22.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+            <ImageView fx:id="pl27" fitHeight="28.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+            <ImageView fx:id="pl28" fitHeight="27.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <ImageView fx:id="pl29" fitHeight="28.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <ImageView fx:id="pl32" fitHeight="23.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <ImageView fx:id="pl30" fitHeight="22.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <ImageView fx:id="pl31" fitHeight="26.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <ImageView fx:id="pl34" fitHeight="25.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="10" />
+            <ImageView fx:id="pl35" fitHeight="26.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="9" />
+            <ImageView fx:id="pl36" fitHeight="25.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+            <ImageView fx:id="pl37" fitHeight="26.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+            <ImageView fx:id="pl38" fitHeight="26.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+            <ImageView fx:id="pl39" fitHeight="26.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <ImageView fx:id="pl40" fitHeight="24.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <ImageView fx:id="pl41" fitHeight="28.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <ImageView fx:id="pl42" fitHeight="26.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <ImageView fx:id="pl43" fitHeight="26.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <ImageView fx:id="pl44" fitHeight="28.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" />
+            <ImageView fx:id="pl45" fitHeight="27.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="10" />
+            <ImageView fx:id="pl46" fitHeight="26.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="9" />
+            <ImageView fx:id="pl47" fitHeight="24.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="8" />
+            <ImageView fx:id="pl48" fitHeight="24.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+            <ImageView fx:id="pl49" fitHeight="27.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+            <ImageView fx:id="pl50" fitHeight="25.0" fitWidth="83.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+            <ImageView fx:id="pl51" fitHeight="28.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+            <ImageView fx:id="pl52" fitHeight="27.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+            <ImageView fx:id="pl53" fitHeight="26.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <ImageView fx:id="pl54" fitHeight="24.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <ImageView fx:id="pl55" fitHeight="23.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" />
+         </children>
+      </GridPane>
+      <GridPane layoutX="1438.0" layoutY="730.0" prefHeight="250.0" prefWidth="395.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -34,29 +113,7 @@
            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
       </GridPane>
-      <GridPane layoutX="1441.0" layoutY="815.0" prefHeight="250.0" prefWidth="395.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-      </GridPane>
-      <GridPane layoutX="897.0" layoutY="815.0" prefHeight="250.0" prefWidth="395.0">
+      <GridPane layoutX="894.0" layoutY="730.0" prefHeight="250.0" prefWidth="395.0">
         <columnConstraints>
            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -78,7 +135,7 @@
          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
       </GridPane>
-      <GridPane layoutX="430.0" layoutY="815.0" prefHeight="250.0" prefWidth="395.0">
+      <GridPane layoutX="427.0" layoutY="730.0" prefHeight="250.0" prefWidth="395.0">
         <columnConstraints>
            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -431,22 +488,22 @@
       <Button fx:id="b4" layoutX="606.0" layoutY="325.0" mnemonicParsing="false" onAction="#ButtonPressed" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
       <Button fx:id="b3" layoutX="546.0" layoutY="323.0" mnemonicParsing="false" onAction="#ButtonPressed" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
       <Button fx:id="b0" layoutX="628.0" layoutY="281.0" mnemonicParsing="false" onAction="#ButtonPressed" opacity="0.0" prefHeight="23.0" prefWidth="36.0" text="Button" />
-      <Label fx:id="player1" layoutX="139.0" layoutY="674.0" text="Player1">
+      <Label fx:id="player1" layoutX="136.0" layoutY="589.0" text="Player1">
          <font>
             <Font name="Century Gothic" size="50.0" />
          </font>
       </Label>
-      <Label fx:id="player2" layoutX="562.0" layoutY="674.0" text="Player2">
+      <Label fx:id="player2" layoutX="559.0" layoutY="589.0" text="Player2">
          <font>
             <Font name="Century Gothic" size="50.0" />
          </font>
       </Label>
-      <Label fx:id="player3" layoutX="1012.0" layoutY="674.0" text="Player3">
+      <Label fx:id="player3" layoutX="1009.0" layoutY="589.0" text="Player3">
          <font>
             <Font name="Century Gothic" size="50.0" />
          </font>
       </Label>
-      <Label fx:id="player4" layoutX="1551.0" layoutY="674.0" text="Player4">
+      <Label fx:id="player4" layoutX="1548.0" layoutY="589.0" text="Player4">
          <font>
             <Font name="Century Gothic" size="50.0" />
          </font>

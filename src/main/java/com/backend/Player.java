@@ -6,6 +6,7 @@ public class Player
 {
     private String name;
     private int age;
+
     private ArrayList<Stone> rowBlue = new ArrayList<>();
     private ArrayList<Stone> rowYellow = new ArrayList<>();
     private ArrayList<Stone> rowGreen = new ArrayList<>();
@@ -308,4 +309,22 @@ public class Player
     public void setAge(int _age){this.age = _age;}
     public int getAge(){return  this.age;}
     public int getScore(){return this.score;}
+    public ArrayList<Stone> getRowBlue() {return this.rowBlue;}
+    public void setRowBlue(ArrayList<Stone> rowBlue) {this.rowBlue = rowBlue;}
+    public ArrayList<Stone> getRowBrown() {return this.rowBrown;}
+    public void setRowBrown(ArrayList<Stone> rowBrown) {
+        this.rowBrown = rowBlue;
+    }
+    public ArrayList<Stone> getRowYellow() {return this.rowYellow;}
+    public void setRowYellow(ArrayList<Stone> rowYellow) {
+        this.rowYellow = rowYellow;
+    }
+    public ArrayList<Stone> getRowGreen() {return this.rowGreen;}
+    public void setRowGreen(ArrayList<Stone> rowPink) {
+        this.rowPink = rowPink;
+    }
+    public ArrayList<Stone> getRowPink() {return this.rowPink;}
+    public void setRowPink(ArrayList<Stone> rowPink) {
+        this.rowPink = rowPink;
+    }
 }

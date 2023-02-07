@@ -24,6 +24,10 @@ public class GameController {
     public ImageView p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10;
     public ImageView g0, g1, g2, g3, g4, g5, g6, g7, g8, g9, g10;
     //button Reihenfolge b0 - b54 aufsteigend sortiert nach blau, braun, gelb, grün, pink
+    //Images to display Stones of Player1
+    public ImageView pl1, pl2,pl3,pl4,pl5,pl6,pl7,pl8, pl9, pl10, pl11,pl12,pl13,pl14,pl15,pl16,pl17,pl18,pl19,pl20,
+                    pl21,pl22,pl23,pl24,pl25,pl26,pl27,pl28,pl29,pl30,pl31,pl32,pl33,pl34,pl35,pl36,pl37,pl38,pl39,pl40,
+                    pl41,pl42,pl43,pl44,pl45,pl46,pl47,pl48,pl49,pl50,pl51,pl52,pl53,pl54,pl55;
     public Button b0, b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17, b18, b19,
             b20, b21, b22, b23, b24, b25, b26, b27, b28, b29, b30, b31, b32, b33, b34, b35, b36, b37, b38, b39, b40,
             b41, b42, b43, b44, b45, b46, b47, b48, b49, b50, b51, b52, b53, b54;
@@ -46,6 +50,7 @@ public class GameController {
         gameInstance = new Game();
         gameInstance.generateStones();
         cover();
+
         for (int i = 0; i < 11; i++) {
             StringBuilder sb = new StringBuilder("images/blau");
             sb.append(i);
@@ -97,14 +102,17 @@ public class GameController {
 
         Collections.shuffle(ImageURL);
 
+
+
     }
 
-    public Stone FindStoneObject(String fxID) {
+    public Stone FindStoneObject(String ImageURL) {
         Stone currentStone = null;
         for (int i = 0; i < 55; i++) {
             Stone check = gameInstance.Stones.get(i);
-            if ((check.getID()).equals(fxID)) {
+            if (ImageURL.contains(check.getID())) {
                 currentStone = check;
+                currentStone.setURL(ImageURL);
             }
         }
         return currentStone;
@@ -118,6 +126,7 @@ public class GameController {
         Button ButtonPressed = (Button) event.getSource();
         String ButtonID = ButtonPressed.getId();
         Stone ChosenStone = FindStoneObject(uncover(ButtonID));
+
         //Ask currentPlayer if they want the stone
         Alert GetConfirmation = new Alert(Alert.AlertType.CONFIRMATION);
         GetConfirmation.setTitle("Confirm Your Action");
@@ -128,16 +137,19 @@ public class GameController {
         GetConfirmation.getButtonTypes().setAll(YesButton, NoButton);
         Optional<ButtonType> result = GetConfirmation.showAndWait();
 
+        //temporary for debugging purposes
         System.out.println(currentPlayer.getName() + " chose Button: ");
         System.out.println(ButtonID);
         System.out.println("Stone ID: "+ ChosenStone.getID());
-        //temporary for debugging purposes
+        System.out.println("Stone URL: "+ ChosenStone.getURL());
+
 
         if (result.get() == YesButton){
             if((currentPlayer.pull(ChosenStone))){
                 //Set the corresponding Stone invisible
                 setInvisible(ButtonID);
-                PlayerStones(ChosenStone.getID(),turn,1);
+                //PlayerStones(ChosenStone.getID(),turn,1);
+                DisplayStoneForPlayer(gameInstance.Players);
                 }else {
                 Alert WrongMove = new Alert(Alert.AlertType.CONFIRMATION);
                 WrongMove.setTitle("Invalid Move");
@@ -201,6 +213,53 @@ public class GameController {
         }
     }
 
+    public void DisplayStoneForPlayer(ArrayList<Player> Players) {
+        Player Player1 = gameInstance.Players.get(0);
+        Player Player2 = gameInstance.Players.get(0);
+        if(gameInstance.Players.size() == 3){
+            Player Player3 = gameInstance.Players.get(0);
+        } else if (gameInstance.Players.size() == 3) {
+            Player Player5 = gameInstance.Players.get(0);
+        }
+        //Create the Arrays of Player1 for the images
+        ImageView[] BlueStonesPlayer1= {pl1, pl2,pl3,pl4,pl5,pl6,pl7,pl8, pl9, pl10, pl11};
+        ImageView[] GreenStonesPlayer1= {pl12,pl13,pl14,pl15,pl16,pl17,pl18,pl19,pl20, pl21,pl22};
+        ImageView[] BrownStonesPlayer1 = {pl23, pl24,pl25,pl26,pl27,pl28,pl29,pl30,pl31,pl32,pl33};
+        ImageView[] PinkStonesPlayer1 = {pl34,pl35,pl36,pl37,pl38,pl39,pl40,pl41,pl42,pl43,pl44};
+        ImageView[] YellowStonesPlayer1 = {pl45,pl46,pl47,pl48,pl49,pl50,pl51,pl52,pl53,pl54,pl55};
+        int counter = 0;
+        for (Stone x:Player1.getRowBlue()) {
+            Image temp = new Image(x.getURL());
+            BlueStonesPlayer1[counter].setImage(temp);
+            counter++;
+        }
+        counter = 0;
+        for (Stone x:Player1.getRowPink()) {
+            Image temp = new Image(x.getURL());
+            PinkStonesPlayer1[counter].setImage(temp);
+            counter++;
+        }
+        counter = 0;
+        for (Stone x:Player1.getRowGreen()) {
+            Image temp = new Image(x.getURL());
+            GreenStonesPlayer1[counter].setImage(temp);
+            counter++;
+        }
+        counter = 0;
+        for (Stone x:Player1.getRowYellow()) {
+            Image temp = new Image(x.getURL());
+            YellowStonesPlayer1[counter].setImage(temp);
+            counter++;
+        }
+        counter = 0;
+        for (Stone x:Player1.getRowBrown()) {
+            Image temp = new Image(x.getURL());
+            BrownStonesPlayer1[counter].setImage(temp);
+            counter++;
+        }
+        counter = 0;
+
+    }
 
     public void setInvisible(String ButtonID){
         if(ButtonID.equals("b0")){
@@ -378,9 +437,12 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(0));
             bl0.setImage(Temp);
             sb.append(ImageURL.get(0));
+            /*
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b1")) {
@@ -388,10 +450,13 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(1));
             bl1.setImage(Temp);
             sb.append(ImageURL.get(1));
+            /*
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b2")) {
@@ -399,10 +464,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(2));
             bl2.setImage(Temp);
             sb.append(ImageURL.get(2));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b3")) {
@@ -410,10 +479,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(3));
             bl3.setImage(Temp);
             sb.append(ImageURL.get(3));
+                       /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+                        */
             return sb.toString();
 
         } else if (ButtonID.equals("b4")) {
@@ -421,10 +494,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(4));
             bl4.setImage(Temp);
             sb.append(ImageURL.get(4));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b5")) {
@@ -432,9 +509,13 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(5));
             bl5.setImage(Temp);
             sb.append(ImageURL.get(5));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b6")) {
@@ -442,9 +523,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(6));
             bl6.setImage(Temp);
             sb.append(ImageURL.get(6));
+                        /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
+
+
+                         */
 
             return sb.toString();
 
@@ -453,10 +539,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(7));
             bl7.setImage(Temp);
             sb.append(ImageURL.get(7));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b8")) {
@@ -464,9 +554,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(8));
             bl8.setImage(Temp);
             sb.append(ImageURL.get(8));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+ 8);
             sb.delete(sb.indexOf(".png"),sb.length());
+
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b9")) {
@@ -474,10 +569,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(9));
             bl9.setImage(Temp);
             sb.append(ImageURL.get(9));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b10")) {
@@ -485,10 +584,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(10));
             bl10.setImage(Temp);
             sb.append(ImageURL.get(10));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b11")) {
@@ -496,10 +599,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(11));
             br0.setImage(Temp);
             sb.append(ImageURL.get(11));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b12")) {
@@ -507,10 +614,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(12));
             br1.setImage(Temp);
             sb.append(ImageURL.get(12));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b13")) {
@@ -518,10 +629,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(13));
             br2.setImage(Temp);
             sb.append(ImageURL.get(13));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b14")) {
@@ -529,10 +644,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(14));
             br3.setImage(Temp);
             sb.append(ImageURL.get(14));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b15")) {
@@ -540,10 +659,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(15));
             br4.setImage(Temp);
             sb.append(ImageURL.get(15));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b16")) {
@@ -551,9 +674,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(16));
             br5.setImage(Temp);
             sb.append(ImageURL.get(16));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
+
+
+             */
 
             return sb.toString();
 
@@ -562,10 +690,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(17));
             br6.setImage(Temp);
             sb.append(ImageURL.get(17));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b18")) {
@@ -573,10 +705,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(18));
             br7.setImage(Temp);
             sb.append(ImageURL.get(18));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b19")) {
@@ -584,9 +720,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(19));
             br8.setImage(Temp);
             sb.append(ImageURL.get(19));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
+
+
+             */
 
             return sb.toString();
 
@@ -595,10 +736,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(20));
             br9.setImage(Temp);
             sb.append(ImageURL.get(20));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b21")) {
@@ -606,10 +751,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(21));
             br10.setImage(Temp);
             sb.append(ImageURL.get(21));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b22")) {
@@ -617,20 +766,28 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(22));
             y0.setImage(Temp);
             sb.append(ImageURL.get(22));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+             */
             return sb.toString();
         } else if (ButtonID.equals("b23")) {
             sb.setLength(0);
             Image Temp = new Image(ImageURL.get(23));
             y1.setImage(Temp);
             sb.append(ImageURL.get(23));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b24")) {
@@ -638,10 +795,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(24));
             y2.setImage(Temp);
             sb.append(ImageURL.get(24));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b25")) {
@@ -649,10 +810,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(25));
             y3.setImage(Temp);
             sb.append(ImageURL.get(25));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b26")) {
@@ -660,10 +825,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(26));
             y4.setImage(Temp);
             sb.append(ImageURL.get(26));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b27")) {
@@ -671,10 +840,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(27));
             y5.setImage(Temp);
             sb.append(ImageURL.get(27));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b28")) {
@@ -682,10 +855,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(28));
             y6.setImage(Temp);
             sb.append(ImageURL.get(28));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b29")) {
@@ -693,10 +870,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(29));
             y7.setImage(Temp);
             sb.append(ImageURL.get(29));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b30")) {
@@ -704,10 +885,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(30));
             y8.setImage(Temp);
             sb.append(ImageURL.get(30));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b31")) {
@@ -715,10 +900,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(31));
             y9.setImage(Temp);
             sb.append(ImageURL.get(31));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b32")) {
@@ -726,10 +915,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(32));
             y10.setImage(Temp);
             sb.append(ImageURL.get(32));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b33")) {
@@ -737,10 +930,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(33));
             g0.setImage(Temp);
             sb.append(ImageURL.get(33));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b34")) {
@@ -748,10 +945,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(34));
             g1.setImage(Temp);
             sb.append(ImageURL.get(34));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b35")) {
@@ -759,10 +960,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(35));
             g2.setImage(Temp);
             sb.append(ImageURL.get(35));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b36")) {
@@ -770,10 +975,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(36));
             g3.setImage(Temp);
             sb.append(ImageURL.get(36));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b37")) {
@@ -781,10 +990,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(37));
             g4.setImage(Temp);
             sb.append(ImageURL.get(37));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b38")) {
@@ -792,10 +1005,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(38));
             g5.setImage(Temp);
             sb.append(ImageURL.get(38));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b39")) {
@@ -803,10 +1020,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(39));
             g6.setImage(Temp);
             sb.append(ImageURL.get(39));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b40")) {
@@ -814,10 +1035,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(40));
             g7.setImage(Temp);
             sb.append(ImageURL.get(40));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b41")) {
@@ -825,10 +1050,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(41));
             g8.setImage(Temp);
             sb.append(ImageURL.get(41));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b42")) {
@@ -836,10 +1065,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(42));
             g9.setImage(Temp);
             sb.append(ImageURL.get(42));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b43")) {
@@ -847,10 +1080,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(43));
             g10.setImage(Temp);
             sb.append(ImageURL.get(43));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b44")) {
@@ -858,10 +1095,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(44));
             p0.setImage(Temp);
             sb.append(ImageURL.get(44));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b45")) {
@@ -869,10 +1110,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(45));
             p1.setImage(Temp);
             sb.append(ImageURL.get(45));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b46")) {
@@ -880,10 +1125,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(46));
             p2.setImage(Temp);
             sb.append(ImageURL.get(46));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b47")) {
@@ -891,10 +1140,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(47));
             p3.setImage(Temp);
             sb.append(ImageURL.get(47));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b48")) {
@@ -902,10 +1155,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(48));
             p4.setImage(Temp);
             sb.append(ImageURL.get(48));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b49")) {
@@ -913,10 +1170,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(49));
             p5.setImage(Temp);
             sb.append(ImageURL.get(49));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b50")) {
@@ -924,10 +1185,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(50));
             p6.setImage(Temp);
             sb.append(ImageURL.get(50));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b51")) {
@@ -935,10 +1200,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(51));
             p7.setImage(Temp);
             sb.append(ImageURL.get(51));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b52")) {
@@ -946,10 +1215,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(52));
             p8.setImage(Temp);
             sb.append(ImageURL.get(52));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b53")) {
@@ -957,10 +1230,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(53));
             p9.setImage(Temp);
             sb.append(ImageURL.get(53));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+             */
             return sb.toString();
 
         } else if (ButtonID.equals("b54")) {
@@ -968,10 +1245,14 @@ public class GameController {
             Image Temp = new Image(ImageURL.get(54));
             p10.setImage(Temp);
             sb.append(ImageURL.get(54));
+            /*
+
             sb.delete(0,sb.indexOf("/images"));
             sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
             sb.delete(sb.indexOf(".png"),sb.length());
 
+
+             */
             return sb.toString();
 
         }

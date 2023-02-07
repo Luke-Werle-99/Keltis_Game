@@ -8,6 +8,7 @@ public class Stone
     private  boolean wishingStone;
     private  boolean clover;
 
+    private String URL;
     private String ID;
 
     public Stone(){
@@ -47,6 +48,9 @@ public class Stone
     public void setClover(boolean _clover){this.clover = _clover;}
     public String getID() {return this.ID;}
     public void setID(String ID) {this.ID = ID;}
+    public String getURL() {return this.URL;}
+
+    public void setURL(String URL) {this.URL = URL;}
 
 
 

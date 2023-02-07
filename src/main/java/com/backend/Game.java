@@ -1,4 +1,5 @@
 package com.backend;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -88,7 +89,7 @@ public class Game {
         for (int i = 0; i < 11; i++) {
             Stone stein = new Stone();
             stein.setNumber(i);
-            stein.setColor("b");
+            stein.setColor("bl");
             sb.append("blau");
             sb.append(i);
             stein.setID(sb.toString());
@@ -101,6 +102,7 @@ public class Game {
             } else if (i == 9) {
                 stein.setBonusPoints(1);
             }
+
             Stones.add(stein);
             sb.setLength(0);
         }
@@ -121,6 +123,7 @@ public class Game {
             } else if (i == 5) {
                 stein.setBonusPoints(3);
             }
+
             Stones.add(stein);
             sb.setLength(0);
         }
@@ -140,7 +143,8 @@ public class Game {
                 stein.setBonusPoints(3);
             } else if (i == 6) {
                 stein.setBonusPoints(1);
-            }
+            }sb.setLength(0);
+
             Stones.add(stein);
             sb.setLength(0);
         }
@@ -161,6 +165,7 @@ public class Game {
             } else if (i == 4) {
                 stein.setBonusPoints(1);
             }
+
             Stones.add(stein);
             sb.setLength(0);
         }
