@@ -16,7 +16,7 @@ public class Game {
     public Game() {
         this.Players = new ArrayList<>(4);
         this.Stones = new ArrayList<>(55);
-        this.UncoveredStones = new ArrayList<>(55);
+        //this.UncoveredStones = new ArrayList<>(55);
     }
 
     public void gameStart() {
@@ -62,6 +62,10 @@ public class Game {
         Players.add(x);
     }
 
+    /**
+     * Generates our Stones. As they are not random we hard assign values to each stone.
+     * Shuffles Stones.
+     */
     public void generateStones() {
         StringBuilder sb = new StringBuilder();
         //initialize pink Stones
@@ -269,6 +273,10 @@ public class Game {
 
  */
     }
+
+    /**
+     * Finds the oldest player to determine start player.
+     */
     public void findOldestPlayer() {
         Player oldest = null;
         int oldestAge = 0;

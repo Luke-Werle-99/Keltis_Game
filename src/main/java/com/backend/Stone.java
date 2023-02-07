@@ -11,6 +11,9 @@ public class Stone
     private String URL;
     private String ID;
 
+    /**
+     * Example stone
+     */
     public Stone(){
         this.number = 1;
         this.color = "r";
@@ -20,6 +23,9 @@ public class Stone
         this.ID = "";
     }
 
+    /**
+     * Displays Stones on the console, used before we had a UI
+     */
     public void displayStone() {
     System.out.println("Color:  " + this.color);
     System.out.println("Number:  " + this.number);
@@ -32,10 +38,14 @@ public class Stone
     if(this.wishingStone == true){
         System.out.println("Has a wishing Stone");
     }else {
-        System.out.println("Has NO a wishing Stone");
+        System.out.println("Has NO wishing Stone");
     }
 
 }
+
+    /**
+     * Getter and Setter methods
+     */
     public int getNumber() { return number;}
     public void setNumber(int _number){ this.number = _number;}
     public String getColor(){ return this.color;}

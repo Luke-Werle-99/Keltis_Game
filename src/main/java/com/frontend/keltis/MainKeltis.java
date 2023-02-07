@@ -9,6 +9,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class MainKeltis extends Application {
+    /**
+     *
+     * @param stage
+     */
     @Override
     public void start(Stage stage) {
         try {
@@ -25,6 +29,9 @@ public class MainKeltis extends Application {
         }
     }
 
+    /**
+     * Launches the game
+     */
     public static void main(String[] args) {
 
         launch();
