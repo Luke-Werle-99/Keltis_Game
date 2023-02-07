@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
@@ -27,7 +28,7 @@ public class GameController {
     public Button b0, b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17, b18, b19,
             b20, b21, b22, b23, b24, b25, b26, b27, b28, b29, b30, b31, b32, b33, b34, b35, b36, b37, b38, b39, b40,
             b41, b42, b43, b44, b45, b46, b47, b48, b49, b50, b51, b52, b53, b54;
-
+    public Label player1label, player2label, player3label, player4label;
     public static ArrayList<String> ImageURL = new ArrayList<>(55);
     public void cover(){
         ImageView[] stones = {bl0,bl1,bl2,bl3,bl4,bl5,bl6,bl7,bl8,bl9,bl10,
@@ -41,7 +42,22 @@ public class GameController {
             image.setImage(Temp);
         }
     }
+    public void playerNames(String x, String y){
 
+        player1label.setText(x);
+        player2label.setText(y);
+        player3label.setVisible(false);
+        player4label.setVisible(false);
+    }
+    public void playerName3(String x){
+        player3label.setVisible(true);
+        player3label.setText(x);
+    }
+
+    public void playerName4(String x){
+        player4label.setVisible(true);
+        player4label.setText(x);
+    }
     public void initialize() {
         gameInstance = new Game();
         gameInstance.generateStones();
