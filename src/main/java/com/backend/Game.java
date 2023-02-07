@@ -1,4 +1,5 @@
 package com.backend;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -15,7 +16,7 @@ public class Game {
     public Game() {
         this.Players = new ArrayList<>(4);
         this.Stones = new ArrayList<>(55);
-        this.UncoveredStones = new ArrayList<>(55);
+        //this.UncoveredStones = new ArrayList<>(55);
     }
 
     public void gameStart() {
@@ -61,6 +62,10 @@ public class Game {
         Players.add(x);
     }
 
+    /**
+     * Generates our Stones. As they are not random we hard assign values to each stone.
+     * Shuffles Stones.
+     */
     public void generateStones() {
         StringBuilder sb = new StringBuilder();
         //initialize pink Stones
@@ -88,7 +93,7 @@ public class Game {
         for (int i = 0; i < 11; i++) {
             Stone stein = new Stone();
             stein.setNumber(i);
-            stein.setColor("b");
+            stein.setColor("bl");
             sb.append("blau");
             sb.append(i);
             stein.setID(sb.toString());
@@ -101,6 +106,7 @@ public class Game {
             } else if (i == 9) {
                 stein.setBonusPoints(1);
             }
+
             Stones.add(stein);
             sb.setLength(0);
         }
@@ -121,6 +127,7 @@ public class Game {
             } else if (i == 5) {
                 stein.setBonusPoints(3);
             }
+
             Stones.add(stein);
             sb.setLength(0);
         }
@@ -140,7 +147,8 @@ public class Game {
                 stein.setBonusPoints(3);
             } else if (i == 6) {
                 stein.setBonusPoints(1);
-            }
+            }sb.setLength(0);
+
             Stones.add(stein);
             sb.setLength(0);
         }
@@ -161,6 +169,7 @@ public class Game {
             } else if (i == 4) {
                 stein.setBonusPoints(1);
             }
+
             Stones.add(stein);
             sb.setLength(0);
         }
@@ -264,6 +273,10 @@ public class Game {
 
  */
     }
+
+    /**
+     * Finds the oldest player to determine start player.
+     */
     public void findOldestPlayer() {
         Player oldest = null;
         int oldestAge = 0;

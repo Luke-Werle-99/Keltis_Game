@@ -1,11 +1,11 @@
 package com.backend;
 import java.util.ArrayList;
 
-
 public class Player
 {
     private String name;
     private int age;
+
     private ArrayList<Stone> rowBlue = new ArrayList<>();
     private ArrayList<Stone> rowYellow = new ArrayList<>();
     private ArrayList<Stone> rowGreen = new ArrayList<>();
@@ -13,10 +13,19 @@ public class Player
     private ArrayList<Stone> rowBrown = new ArrayList<>();
     private int score;
 
+    /**
+     * Player that takes part in the game
+     * @param _name of the player
+     * @param _age of the player, determines starting order
+     */
     public Player(String _name, int _age){
         this.name = _name;
         this.age = _age;
     }
+
+    /**
+     * Function that printed out the player rows before we had a UI
+     */
     public void displayRows(){
         if(rowBlue.size() > 0){
             System.out.println("Blue Row: ");
@@ -56,6 +65,13 @@ public class Player
             System.out.println("__________________________________________");
         }
     }
+
+    /**
+     * Uncovers a stone from the pile
+     *
+     * @param _stone the pulled stone
+     * @return whether the move was executed
+     */
     public boolean pull(Stone _stone)
     {
         System.out.println(_stone.getColor());
@@ -192,9 +208,12 @@ public class Player
     return false;
     }
 
-    public  void calcPoints (){
-        //kann raus
-        int stoneAmount = rowBlue.size() + rowYellow.size() + rowGreen.size() + rowPink.size() + rowBrown.size();
+    /**
+     * Calculates the points for a player
+     * @return points
+     */
+    public void calcPoints (){
+
         int bonusPoints = 0;
         int wishingStone = 0;
         int points = 0;
@@ -279,6 +298,12 @@ public class Player
         this.score = points;
     }
 
+    /**
+     * Gets the points of a given row
+     * @param rowColor Color of the specified row
+     * @param points Amount of points for the specified row
+     * @return points
+     */
     public int getPointsOfRow(ArrayList<Stone> rowColor, int points) {
         switch (rowColor.size()) {
             case 0:
@@ -303,9 +328,32 @@ public class Player
         }
         return points;
     }
+
+    /**
+     * Getter and Setter methods
+     *
+     */
     public void setName(String _name){this.name = _name;}
     public String getName(){return this.name;}
     public void setAge(int _age){this.age = _age;}
     public int getAge(){return  this.age;}
     public int getScore(){return this.score;}
+    public ArrayList<Stone> getRowBlue() {return this.rowBlue;}
+    public void setRowBlue(ArrayList<Stone> rowBlue) {this.rowBlue = rowBlue;}
+    public ArrayList<Stone> getRowBrown() {return this.rowBrown;}
+    public void setRowBrown(ArrayList<Stone> rowBrown) {
+        this.rowBrown = rowBlue;
+    }
+    public ArrayList<Stone> getRowYellow() {return this.rowYellow;}
+    public void setRowYellow(ArrayList<Stone> rowYellow) {
+        this.rowYellow = rowYellow;
+    }
+    public ArrayList<Stone> getRowGreen() {return this.rowGreen;}
+    public void setRowGreen(ArrayList<Stone> rowPink) {
+        this.rowPink = rowPink;
+    }
+    public ArrayList<Stone> getRowPink() {return this.rowPink;}
+    public void setRowPink(ArrayList<Stone> rowPink) {
+        this.rowPink = rowPink;
+    }
 }

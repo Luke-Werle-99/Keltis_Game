@@ -1,4 +1,5 @@
 module com.frontend.keltis {
+    requires javafx.graphics;
     requires javafx.controls;
     requires javafx.fxml;
 
