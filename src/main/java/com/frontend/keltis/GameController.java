@@ -29,6 +29,17 @@ public class GameController {
     public ImageView pl1, pl2,pl3,pl4,pl5,pl6,pl7,pl8, pl9, pl10, pl11,pl12,pl13,pl14,pl15,pl16,pl17,pl18,pl19,pl20,
                     pl21,pl22,pl23,pl24,pl25,pl26,pl27,pl28,pl29,pl30,pl31,pl32,pl33,pl34,pl35,pl36,pl37,pl38,pl39,pl40,
                     pl41,pl42,pl43,pl44,pl45,pl46,pl47,pl48,pl49,pl50,pl51,pl52,pl53,pl54,pl55;
+    public ImageView pla1,pla2,pla3,pla4,pla5,pla6,pla7,pla8,pla9,pla10,pla11,pla12,pla13,pla14,pla15,pla16,pla17,pla18,pla19,pla20,
+                     pla21,pla22,pla23,pla24,pla25,pla26,pla27,pla28,pla29,pla30,pla31,pla32,pla33,pla34,pla35,pla36,pla37,
+                     pla38,pla39,pla40,pla41,pla42,pla43,pla44,pla45,pla46,pla47,pla48,pla49, pla50,pla51,pla52,pla53,pla54,pla55;
+    public ImageView play1,play2,play3,play4,play5,play6,play7,play8,play9,play10,play11,play12,play13,play14,play15,play16,play17,
+                     play18, play19,play20,play21,play22,play23, play24,play25,play26,play27,play28,play29,play30,play31,play32,
+                     play33,play34,play35,play36,play37,play38,play39,play40,play41,play42, play43, play44,play45,play46,play47,play48,
+                     play49,play50,play51,play52,play53,play54,play55;
+    public ImageView playe1,playe2,playe3,playe4,playe5,playe6,playe7,playe8,playe9,playe10,playe11,playe12,playe13,playe14,playe15,playe16,playe17,
+                     playe18, playe19,playe20,playe21,playe22,playe23, playe24,playe25,playe26,playe27,playe28,playe29,playe30,playe31,playe32,
+                     playe33,playe34,playe35,playe36,playe37,playe38,playe39,playe40,playe41,playe42, playe43, playe44,playe45,playe46,playe47,playe48,
+                     playe49,playe50,playe51,playe52,playe53,playe54,playe55;
     public Button b0, b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17, b18, b19,
             b20, b21, b22, b23, b24, b25, b26, b27, b28, b29, b30, b31, b32, b33, b34, b35, b36, b37, b38, b39, b40,
             b41, b42, b43, b44, b45, b46, b47, b48, b49, b50, b51, b52, b53, b54;
@@ -161,7 +172,7 @@ public class GameController {
                 WrongMove.getButtonTypes().setAll(Ok);
                 Optional<ButtonType> result2 = WrongMove.showAndWait();
                 if (result2.get() == Ok){
-                    //TODO: Implement logic to retry the move
+                   turn--;
 
                 }
             }
@@ -180,60 +191,26 @@ public class GameController {
         turn++;
     }
 
-    public void PlayerStones(String url, int turn, int playerId) {
-        Stone[][] Player = new Stone[5][11];
-        switch (playerId){
-            case 1: {
-                Player = gameInstance.Player1;
-            }
-        }
-        if (turn == 0) {
-            int x = Integer.parseInt(url.substring(url.length() - 1));
-            if (url.contains("blau")) {
-                Player[0][x] = new Stone();
-                Player[0][x].setColor("blau");
-                Player[0][x].setNumber(x);
-            }
-            if (url.contains("braun")) {
-                Player[1][x] = new Stone();
-                Player[1][x].setColor("braun");
-                Player[1][x].setNumber(x);
-            }
-
-            if (url.contains("gelb")) {
-                Player[2][x] = new Stone();
-                Player[2][x].setColor("gelb");
-                Player[2][x].setNumber(x);
-            }
-            if (url.contains("gruen")) {
-                Player[3][x] = new Stone();
-                Player[3][x].setColor("gruen");
-                Player[3][x].setNumber(x);
-            }
-            if (url.contains("pink")) {
-                Player[4][x] = new Stone();
-                Player[4][x].setColor("pink");
-                Player[4][x].setNumber(x);
-            }
-
-        }
-    }
-
     public void DisplayStoneForPlayer(ArrayList<Player> Players) {
+        int counter = 0;
         Player Player1 = gameInstance.Players.get(0);
-        Player Player2 = gameInstance.Players.get(0);
-        if(gameInstance.Players.size() == 3){
-            Player Player3 = gameInstance.Players.get(0);
-        } else if (gameInstance.Players.size() == 3) {
-            Player Player5 = gameInstance.Players.get(0);
-        }
+        Player Player2 = gameInstance.Players.get(1);
+
         //Create the Arrays of Player1 for the images
         ImageView[] BlueStonesPlayer1= {pl1, pl2,pl3,pl4,pl5,pl6,pl7,pl8, pl9, pl10, pl11};
         ImageView[] GreenStonesPlayer1= {pl12,pl13,pl14,pl15,pl16,pl17,pl18,pl19,pl20, pl21,pl22};
         ImageView[] BrownStonesPlayer1 = {pl23, pl24,pl25,pl26,pl27,pl28,pl29,pl30,pl31,pl32,pl33};
         ImageView[] PinkStonesPlayer1 = {pl34,pl35,pl36,pl37,pl38,pl39,pl40,pl41,pl42,pl43,pl44};
         ImageView[] YellowStonesPlayer1 = {pl45,pl46,pl47,pl48,pl49,pl50,pl51,pl52,pl53,pl54,pl55};
-        int counter = 0;
+
+        //Create the Arrays of Player2 for the images
+        ImageView[] BlueStonesPlayer2= {pla1, pla2,pla3,pla4,pla5,pla6,pla7,pla8, pla9, pla10, pla11};
+        ImageView[] GreenStonesPlayer2= {pla12,pla13,pla14,pla15,pla16,pla17,pla18,pla19,pla20, pla21,pla22};
+        ImageView[] BrownStonesPlayer2 = {pla23, pla24,pla25,pla26,pla27,pla28,pla29,pla30,pla31,pla32,pla33};
+        ImageView[] PinkStonesPlayer2 = {pla34,pla35,pla36,pla37,pla38,pla39,pla40,pla41,pla42,pla43,pla44};
+        ImageView[] YellowStonesPlayer2 = {pla45,pla46,pla47,pla48,pla49,pla50,pla51,pla52,pla53,pla54,pla55};
+
+
         for (Stone x:Player1.getRowBlue()) {
             Image temp = new Image(x.getURL());
             BlueStonesPlayer1[counter].setImage(temp);
@@ -264,6 +241,114 @@ public class GameController {
             counter++;
         }
         counter = 0;
+        //Display Rows of Player 2
+        for (Stone x:Player2.getRowBlue()) {
+            Image temp = new Image(x.getURL());
+            BlueStonesPlayer2[counter].setImage(temp);
+            counter++;
+        }
+        counter = 0;
+        for (Stone x:Player2.getRowPink()) {
+            Image temp = new Image(x.getURL());
+            PinkStonesPlayer2[counter].setImage(temp);
+            counter++;
+        }
+        counter = 0;
+        for (Stone x:Player2.getRowGreen()) {
+            Image temp = new Image(x.getURL());
+            GreenStonesPlayer2[counter].setImage(temp);
+            counter++;
+        }
+        counter = 0;
+        for (Stone x:Player2.getRowYellow()) {
+            Image temp = new Image(x.getURL());
+            YellowStonesPlayer2[counter].setImage(temp);
+            counter++;
+        }
+        counter = 0;
+        for (Stone x:Player2.getRowBrown()) {
+            Image temp = new Image(x.getURL());
+            BrownStonesPlayer2[counter].setImage(temp);
+            counter++;
+        }
+        counter = 0;
+
+        if(gameInstance.Players.size() >= 3){
+            Player Player3 = gameInstance.Players.get(2);
+            ImageView[] BlueStonesPlayer3= {play1, play2,play3,play4,play5,play6,play7,play8, play9, play10, play11};
+            ImageView[] GreenStonesPlayer3= {play12,play13,play14,play15,play16,play17,play18,play19,play20, play21,play22};
+            ImageView[] BrownStonesPlayer3 = {play23, play24,play25,play26,play27,play28,play29,play30,play31,play32,play33};
+            ImageView[] PinkStonesPlayer3 = {play34,play35,play36,play37,play38,play39,play40,play41,play42,play43,play44};
+            ImageView[] YellowStonesPlayer3 = {play45,play46,play47,play48,play49,play50,play51,play52,play53,play54,play55};
+            for (Stone x:Player3.getRowBlue()) {
+                Image temp = new Image(x.getURL());
+                BlueStonesPlayer3[counter].setImage(temp);
+                counter++;
+            }
+            counter = 0;
+            for (Stone x:Player3.getRowPink()) {
+                Image temp = new Image(x.getURL());
+                PinkStonesPlayer3[counter].setImage(temp);
+                counter++;
+            }
+            counter = 0;
+            for (Stone x:Player3.getRowGreen()) {
+                Image temp = new Image(x.getURL());
+                GreenStonesPlayer3[counter].setImage(temp);
+                counter++;
+            }
+            counter = 0;
+            for (Stone x:Player3.getRowYellow()) {
+                Image temp = new Image(x.getURL());
+                YellowStonesPlayer3[counter].setImage(temp);
+                counter++;
+            }
+            counter = 0;
+            for (Stone x:Player3.getRowBrown()) {
+                Image temp = new Image(x.getURL());
+                BrownStonesPlayer3[counter].setImage(temp);
+                counter++;
+            }
+            counter = 0;
+        }
+        if (gameInstance.Players.size() == 4) {
+            Player Player4 = gameInstance.Players.get(3);
+            ImageView[] BlueStonesPlayer4= {playe1, playe2,playe3,playe4,playe5,playe6,playe7,playe8, playe9, playe10, playe11};
+            ImageView[] GreenStonesPlayer4= {playe12,playe13,playe14,playe15,playe16,playe17,playe18,playe19,playe20, playe21,playe22};
+            ImageView[] BrownStonesPlayer4 = {playe23, playe24,playe25,playe26,playe27,playe28,playe29,playe30,playe31,playe32,playe33};
+            ImageView[] PinkStonesPlayer4 = {playe34,playe35,playe36,playe37,playe38,playe39,playe40,playe41,playe42,playe43,playe44};
+            ImageView[] YellowStonesPlayer4 = {playe45,playe46,playe47,playe48,playe49,playe50,playe51,playe52,playe53,playe54,playe55};
+            for (Stone x:Player4.getRowBlue()) {
+                Image temp = new Image(x.getURL());
+                BlueStonesPlayer4[counter].setImage(temp);
+                counter++;
+            }
+            counter = 0;
+            for (Stone x:Player4.getRowPink()) {
+                Image temp = new Image(x.getURL());
+                PinkStonesPlayer4[counter].setImage(temp);
+                counter++;
+            }
+            counter = 0;
+            for (Stone x:Player4.getRowGreen()) {
+                Image temp = new Image(x.getURL());
+                GreenStonesPlayer4[counter].setImage(temp);
+                counter++;
+            }
+            counter = 0;
+            for (Stone x:Player4.getRowYellow()) {
+                Image temp = new Image(x.getURL());
+                YellowStonesPlayer4[counter].setImage(temp);
+                counter++;
+            }
+            counter = 0;
+            for (Stone x:Player4.getRowBrown()) {
+                Image temp = new Image(x.getURL());
+                BrownStonesPlayer4[counter].setImage(temp);
+                counter++;
+            }
+
+        }
 
     }
 

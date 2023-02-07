@@ -94,7 +94,7 @@ public class PlayerController implements Initializable {
             gameController.gameInstance.addPlayer(player3);
 
         }
-        else if(!name4.getText().equals("")) {
+        if(!name4.getText().equals("")) {
             String name4Text = name4.getText();
             String age4Text = age4.getText();
             Player player4 = new Player(name4Text, Integer.parseInt(age4Text));
