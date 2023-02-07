@@ -1,4 +1,6 @@
 package com.backend;
+import com.frontend.keltis.EndScreenController;
+
 import java.util.ArrayList;
 
 public class Player

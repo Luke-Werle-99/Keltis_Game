@@ -6,17 +6,11 @@ import java.util.Collections;
 
 public class Game {
 
-    public Stone[][] Player1 = new Stone[5][11];
-    public Stone [][] Player2 = new Stone[5][11];
-    public Stone [][] Player3 = new Stone[5][11];
-    public Stone [][] Player4 = new Stone[5][11];
-    public ArrayList<Player> Players = new ArrayList<>(4);
+    public static ArrayList<Player> Players = new ArrayList<>(4);
     public static ArrayList<Stone> Stones = new ArrayList(55);
-    private static ArrayList<Stone> UncoveredStones = new ArrayList<>(55);
     public Game() {
         this.Players = new ArrayList<>(4);
         this.Stones = new ArrayList<>(55);
-        //this.UncoveredStones = new ArrayList<>(55);
     }
 
     public void gameStart() {
@@ -37,35 +31,10 @@ public class Game {
         */
     }
 
-    public void gameEnd() {
-        System.out.println("GAME OVER !");
-
-        ArrayList<Integer> scores = new ArrayList<Integer>();
-
-        for (int i = 0; i < Players.size(); i++) {
-            scores.add(Players.get(i).getScore());
-        }
-
-        Collections.sort(scores, Collections.reverseOrder());
-
-        for (int i = 1; i <= Players.size(); i++) {
-            String name = "";
-            for (Player x : Players) {
-                if (x.getScore() == scores.get(i - 1)) {
-                    name = x.getName();
-                }
-            }
-            System.out.println(i + ". place is " + name + " with " + scores.get(i - 1) + " points !!!");
-        }
-    }
     public void addPlayer(Player x){
         Players.add(x);
     }
 
-    /**
-     * Generates our Stones. As they are not random we hard assign values to each stone.
-     * Shuffles Stones.
-     */
     public void generateStones() {
         StringBuilder sb = new StringBuilder();
         //initialize pink Stones
@@ -273,10 +242,6 @@ public class Game {
 
  */
     }
-
-    /**
-     * Finds the oldest player to determine start player.
-     */
     public void findOldestPlayer() {
         Player oldest = null;
         int oldestAge = 0;

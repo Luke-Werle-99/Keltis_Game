@@ -189,7 +189,7 @@ public class GameController {
 
         if(uncoveredCount>54)
         {
-            gameInstance.gameEnd();
+            EndScreenController.gameEnd(Game.Players);
         }
         turn++;
     }
