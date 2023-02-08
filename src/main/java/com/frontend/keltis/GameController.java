@@ -123,7 +123,10 @@ public class GameController {
         gameInstance = new Game();
         gameInstance.generateStones();
         cover();
-
+        Score1.setVisible(false);
+        Score2.setVisible(false);
+        Score3.setVisible(false);
+        Score4.setVisible(false);
         for (int i = 0; i < 11; i++) {
             StringBuilder sb = new StringBuilder("images/blau");
             sb.append(i);
@@ -254,15 +257,15 @@ public class GameController {
 
 
         } else if (result.get() == NoButton) {
-            //TODO: Leave the Stone uncovered
             turn++;
-
         }
 
-        ColorPlayerLabel(turn);
+        int nextPlayer = turn;
+        if(turn >= gameInstance.Players.size()){nextPlayer = 0;}
+        ColorPlayerLabel(nextPlayer);
 
-        if(uncoveredCount > 8)
-        {
+        if(uncoveredCount > 54){
+
             FXMLLoader fxmlLoader = new FXMLLoader(MainKeltis.class.getResource("EndScreen.fxml"));
             Stage stage = (Stage)b1.getScene().getWindow();
             Scene scene = new Scene(fxmlLoader.load(), 720, 480);
@@ -274,8 +277,8 @@ public class GameController {
 
     }
     public void ColorPlayerLabel(int turn){
-       //Set the current player in white
-       Label[] PlayerLabel = {player1label, player2label, player3label, player4label};
+        //Set the current player in white
+        Label[] PlayerLabel = {player1label, player2label, player3label, player4label};
         for (int i = 0; i < gameInstance.Players.size(); i++) {
             if(i == turn){
                 PlayerLabel[i].setTextFill(Color.color(1,0,0));
@@ -283,8 +286,6 @@ public class GameController {
                 PlayerLabel[i].setTextFill(Color.color(1,1,1));
             }
         }
-
-
     }
 
     /**
