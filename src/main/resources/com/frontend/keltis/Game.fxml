@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -283,7 +282,7 @@
             <ImageView fx:id="pla8" fitHeight="24.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="4" />
             <ImageView fx:id="pla9" fitHeight="24.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3" />
             <ImageView fx:id="pla10" fitHeight="22.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2" />
-            <ImageView fx:id="pla11" fitHeight="24.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1" />
+            <ImageView fx:id="pla11" fitHeight="24.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2" />
             <ImageView fx:id="pla12" fitHeight="23.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="11" />
             <ImageView fx:id="pla13" fitHeight="24.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="10" />
             <ImageView fx:id="pla14" fitHeight="27.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="9" />
@@ -660,24 +659,24 @@
       <Button fx:id="b4" layoutX="223.0" layoutY="572.0" mnemonicParsing="false" onAction="#ButtonPressed" opacity="0.0" prefHeight="64.0" prefWidth="78.0" style="-fx-background-radius: 100;" text="Button" />
       <Button fx:id="b3" layoutX="366.0" layoutY="68.0" mnemonicParsing="false" onAction="#ButtonPressed" opacity="0.0" prefHeight="64.0" prefWidth="78.0" style="-fx-background-radius: 100;" text="Button" />
       <Button fx:id="b0" layoutX="1253.0" layoutY="495.0" mnemonicParsing="false" onAction="#ButtonPressed" opacity="0.0" prefHeight="64.0" prefWidth="78.0" style="-fx-background-radius: 100;" text="Button" />
-      <Label fx:id="player1label" layoutX="139.0" layoutY="674.0" text="Player1">
+      <Label fx:id="player1label" layoutX="138.0" layoutY="683.0" text="Player1">
          <font>
-            <Font name="Century Gothic" size="50.0" />
+            <Font name="Century Gothic Bold" size="50.0" />
          </font>
       </Label>
-      <Label fx:id="player2label" layoutX="562.0" layoutY="674.0" text="Player2">
+      <Label fx:id="player2label" layoutX="609.0" layoutY="683.0" text="Player2">
          <font>
-            <Font name="Century Gothic" size="50.0" />
+            <Font name="Century Gothic Bold" size="50.0" />
          </font>
       </Label>
-      <Label fx:id="player3label" layoutX="1012.0" layoutY="674.0" text="Player3">
+      <Label fx:id="player3label" layoutX="1129.0" layoutY="683.0" text="Player3">
          <font>
-            <Font name="Century Gothic" size="50.0" />
+            <Font name="Century Gothic Bold" size="50.0" />
          </font>
       </Label>
-      <Label fx:id="player4label" layoutX="1551.0" layoutY="674.0" text="Player4">
+      <Label fx:id="player4label" layoutX="1576.0" layoutY="683.0" text="Player4">
          <font>
-            <Font name="Century Gothic" size="50.0" />
+            <Font name="Century Gothic Bold" size="50.0" />
          </font>
       </Label>
    </children>
