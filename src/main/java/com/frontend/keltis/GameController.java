@@ -1,6 +1,8 @@
 package com.frontend.keltis;
 import com.backend.*;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -8,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -20,32 +23,57 @@ public class GameController {
     public Game gameInstance;
     public int turn;
     public int uncoveredCount = 0;
+    /**
+     *     ImageViews to display the 55 Stones
+     */
     public ImageView bl0,bl1,bl2,bl3,bl4,bl5,bl6,bl7,bl8,bl9,bl10;
     public ImageView br0, br1, br2, br3, br4, br5, br6, br7, br8, br9, br10;
     public ImageView y0, y1, y2, y3, y4, y5, y6, y7, y8, y9, y10;
     public ImageView p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10;
     public ImageView g0, g1, g2, g3, g4, g5, g6, g7, g8, g9, g10;
-    //button Reihenfolge b0 - b54 aufsteigend sortiert nach blau, braun, gelb, grün, pink
-    //Images to display Stones of Player1
+
+    /**
+     * Images to display Stones of Player1
+     */
     public ImageView pl1, pl2,pl3,pl4,pl5,pl6,pl7,pl8, pl9, pl10, pl11,pl12,pl13,pl14,pl15,pl16,pl17,pl18,pl19,pl20,
                     pl21,pl22,pl23,pl24,pl25,pl26,pl27,pl28,pl29,pl30,pl31,pl32,pl33,pl34,pl35,pl36,pl37,pl38,pl39,pl40,
                     pl41,pl42,pl43,pl44,pl45,pl46,pl47,pl48,pl49,pl50,pl51,pl52,pl53,pl54,pl55;
+    /**
+     * Images to display Stones of Player2
+     */
     public ImageView pla1,pla2,pla3,pla4,pla5,pla6,pla7,pla8,pla9,pla10,pla11,pla12,pla13,pla14,pla15,pla16,pla17,pla18,pla19,pla20,
                      pla21,pla22,pla23,pla24,pla25,pla26,pla27,pla28,pla29,pla30,pla31,pla32,pla33,pla34,pla35,pla36,pla37,
                      pla38,pla39,pla40,pla41,pla42,pla43,pla44,pla45,pla46,pla47,pla48,pla49, pla50,pla51,pla52,pla53,pla54,pla55;
+    /**
+     * Images to display Stones of Player3
+     */
     public ImageView play1,play2,play3,play4,play5,play6,play7,play8,play9,play10,play11,play12,play13,play14,play15,play16,play17,
                      play18, play19,play20,play21,play22,play23, play24,play25,play26,play27,play28,play29,play30,play31,play32,
                      play33,play34,play35,play36,play37,play38,play39,play40,play41,play42, play43, play44,play45,play46,play47,play48,
                      play49,play50,play51,play52,play53,play54,play55;
+    /**
+     * Images to display Stones of Player4
+     */
     public ImageView playe1,playe2,playe3,playe4,playe5,playe6,playe7,playe8,playe9,playe10,playe11,playe12,playe13,playe14,playe15,playe16,playe17,
                      playe18, playe19,playe20,playe21,playe22,playe23, playe24,playe25,playe26,playe27,playe28,playe29,playe30,playe31,playe32,
                      playe33,playe34,playe35,playe36,playe37,playe38,playe39,playe40,playe41,playe42, playe43, playe44,playe45,playe46,playe47,playe48,
                      playe49,playe50,playe51,playe52,playe53,playe54,playe55;
+
+    /**
+     *     Buttons to get user input for
+     */
     public Button b0, b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17, b18, b19,
             b20, b21, b22, b23, b24, b25, b26, b27, b28, b29, b30, b31, b32, b33, b34, b35, b36, b37, b38, b39, b40,
             b41, b42, b43, b44, b45, b46, b47, b48, b49, b50, b51, b52, b53, b54;
     public Label player1label, player2label, player3label, player4label;
+    /**
+     * Stores all ImageURLs for the display
+     */
     public static ArrayList<String> ImageURL = new ArrayList<>(55);
+
+    /**
+     * Sets the initial image of all ImageViews
+     */
     public void cover(){
         ImageView[] stones = {bl0,bl1,bl2,bl3,bl4,bl5,bl6,bl7,bl8,bl9,bl10,
                 br0, br1, br2, br3, br4, br5, br6, br7, br8, br9, br10,
@@ -74,6 +102,9 @@ public class GameController {
         player4label.setVisible(true);
         player4label.setText(x);
     }
+    /**
+     * Instantiates a game object and creates the ImageURLs for the ImageViews
+     */
     public void initialize() {
         gameInstance = new Game();
         gameInstance.generateStones();
@@ -132,6 +163,11 @@ public class GameController {
 
     }
 
+    /**
+     * Finds the correlating Stone-Object from a ImageURL
+     * @param ImageURL
+     * @return
+     */
     public Stone FindStoneObject(String ImageURL)
     {
         Stone currentStone = null;
@@ -147,6 +183,11 @@ public class GameController {
         return currentStone;
     }
 
+    /**
+     * Checks for user input and contains the logic od the game
+     * @param event
+     * @throws IOException
+     */
     public void ButtonPressed(ActionEvent event) throws IOException {
         //Check whether the turn exceeds the player count
         if(turn >= gameInstance.Players.size()){turn = 0;}
@@ -171,17 +212,18 @@ public class GameController {
         System.out.println(ButtonID);
         System.out.println("Stone ID: "+ ChosenStone.getID());
         System.out.println("Stone URL: "+ ChosenStone.getURL());
-
+        turn++;
 
         if (result.get() == YesButton){
             if((currentPlayer.pull(ChosenStone))){
                 //Set the corresponding Stone invisible
                 setInvisible(ButtonID);
                 DisplayStoneForPlayer(gameInstance.Players);
-                if(ChosenStone.getWishingStone()){
+                if(ChosenStone.isClover()){
                     if(turn ==0){turn = 0;}
                     else{turn--;}
                 }
+
                 }else {
                 Alert WrongMove = new Alert(Alert.AlertType.CONFIRMATION);
                 WrongMove.setTitle("Invalid Move");
@@ -191,7 +233,7 @@ public class GameController {
                 WrongMove.getButtonTypes().setAll(Ok);
                 Optional<ButtonType> result2 = WrongMove.showAndWait();
                 if (result2.get() == Ok){
-                   if(turn ==0){turn = 0;}
+                   if(turn == 0){turn = 0;}
                    else{turn--;}
                 }
             }
@@ -203,13 +245,22 @@ public class GameController {
 
         }
 
-        if(uncoveredCount>54)
+        if(uncoveredCount>6)
         {
-            EndScreenController.gameEnd(Game.Players);
+            FXMLLoader fxmlLoader = new FXMLLoader(MainKeltis.class.getResource("EndScreen.fxml"));
+            Stage stage = (Stage)b1.getScene().getWindow();
+            Scene scene = new Scene(fxmlLoader.load(), 720, 480);
+            EndScreenController endController = fxmlLoader.getController();
+            stage.setScene(scene);
+            endController.gameEnd(Game.Players);
         }
-        turn++;
+
     }
 
+    /**
+     * Displays the stones which a player has in his row attributes
+     * @param Players
+     */
     public void DisplayStoneForPlayer(ArrayList<Player> Players) {
         int counter = 0;
         Player Player1 = gameInstance.Players.get(0);
@@ -371,6 +422,10 @@ public class GameController {
 
     }
 
+    /**
+     * Disables the clicked button and sets the image underneath it invisible
+     * @param ButtonID
+     */
     public void setInvisible(String ButtonID){
         if(ButtonID.equals("b0")){
             bl0.setVisible(false);
@@ -540,6 +595,12 @@ public class GameController {
         }
 
     }
+
+    /**
+     * Sets an Image for the button that is pressed
+     * @param ButtonID
+     * @return
+     */
     public String uncover(String ButtonID) {
 
         uncoveredCount++; //count the uncovered stones

@@ -20,6 +20,10 @@ public class StartController {
         stage.setScene(scene);
         stage.show();
     }
+    public void exitGame(ActionEvent event) throws IOException{
+       Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+       stage.close();
+    }
 
 
 
