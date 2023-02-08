@@ -88,7 +88,7 @@ public class PlayerController implements Initializable {
         String age2Text = age2.getText();
         Player player2 = new Player(name2Text, Integer.parseInt(age2Text));
         gameController.gameInstance.addPlayer(player2);
-        gameController.playerNames(name1Text, name2Text);
+        //gameController.playerNames(name1Text, name2Text);
 
 
         if(!name3.getText().equals("")) {
@@ -96,18 +96,19 @@ public class PlayerController implements Initializable {
             String age3Text = age3.getText();
             Player player3 = new Player(name3Text, Integer.parseInt(age3Text));
             gameController.gameInstance.addPlayer(player3);
-            gameController.playerName3(name3Text);
+            //gameController.playerName3(name3Text);
         }
         if(!name4.getText().equals("")) {
             String name4Text = name4.getText();
             String age4Text = age4.getText();
             Player player4 = new Player(name4Text, Integer.parseInt(age4Text));
             gameController.gameInstance.addPlayer(player4);
-            gameController.playerName4(name4Text);
+            //gameController.playerName4(name4Text);
         }
         //Oldest Player starts -> becomes first in ArrayList
         gameController.gameInstance.findOldestPlayer();
         stage.setScene(scene);
+        gameController.playerNames();
         stage.show();
     }
 }

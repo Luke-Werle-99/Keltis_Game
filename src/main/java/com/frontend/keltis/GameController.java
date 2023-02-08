@@ -24,7 +24,7 @@ public class GameController {
     public Label Score1,Score2,Score3,Score4;
 
     public Game gameInstance;
-    public int turn;
+    public int turn = 0;
     public int uncoveredCount = 0;
     /**
      *     ImageViews to display the 55 Stones
@@ -92,36 +92,26 @@ public class GameController {
 
     /**
      * Sets the lables of Player 1 and 2 to their names
-     * @param x Name of player 1
-     * @param y Name of player 2
+     *
      */
-    public void playerNames(String x, String y){
+    public void playerNames(){
 
-        player1label.setText(x);
-        player2label.setText(y);
+        player1label.setText(gameInstance.Players.get(0).getName());
+        player2label.setText(gameInstance.Players.get(1).getName());
         player1label.setTextFill(Color.color(1,0,0));
         player3label.setVisible(false);
         player4label.setVisible(false);
+        if(gameInstance.Players.size() == 3){
+            player3label.setText(gameInstance.Players.get(2).getName());
+            player4label.setVisible(false);
+        }else if(gameInstance.Players.size() > 2){
+            player3label.setText(gameInstance.Players.get(2).getName());
+            player4label.setText(gameInstance.Players.get(3).getName());
+        }
 
     }
 
-    /**
-     * If there is a player 3 we set the label to their name
-     * @param x Name of player 3
-     */
-    public void playerName3(String x){
-        player3label.setVisible(true);
-        player3label.setText(x);
-    }
 
-    /**
-     * If there is a player 4 we set the label to their name
-     * @param x Name of player 4
-     */
-    public void playerName4(String x){
-        player4label.setVisible(true);
-        player4label.setText(x);
-    }
     /**
      * Instantiates a game object and creates the ImageURLs for the ImageViews
      */
@@ -239,11 +229,12 @@ public class GameController {
                 //Set the corresponding Stone invisible
                 setInvisible(ButtonID);
                 DisplayStoneForPlayer(gameInstance.Players);
-                ColorPlayerLabel(turn);
-                turn++;
+
                 if(ChosenStone.isClover()){
                     if(turn ==0){turn = 0;}
                     else{turn--;}
+                }else{
+                    turn++;
                 }
 
                 }else {
@@ -255,18 +246,18 @@ public class GameController {
                 WrongMove.getButtonTypes().setAll(Ok);
                 Optional<ButtonType> result2 = WrongMove.showAndWait();
                 if (result2.get() == Ok){
-                   if(turn == 0){turn = 0;}
-                   else{turn--;}
+
                 }
             }
 
 
         } else if (result.get() == NoButton) {
             //TODO: Leave the Stone uncovered
+            turn++;
 
         }
 
-
+        ColorPlayerLabel(currentPlayer);
 
         if(uncoveredCount > 54)
         {
@@ -280,23 +271,15 @@ public class GameController {
 
 
     }
-    public void ColorPlayerLabel(int turn){
+    public void ColorPlayerLabel(Player currentPlayer){
         //Set the current player in color Red
         Label[] PlayerLabel = {player1label, player2label, player3label, player4label};
-        for (int i = 0; i < gameInstance.Players.size(); i++) {
-            if(i == turn){
-                PlayerLabel[i].setTextFill(Color.color(1, 1, 1));
-            }else{
-                PlayerLabel[i].setTextFill(Color.color(1, 0, 0));
-
-            }
+        PlayerLabel[gameInstance.Players.indexOf(currentPlayer)].setTextFill(Color.color(1,1,1));
+        if(gameInstance.Players.indexOf(currentPlayer) == gameInstance.Players.size()){
 
         }
 
-
     }
-
-
 
     /**
      * Displays the stones which a player has in his row attributes
