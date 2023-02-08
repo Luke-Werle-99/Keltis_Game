@@ -89,6 +89,12 @@ public class GameController {
             image.setImage(Temp);
         }
     }
+
+    /**
+     * Sets the lables of Player 1 and 2 to their names
+     * @param x Name of player 1
+     * @param y Name of player 2
+     */
     public void playerNames(String x, String y){
 
         player1label.setText(x);
@@ -97,11 +103,20 @@ public class GameController {
         player4label.setVisible(false);
 
     }
+
+    /**
+     * If there is a player 3 we set the label to their name
+     * @param x Name of player 3
+     */
     public void playerName3(String x){
         player3label.setVisible(true);
         player3label.setText(x);
     }
 
+    /**
+     * If there is a player 4 we set the label to their name
+     * @param x Name of player 4
+     */
     public void playerName4(String x){
         player4label.setVisible(true);
         player4label.setText(x);
