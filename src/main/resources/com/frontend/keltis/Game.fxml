@@ -661,7 +661,7 @@
       <Button fx:id="b0" layoutX="1253.0" layoutY="495.0" mnemonicParsing="false" onAction="#ButtonPressed" opacity="0.0" prefHeight="64.0" prefWidth="78.0" style="-fx-background-radius: 100;" text="Button" />
       <Label fx:id="player1label" layoutX="138.0" layoutY="683.0" text="Player1">
          <font>
-            <Font name="Century Gothic Bold" size="50.0" />
+            <Font name="Century Gothic" size="50.0" />
          </font>
       </Label>
       <Label fx:id="player2label" layoutX="609.0" layoutY="683.0" text="Player2">
@@ -677,6 +677,46 @@
       <Label fx:id="player4label" layoutX="1576.0" layoutY="683.0" text="Player4">
          <font>
             <Font name="Century Gothic Bold" size="50.0" />
+         </font>
+      </Label>
+      <Label layoutX="178.0" layoutY="999.0" text="Score:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="655.0" layoutY="999.0" text="Score:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="1185.0" layoutY="999.0" text="Score:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="1622.0" layoutY="999.0" text="Score:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="Score1" layoutX="240.0" layoutY="999.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="Score2" layoutX="711.0" layoutY="999.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="Score3" layoutX="1240.0" layoutY="999.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="Score4" layoutX="1683.0" layoutY="999.0">
+         <font>
+            <Font size="18.0" />
          </font>
       </Label>
    </children>
