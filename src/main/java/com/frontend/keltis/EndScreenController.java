@@ -71,13 +71,6 @@ public class EndScreenController
                 }
             }
 
-            stringBuilder1.append(i);
-            stringBuilder1.append(". place is ");
-            stringBuilder1.append(name);
-            stringBuilder1.append(" with ");
-            stringBuilder1.append(scores.get(i - 1));
-            stringBuilder1.append(" points !!!");
-
            // endLabel1=stringBuilder1.toString();
 
             labels.get(i-1).setText(i + ". place is " + name + " with " + scores.get(i - 1) + " points !!!");

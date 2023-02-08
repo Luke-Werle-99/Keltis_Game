@@ -9,6 +9,8 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -211,6 +213,9 @@ public class GameController {
         //Check whether the turn exceeds the player count
         if(turn >= gameInstance.Players.size()){turn = 0;}
         Player currentPlayer = gameInstance.Players.get(turn);
+        //Set the current player in color Red
+        Label[] PlayerLable = {player1label, player2label, player3label, player4label};
+        PlayerLable[turn].setTextFill(Color.color(1, 0, 0));
 
         Button ButtonPressed = (Button) event.getSource();
         String ButtonID = ButtonPressed.getId();
@@ -273,6 +278,7 @@ public class GameController {
             stage.setScene(scene);
             endController.gameEnd(Game.Players);
         }
+
 
     }
 
