@@ -27,7 +27,7 @@ public class GameController {
     public int turn = 0;
     public int uncoveredCount[] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
                                     ,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-                                    ,0,0,0,0};
+                                    ,0,0};
     /**
      *     ImageViews to display the 55 Stones
      */
@@ -187,8 +187,8 @@ public class GameController {
      * @param ImageURL
      * @return
      */
-    public Stone FindStoneObject(String ImageURL)
-    {
+    public Stone FindStoneObject(String ImageURL){
+
         StringBuilder sb = new StringBuilder(ImageURL);
         sb.delete(0,sb.indexOf("images"));
         sb.delete(sb.indexOf("images"), sb.indexOf("images") +7);
@@ -272,7 +272,7 @@ public class GameController {
         if(nextPlayer >= gameInstance.Players.size()){nextPlayer = 0;}
         ColorPlayerLabel(nextPlayer);
 
-        if(true){
+        if(CheckUncovered() == true){
 
             FXMLLoader fxmlLoader = new FXMLLoader(MainKeltis.class.getResource("EndScreen.fxml"));
             Stage stage = (Stage)b1.getScene().getWindow();
@@ -283,6 +283,13 @@ public class GameController {
         }
 
 
+    }
+    public boolean CheckUncovered(){
+        boolean EndCondition = true;
+        for (int i = 0; i < uncoveredCount.length; i++) {
+            if(uncoveredCount[i] == 0){EndCondition = false;}
+        }
+        return EndCondition;
     }
     public void ColorPlayerLabel(int turn){
         //Set the current player in white
@@ -1008,7 +1015,7 @@ public class GameController {
             Image Temp = new Image(ImageURLs.get(44));
             p0.setImage(Temp);
             sb.append(ImageURLs.get(44));
-            uncoveredCount[45] = 1;
+            uncoveredCount[44] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b45")) {
