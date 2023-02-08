@@ -92,6 +92,7 @@ public class GameController {
         player2label.setText(y);
         player3label.setVisible(false);
         player4label.setVisible(false);
+
     }
     public void playerName3(String x){
         player3label.setVisible(true);
