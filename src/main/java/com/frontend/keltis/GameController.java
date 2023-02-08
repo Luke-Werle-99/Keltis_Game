@@ -1,6 +1,7 @@
 package com.frontend.keltis;
 import com.backend.*;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -10,8 +11,6 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -21,10 +20,9 @@ import java.util.Collections;
 import java.util.Optional;
 
 public class GameController {
-    public Label Score1;
-    public Label Score2;
-    public Label Score3;
-    public Label Score4;
+    @FXML
+    public Label Score1,Score2,Score3,Score4;
+
     public Game gameInstance;
     public int turn;
     public int uncoveredCount = 0;
@@ -101,6 +99,7 @@ public class GameController {
 
         player1label.setText(x);
         player2label.setText(y);
+        player1label.setTextFill(Color.color(1,0,0));
         player3label.setVisible(false);
         player4label.setVisible(false);
 
@@ -213,9 +212,6 @@ public class GameController {
         //Check whether the turn exceeds the player count
         if(turn >= gameInstance.Players.size()){turn = 0;}
         Player currentPlayer = gameInstance.Players.get(turn);
-        //Set the current player in color Red
-        Label[] PlayerLable = {player1label, player2label, player3label, player4label};
-        PlayerLable[turn].setTextFill(Color.color(1, 0, 0));
 
         Button ButtonPressed = (Button) event.getSource();
         String ButtonID = ButtonPressed.getId();
@@ -231,18 +227,20 @@ public class GameController {
         GetConfirmation.getButtonTypes().setAll(YesButton, NoButton);
         Optional<ButtonType> result = GetConfirmation.showAndWait();
 
+
         //temporary for debugging purposes
         System.out.println(currentPlayer.getName() + " chose Button: ");
         System.out.println(ButtonID);
         System.out.println("Stone ID: "+ ChosenStone.getID());
         System.out.println("Stone URL: "+ ChosenStone.getURL());
-        turn++;
 
         if (result.get() == YesButton){
             if((currentPlayer.pull(ChosenStone))){
                 //Set the corresponding Stone invisible
                 setInvisible(ButtonID);
                 DisplayStoneForPlayer(gameInstance.Players);
+                ColorPlayerLabel(turn);
+                turn++;
                 if(ChosenStone.isClover()){
                     if(turn ==0){turn = 0;}
                     else{turn--;}
@@ -263,11 +261,12 @@ public class GameController {
             }
 
 
-
         } else if (result.get() == NoButton) {
             //TODO: Leave the Stone uncovered
 
         }
+
+
 
         if(uncoveredCount > 54)
         {
@@ -281,6 +280,23 @@ public class GameController {
 
 
     }
+    public void ColorPlayerLabel(int turn){
+        //Set the current player in color Red
+        Label[] PlayerLabel = {player1label, player2label, player3label, player4label};
+        for (int i = 0; i < gameInstance.Players.size(); i++) {
+            if(i == turn){
+                PlayerLabel[i].setTextFill(Color.color(1, 1, 1));
+            }else{
+                PlayerLabel[i].setTextFill(Color.color(1, 0, 0));
+
+            }
+
+        }
+
+
+    }
+
+
 
     /**
      * Displays the stones which a player has in his row attributes
@@ -290,7 +306,9 @@ public class GameController {
         int counter = 0;
         Player Player1 = gameInstance.Players.get(0);
         Player Player2 = gameInstance.Players.get(1);
+        Player1.calcPoints();
         Score1.setText(String.valueOf(Player1.getScore()));
+        Player2.calcPoints();
         Score2.setText(String.valueOf(Player2.getScore()));
         //Create the Arrays of Player1 for the images
         ImageView[] BlueStonesPlayer1= {pl1, pl2,pl3,pl4,pl5,pl6,pl7,pl8, pl9, pl10, pl11};
@@ -371,6 +389,7 @@ public class GameController {
 
         if(gameInstance.Players.size() >= 3){
             Player Player3 = gameInstance.Players.get(2);
+            Player3.calcPoints();
             Score3.setText(String.valueOf(Player3.getScore()));
             ImageView[] BlueStonesPlayer3= {play1, play2,play3,play4,play5,play6,play7,play8, play9, play10, play11};
             ImageView[] GreenStonesPlayer3= {play12,play13,play14,play15,play16,play17,play18,play19,play20, play21,play22};
@@ -410,6 +429,7 @@ public class GameController {
         }
         if (gameInstance.Players.size() == 4) {
             Player Player4 = gameInstance.Players.get(3);
+            Player4.calcPoints();
             Score4.setText(String.valueOf(Player4.getScore()));
             ImageView[] BlueStonesPlayer4= {playe1, playe2,playe3,playe4,playe5,playe6,playe7,playe8, playe9, playe10, playe11};
             ImageView[] GreenStonesPlayer4= {playe12,playe13,playe14,playe15,playe16,playe17,playe18,playe19,playe20, playe21,playe22};
