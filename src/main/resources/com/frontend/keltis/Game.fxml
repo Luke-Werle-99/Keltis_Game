@@ -12,7 +12,7 @@
 
 <AnchorPane id="pane" fx:id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.82" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@CssStyle/GameCss.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.frontend.keltis.GameController">
    <children>
-      <GridPane layoutX="26.0" layoutY="730.0" prefHeight="250.0" prefWidth="395.0">
+      <GridPane layoutX="26.0" layoutY="743.0" prefHeight="250.0" prefWidth="395.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -91,7 +91,7 @@
             <ImageView fx:id="pl55" fitHeight="23.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" />
          </children>
       </GridPane>
-      <GridPane layoutX="1439.0" layoutY="730.0" prefHeight="250.0" prefWidth="395.0">
+      <GridPane layoutX="1468.0" layoutY="743.0" prefHeight="250.0" prefWidth="395.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -170,7 +170,7 @@
             <ImageView fx:id="playe9" fitHeight="24.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2" />
          </children>
       </GridPane>
-      <GridPane layoutX="894.0" layoutY="730.0" prefHeight="250.0" prefWidth="395.0">
+      <GridPane layoutX="1021.0" layoutY="749.0" prefHeight="250.0" prefWidth="395.0">
         <columnConstraints>
            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -249,7 +249,7 @@
             <ImageView fx:id="play45" fitHeight="27.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="10" />
          </children>
       </GridPane>
-      <GridPane layoutX="427.0" layoutY="730.0" prefHeight="250.0" prefWidth="395.0">
+      <GridPane layoutX="501.0" layoutY="749.0" prefHeight="250.0" prefWidth="395.0">
         <columnConstraints>
            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
