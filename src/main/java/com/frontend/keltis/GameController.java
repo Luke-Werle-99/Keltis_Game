@@ -105,12 +105,15 @@ public class GameController {
         if(gameInstance.Players.size() == 3){
             player3label.setText(gameInstance.Players.get(2).getName());
             player3label.setTextFill(Color.color(1,1,1));
+            player3label.setVisible(true);
             player4label.setVisible(false);
         }else if(gameInstance.Players.size() > 2){
             player3label.setText(gameInstance.Players.get(2).getName());
             player3label.setTextFill(Color.color(1,1,1));
+            player3label.setVisible(true);
             player4label.setText(gameInstance.Players.get(3).getName());
             player4label.setTextFill(Color.color(1,1,1));
+            player4label.setVisible(true);
         }
 
     }
@@ -251,7 +254,7 @@ public class GameController {
                 WrongMove.getButtonTypes().setAll(Ok);
                 Optional<ButtonType> result2 = WrongMove.showAndWait();
                 if (result2.get() == Ok){
-
+                    turn++;
                 }
             }
 
