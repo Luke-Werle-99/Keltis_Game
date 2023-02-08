@@ -268,7 +268,7 @@ public class GameController {
 
 
 
-        if(uncoveredCount > 54)
+        if(uncoveredCount > 8)
         {
             FXMLLoader fxmlLoader = new FXMLLoader(MainKeltis.class.getResource("EndScreen.fxml"));
             Stage stage = (Stage)b1.getScene().getWindow();
