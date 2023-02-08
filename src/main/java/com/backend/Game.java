@@ -156,7 +156,7 @@ public class Game {
     }
 
     /**
-     * Finds the oldest player to determine start player.
+     * Finds and sets the oldest player to determine the start player.
      */
     public void findOldestPlayer() {
         Player oldest = null;
