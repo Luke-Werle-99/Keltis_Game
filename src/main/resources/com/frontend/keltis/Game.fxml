@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -10,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="pane" fx:id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.82" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@CssStyle/GameCss.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.frontend.keltis.GameController">
+<AnchorPane id="pane" fx:id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.82" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.frontend.keltis.GameController">
    <children>
       <GridPane layoutX="26.0" layoutY="743.0" prefHeight="250.0" prefWidth="395.0">
         <columnConstraints>
@@ -720,4 +721,8 @@
          </font>
       </Label>
    </children>
+   <stylesheets>
+      <URL value="@CssStyle/GameCss.css" />
+      <URL value="@CssStyle/End.css" />
+   </stylesheets>
 </AnchorPane>

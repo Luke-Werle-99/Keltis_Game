@@ -1,26 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.frontend.keltis.EndScreenController">
+<AnchorPane id="pane" opacity="0.74" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.frontend.keltis.EndScreenController">
    <children>
-      <Label fx:id="endLabel1" layoutX="271.0" layoutY="77.0" text="Label">
+      <Label fx:id="endLabel1" layoutX="271.0" layoutY="63.0" text="Label">
          <font>
-            <Font name="Book Antiqua" size="24.0" />
+            <Font name="Malgun Gothic Bold" size="36.0" />
          </font></Label>
-      <Label fx:id="endLabel2" layoutX="271.0" layoutY="147.0" text="Label">
+      <Label fx:id="endLabel2" layoutX="271.0" layoutY="138.0" text="Label">
          <font>
-            <Font name="Book Antiqua" size="24.0" />
+            <Font name="Malgun Gothic Bold" size="36.0" />
          </font></Label>
-      <Label fx:id="endLabel3" layoutX="271.0" layoutY="194.0" text="Label">
+      <Label fx:id="endLabel3" layoutX="271.0" layoutY="206.0" text="Label">
          <font>
-            <Font name="Book Antiqua" size="24.0" />
+            <Font name="Malgun Gothic Bold" size="36.0" />
          </font></Label>
-      <Label fx:id="endLabel4" layoutX="271.0" layoutY="239.0" text="Label">
+      <Label fx:id="endLabel4" layoutX="271.0" layoutY="281.0" text="Label">
          <font>
-            <Font name="Book Antiqua" size="24.0" />
+            <Font name="Malgun Gothic Bold" size="36.0" />
          </font></Label>
    </children>
+   <stylesheets>
+      <URL value="@CssStyle/End.css" />
+      <URL value="@CssStyle/GameCss.css" />
+   </stylesheets>
 </AnchorPane>

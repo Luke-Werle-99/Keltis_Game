@@ -1,0 +1,15 @@
+.label {
+    -fx-font-size: 16px;
+    -fx-font-family: "Times New Roman";
+    -fx-text-fill: #006400;
+}
+
+.vbox {
+    -fx-background-color: #ADD8E6;
+    -fx-padding: 20px;
+}
+
+.label:hover {
+    -fx-background-color: #006400;
+    -fx-text-fill: white;
+}
