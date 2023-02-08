@@ -99,14 +99,18 @@ public class GameController {
         player1label.setText(gameInstance.Players.get(0).getName());
         player2label.setText(gameInstance.Players.get(1).getName());
         player1label.setTextFill(Color.color(1,0,0));
+        player2label.setTextFill(Color.color(1,1,1));
         player3label.setVisible(false);
         player4label.setVisible(false);
         if(gameInstance.Players.size() == 3){
             player3label.setText(gameInstance.Players.get(2).getName());
+            player3label.setTextFill(Color.color(1,1,1));
             player4label.setVisible(false);
         }else if(gameInstance.Players.size() > 2){
             player3label.setText(gameInstance.Players.get(2).getName());
+            player3label.setTextFill(Color.color(1,1,1));
             player4label.setText(gameInstance.Players.get(3).getName());
+            player4label.setTextFill(Color.color(1,1,1));
         }
 
     }
@@ -229,12 +233,10 @@ public class GameController {
                 //Set the corresponding Stone invisible
                 setInvisible(ButtonID);
                 DisplayStoneForPlayer(gameInstance.Players);
-
+                turn++;
                 if(ChosenStone.isClover()){
                     if(turn ==0){turn = 0;}
                     else{turn--;}
-                }else{
-                    turn++;
                 }
 
                 }else {
@@ -257,7 +259,7 @@ public class GameController {
 
         }
 
-        ColorPlayerLabel(currentPlayer);
+        ColorPlayerLabel(turn);
 
         if(uncoveredCount > 54)
         {
@@ -271,12 +273,15 @@ public class GameController {
 
 
     }
-    public void ColorPlayerLabel(Player currentPlayer){
-        //Set the current player in color Red
-        Label[] PlayerLabel = {player1label, player2label, player3label, player4label};
-        PlayerLabel[gameInstance.Players.indexOf(currentPlayer)].setTextFill(Color.color(1,1,1));
-        if(gameInstance.Players.indexOf(currentPlayer) == gameInstance.Players.size()){
-
+    public void ColorPlayerLabel(int turn){
+       //Set the current player in white
+       Label[] PlayerLabel = {player1label, player2label, player3label, player4label};
+        for (int i = 0; i < gameInstance.Players.size(); i++) {
+            if(i == turn){
+                PlayerLabel[i].setTextFill(Color.color(1,0,0));
+            }else{
+                PlayerLabel[i].setTextFill(Color.color(1,1,1));
+            }
         }
 
     }
