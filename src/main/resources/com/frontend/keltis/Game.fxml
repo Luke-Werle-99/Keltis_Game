@@ -679,7 +679,7 @@
             <Font name="Century Gothic Bold" size="50.0" />
          </font>
       </Label>
-      <Label layoutX="178.0" layoutY="999.0" text="Score:">
+      <Label layoutX="169.0" layoutY="999.0" text="Score:">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
