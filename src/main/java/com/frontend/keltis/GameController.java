@@ -19,7 +19,10 @@ import java.util.Collections;
 import java.util.Optional;
 
 public class GameController {
-    public Text PlayerText;
+    public Label Score1;
+    public Label Score2;
+    public Label Score3;
+    public Label Score4;
     public Game gameInstance;
     public int turn;
     public int uncoveredCount = 0;
@@ -246,7 +249,7 @@ public class GameController {
 
         }
 
-        if(uncoveredCount>6)
+        if(uncoveredCount > 54)
         {
             FXMLLoader fxmlLoader = new FXMLLoader(MainKeltis.class.getResource("EndScreen.fxml"));
             Stage stage = (Stage)b1.getScene().getWindow();
@@ -266,7 +269,8 @@ public class GameController {
         int counter = 0;
         Player Player1 = gameInstance.Players.get(0);
         Player Player2 = gameInstance.Players.get(1);
-
+        Score1.setText(String.valueOf(Player1.getScore()));
+        Score2.setText(String.valueOf(Player2.getScore()));
         //Create the Arrays of Player1 for the images
         ImageView[] BlueStonesPlayer1= {pl1, pl2,pl3,pl4,pl5,pl6,pl7,pl8, pl9, pl10, pl11};
         ImageView[] GreenStonesPlayer1= {pl12,pl13,pl14,pl15,pl16,pl17,pl18,pl19,pl20, pl21,pl22};
@@ -346,6 +350,7 @@ public class GameController {
 
         if(gameInstance.Players.size() >= 3){
             Player Player3 = gameInstance.Players.get(2);
+            Score3.setText(String.valueOf(Player3.getScore()));
             ImageView[] BlueStonesPlayer3= {play1, play2,play3,play4,play5,play6,play7,play8, play9, play10, play11};
             ImageView[] GreenStonesPlayer3= {play12,play13,play14,play15,play16,play17,play18,play19,play20, play21,play22};
             ImageView[] BrownStonesPlayer3 = {play23, play24,play25,play26,play27,play28,play29,play30,play31,play32,play33};
@@ -384,6 +389,7 @@ public class GameController {
         }
         if (gameInstance.Players.size() == 4) {
             Player Player4 = gameInstance.Players.get(3);
+            Score4.setText(String.valueOf(Player4.getScore()));
             ImageView[] BlueStonesPlayer4= {playe1, playe2,playe3,playe4,playe5,playe6,playe7,playe8, playe9, playe10, playe11};
             ImageView[] GreenStonesPlayer4= {playe12,playe13,playe14,playe15,playe16,playe17,playe18,playe19,playe20, playe21,playe22};
             ImageView[] BrownStonesPlayer4 = {playe23, playe24,playe25,playe26,playe27,playe28,playe29,playe30,playe31,playe32,playe33};
