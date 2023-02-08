@@ -25,7 +25,9 @@ public class GameController {
 
     public Game gameInstance;
     public int turn = 0;
-    public int uncoveredCount = 0;
+    public int uncoveredCount[] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+                                    ,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+                                    ,0,0,0,0};
     /**
      *     ImageViews to display the 55 Stones
      */
@@ -72,7 +74,7 @@ public class GameController {
     /**
      * Stores all ImageURLs for the display
      */
-    public static ArrayList<String> ImageURL = new ArrayList<>(55);
+    public static ArrayList<String> ImageURLs = new ArrayList<>(55);
 
     /**
      * Sets the initial image of all ImageViews
@@ -126,17 +128,14 @@ public class GameController {
         gameInstance = new Game();
         gameInstance.generateStones();
         cover();
-        Score1.setVisible(false);
-        Score2.setVisible(false);
-        Score3.setVisible(false);
-        Score4.setVisible(false);
+
         for (int i = 0; i < 11; i++) {
             StringBuilder sb = new StringBuilder("images/blau");
             sb.append(i);
             sb.append(".png");
             URL PicLocation = getClass().getResource(sb.toString());
             String URL = String.valueOf(PicLocation);
-            ImageURL.add(URL);
+            ImageURLs.add(URL);
         }
 
         for (int i = 0; i < 11; i++) {
@@ -145,7 +144,7 @@ public class GameController {
             sb.append(".png");
             URL PicLocation = getClass().getResource(sb.toString());
             String URL = String.valueOf(PicLocation);
-            ImageURL.add(URL);
+            ImageURLs.add(URL);
 
         }
 
@@ -155,7 +154,7 @@ public class GameController {
             sb.append(".png");
             URL PicLocation = getClass().getResource(sb.toString());
             String URL = String.valueOf(PicLocation);
-            ImageURL.add(URL);
+            ImageURLs.add(URL);
 
         }
 
@@ -165,7 +164,7 @@ public class GameController {
             sb.append(".png");
             URL PicLocation = getClass().getResource(sb.toString());
             String URL = String.valueOf(PicLocation);
-            ImageURL.add(URL);
+            ImageURLs.add(URL);
 
         }
 
@@ -175,11 +174,11 @@ public class GameController {
             sb.append(".png");
             URL PicLocation = getClass().getResource(sb.toString());
             String URL = String.valueOf(PicLocation);
-            ImageURL.add(URL);
+            ImageURLs.add(URL);
 
         }
 
-        Collections.shuffle(ImageURL);
+        Collections.shuffle(ImageURLs);
 
     }
 
@@ -190,16 +189,21 @@ public class GameController {
      */
     public Stone FindStoneObject(String ImageURL)
     {
+        StringBuilder sb = new StringBuilder(ImageURL);
+        sb.delete(0,sb.indexOf("images"));
+        sb.delete(sb.indexOf("images"), sb.indexOf("images") +7);
+        sb.delete(sb.indexOf(".png"), sb.length());
         Stone currentStone = null;
         for (int i = 0; i < 55; i++)
         {
             Stone check = gameInstance.Stones.get(i);
-            if (ImageURL.contains(check.getID()))
+            if (check.getID().equals(sb.toString()))
             {
                 currentStone = check;
                 currentStone.setURL(ImageURL);
             }
         }
+
         return currentStone;
     }
 
@@ -255,6 +259,7 @@ public class GameController {
                 Optional<ButtonType> result2 = WrongMove.showAndWait();
                 if (result2.get() == Ok){
                     turn++;
+
                 }
             }
 
@@ -264,10 +269,10 @@ public class GameController {
         }
 
         int nextPlayer = turn;
-        if(turn >= gameInstance.Players.size()){nextPlayer = 0;}
+        if(nextPlayer >= gameInstance.Players.size()){nextPlayer = 0;}
         ColorPlayerLabel(nextPlayer);
 
-        if(uncoveredCount > 54){
+        if(true){
 
             FXMLLoader fxmlLoader = new FXMLLoader(MainKeltis.class.getResource("EndScreen.fxml"));
             Stage stage = (Stage)b1.getScene().getWindow();
@@ -644,747 +649,405 @@ public class GameController {
      */
     public String uncover(String ButtonID) {
 
-        uncoveredCount++; //count the uncovered stones
+
 
         StringBuilder sb = new StringBuilder();
         if (ButtonID.equals("b0")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(0));
+            Image Temp = new Image(ImageURLs.get(0));
             bl0.setImage(Temp);
-            sb.append(ImageURL.get(0));
-            /*
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-             */
+            sb.append(ImageURLs.get(0));
+            uncoveredCount[0] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b1")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(1));
+            Image Temp = new Image(ImageURLs.get(1));
             bl1.setImage(Temp);
-            sb.append(ImageURL.get(1));
-            /*
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-
-             */
+            sb.append(ImageURLs.get(1));
+            uncoveredCount[1] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b2")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(2));
+            Image Temp = new Image(ImageURLs.get(2));
             bl2.setImage(Temp);
-            sb.append(ImageURL.get(2));
-            /*
-
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-
-             */
+            sb.append(ImageURLs.get(2));
+            uncoveredCount[2] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b3")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(3));
+            Image Temp = new Image(ImageURLs.get(3));
             bl3.setImage(Temp);
-            sb.append(ImageURL.get(3));
-                       /*
-
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-
-                        */
+            sb.append(ImageURLs.get(3));
+            uncoveredCount[3] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b4")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(4));
+            Image Temp = new Image(ImageURLs.get(4));
             bl4.setImage(Temp);
-            sb.append(ImageURL.get(4));
-            /*
-
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-
-             */
+            sb.append(ImageURLs.get(4));
+            uncoveredCount[4] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b5")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(5));
+            Image Temp = new Image(ImageURLs.get(5));
             bl5.setImage(Temp);
-            sb.append(ImageURL.get(5));
-            /*
-
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-             */
+            sb.append(ImageURLs.get(5));
+            uncoveredCount[5] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b6")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(6));
+            Image Temp = new Image(ImageURLs.get(6));
             bl6.setImage(Temp);
-            sb.append(ImageURL.get(6));
-                        /*
-
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-
-                         */
-
+            sb.append(ImageURLs.get(6));
+            uncoveredCount[6] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b7")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(7));
+            Image Temp = new Image(ImageURLs.get(7));
             bl7.setImage(Temp);
-            sb.append(ImageURL.get(7));
-            /*
-
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-
-             */
+            sb.append(ImageURLs.get(7));
+            uncoveredCount[7] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b8")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(8));
+            Image Temp = new Image(ImageURLs.get(8));
             bl8.setImage(Temp);
-            sb.append(ImageURL.get(8));
-            /*
-
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+ 8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-
-             */
+            sb.append(ImageURLs.get(8));
+            uncoveredCount[8] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b9")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(9));
+            Image Temp = new Image(ImageURLs.get(9));
             bl9.setImage(Temp);
-            sb.append(ImageURL.get(9));
-            /*
-
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-
-             */
+            sb.append(ImageURLs.get(9));
+            uncoveredCount[9] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b10")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(10));
+            Image Temp = new Image(ImageURLs.get(10));
             bl10.setImage(Temp);
-            sb.append(ImageURL.get(10));
-            /*
-
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-
-             */
+            sb.append(ImageURLs.get(10));
+            uncoveredCount[10] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b11")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(11));
+            Image Temp = new Image(ImageURLs.get(11));
             br0.setImage(Temp);
-            sb.append(ImageURL.get(11));
-            /*
-
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-
-             */
+            sb.append(ImageURLs.get(11));
+            uncoveredCount[11] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b12")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(12));
+            Image Temp = new Image(ImageURLs.get(12));
             br1.setImage(Temp);
-            sb.append(ImageURL.get(12));
-            /*
-
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-
-             */
+            sb.append(ImageURLs.get(12));
+            uncoveredCount[12] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b13")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(13));
+            Image Temp = new Image(ImageURLs.get(13));
             br2.setImage(Temp);
-            sb.append(ImageURL.get(13));
-            /*
-
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-
-             */
+            sb.append(ImageURLs.get(13));
+            uncoveredCount[13] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b14")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(14));
+            Image Temp = new Image(ImageURLs.get(14));
             br3.setImage(Temp);
-            sb.append(ImageURL.get(14));
-            /*
-
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-
-             */
+            sb.append(ImageURLs.get(14));
+            uncoveredCount[14] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b15")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(15));
+            Image Temp = new Image(ImageURLs.get(15));
             br4.setImage(Temp);
-            sb.append(ImageURL.get(15));
-            /*
-
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-
-             */
+            sb.append(ImageURLs.get(15));
+            uncoveredCount[15] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b16")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(16));
+            Image Temp = new Image(ImageURLs.get(16));
             br5.setImage(Temp);
-            sb.append(ImageURL.get(16));
-            /*
-
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-
-             */
-
+            sb.append(ImageURLs.get(16));
+            uncoveredCount[16] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b17")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(17));
+            Image Temp = new Image(ImageURLs.get(17));
             br6.setImage(Temp);
-            sb.append(ImageURL.get(17));
-            /*
-
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-
-             */
+            sb.append(ImageURLs.get(17));
+            uncoveredCount[17] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b18")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(18));
+            Image Temp = new Image(ImageURLs.get(18));
             br7.setImage(Temp);
-            sb.append(ImageURL.get(18));
-            /*
-
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-
-             */
+            sb.append(ImageURLs.get(18));
+            uncoveredCount[18] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b19")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(19));
+            Image Temp = new Image(ImageURLs.get(19));
             br8.setImage(Temp);
-            sb.append(ImageURL.get(19));
-            /*
-
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-
-             */
-
+            sb.append(ImageURLs.get(19));
+            uncoveredCount[19] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b20")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(20));
+            Image Temp = new Image(ImageURLs.get(20));
             br9.setImage(Temp);
-            sb.append(ImageURL.get(20));
-            /*
-
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-
-             */
+            sb.append(ImageURLs.get(20));
+            uncoveredCount[20] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b21")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(21));
+            Image Temp = new Image(ImageURLs.get(21));
             br10.setImage(Temp);
-            sb.append(ImageURL.get(21));
-            /*
-
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-
-             */
+            sb.append(ImageURLs.get(21));
+            uncoveredCount[21] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b22")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(22));
+            Image Temp = new Image(ImageURLs.get(22));
             y0.setImage(Temp);
-            sb.append(ImageURL.get(22));
-            /*
-
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-
-             */
+            sb.append(ImageURLs.get(22));
+            uncoveredCount[22] = 1;
             return sb.toString();
         } else if (ButtonID.equals("b23")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(23));
+            Image Temp = new Image(ImageURLs.get(23));
             y1.setImage(Temp);
-            sb.append(ImageURL.get(23));
-            /*
-
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-
-             */
+            sb.append(ImageURLs.get(23));
+            uncoveredCount[23] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b24")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(24));
+            Image Temp = new Image(ImageURLs.get(24));
             y2.setImage(Temp);
-            sb.append(ImageURL.get(24));
-            /*
-
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-
-             */
+            sb.append(ImageURLs.get(24));
+            uncoveredCount[24] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b25")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(25));
+            Image Temp = new Image(ImageURLs.get(25));
             y3.setImage(Temp);
-            sb.append(ImageURL.get(25));
-            /*
-
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-
-             */
+            sb.append(ImageURLs.get(25));
+            uncoveredCount[25] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b26")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(26));
+            Image Temp = new Image(ImageURLs.get(26));
             y4.setImage(Temp);
-            sb.append(ImageURL.get(26));
-            /*
-
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-
-             */
+            sb.append(ImageURLs.get(26));
+            uncoveredCount[26] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b27")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(27));
+            Image Temp = new Image(ImageURLs.get(27));
             y5.setImage(Temp);
-            sb.append(ImageURL.get(27));
-            /*
-
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-
-             */
+            sb.append(ImageURLs.get(27));
+            uncoveredCount[27] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b28")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(28));
+            Image Temp = new Image(ImageURLs.get(28));
             y6.setImage(Temp);
-            sb.append(ImageURL.get(28));
-            /*
-
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-
-             */
+            sb.append(ImageURLs.get(28));
+            uncoveredCount[28] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b29")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(29));
+            Image Temp = new Image(ImageURLs.get(29));
             y7.setImage(Temp);
-            sb.append(ImageURL.get(29));
-            /*
-
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-
-             */
+            sb.append(ImageURLs.get(29));
+            uncoveredCount[29] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b30")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(30));
+            Image Temp = new Image(ImageURLs.get(30));
             y8.setImage(Temp);
-            sb.append(ImageURL.get(30));
-            /*
-
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-
-             */
+            sb.append(ImageURLs.get(30));
+            uncoveredCount[30] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b31")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(31));
+            Image Temp = new Image(ImageURLs.get(31));
             y9.setImage(Temp);
-            sb.append(ImageURL.get(31));
-            /*
-
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-
-             */
+            sb.append(ImageURLs.get(31));
+            uncoveredCount[31] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b32")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(32));
+            Image Temp = new Image(ImageURLs.get(32));
             y10.setImage(Temp);
-            sb.append(ImageURL.get(32));
-            /*
-
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-
-             */
+            sb.append(ImageURLs.get(32));
+            uncoveredCount[32] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b33")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(33));
+            Image Temp = new Image(ImageURLs.get(33));
             g0.setImage(Temp);
-            sb.append(ImageURL.get(33));
-            /*
-
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-
-             */
+            sb.append(ImageURLs.get(33));
+            uncoveredCount[33] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b34")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(34));
+            Image Temp = new Image(ImageURLs.get(34));
             g1.setImage(Temp);
-            sb.append(ImageURL.get(34));
-            /*
-
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-
-             */
+            sb.append(ImageURLs.get(34));
+            uncoveredCount[34] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b35")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(35));
+            Image Temp = new Image(ImageURLs.get(35));
             g2.setImage(Temp);
-            sb.append(ImageURL.get(35));
-            /*
-
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-
-             */
+            sb.append(ImageURLs.get(35));
+            uncoveredCount[35] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b36")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(36));
+            Image Temp = new Image(ImageURLs.get(36));
             g3.setImage(Temp);
-            sb.append(ImageURL.get(36));
-            /*
-
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-
-             */
+            sb.append(ImageURLs.get(36));
+            uncoveredCount[36] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b37")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(37));
+            Image Temp = new Image(ImageURLs.get(37));
             g4.setImage(Temp);
-            sb.append(ImageURL.get(37));
-            /*
-
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-
-             */
+            sb.append(ImageURLs.get(37));
+            uncoveredCount[37] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b38")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(38));
+            Image Temp = new Image(ImageURLs.get(38));
             g5.setImage(Temp);
-            sb.append(ImageURL.get(38));
-            /*
-
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-
-             */
+            sb.append(ImageURLs.get(38));
+            uncoveredCount[38] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b39")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(39));
+            Image Temp = new Image(ImageURLs.get(39));
             g6.setImage(Temp);
-            sb.append(ImageURL.get(39));
-            /*
-
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-
-             */
+            sb.append(ImageURLs.get(39));
+            uncoveredCount[39] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b40")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(40));
+            Image Temp = new Image(ImageURLs.get(40));
             g7.setImage(Temp);
-            sb.append(ImageURL.get(40));
-            /*
-
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-
-             */
+            sb.append(ImageURLs.get(40));
+            uncoveredCount[40] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b41")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(41));
+            Image Temp = new Image(ImageURLs.get(41));
             g8.setImage(Temp);
-            sb.append(ImageURL.get(41));
-            /*
-
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-
-             */
+            sb.append(ImageURLs.get(41));
+            uncoveredCount[41] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b42")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(42));
+            Image Temp = new Image(ImageURLs.get(42));
             g9.setImage(Temp);
-            sb.append(ImageURL.get(42));
-            /*
-
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-
-             */
+            sb.append(ImageURLs.get(42));
+            uncoveredCount[42] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b43")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(43));
+            Image Temp = new Image(ImageURLs.get(43));
             g10.setImage(Temp);
-            sb.append(ImageURL.get(43));
-            /*
-
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-
-             */
+            sb.append(ImageURLs.get(43));
+            uncoveredCount[43] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b44")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(44));
+            Image Temp = new Image(ImageURLs.get(44));
             p0.setImage(Temp);
-            sb.append(ImageURL.get(44));
-            /*
-
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-
-             */
+            sb.append(ImageURLs.get(44));
+            uncoveredCount[45] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b45")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(45));
+            Image Temp = new Image(ImageURLs.get(45));
             p1.setImage(Temp);
-            sb.append(ImageURL.get(45));
-            /*
-
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-
-             */
+            sb.append(ImageURLs.get(45));
+            uncoveredCount[45] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b46")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(46));
+            Image Temp = new Image(ImageURLs.get(46));
             p2.setImage(Temp);
-            sb.append(ImageURL.get(46));
-            /*
-
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-
-             */
+            sb.append(ImageURLs.get(46));
+            uncoveredCount[46] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b47")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(47));
+            Image Temp = new Image(ImageURLs.get(47));
             p3.setImage(Temp);
-            sb.append(ImageURL.get(47));
-            /*
-
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-
-             */
+            sb.append(ImageURLs.get(47));
+            uncoveredCount[47] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b48")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(48));
+            Image Temp = new Image(ImageURLs.get(48));
             p4.setImage(Temp);
-            sb.append(ImageURL.get(48));
-            /*
-
-            sb.delete(0,sb.indexOf("/images"));
-            sb.delete(sb.indexOf("/images"),sb.indexOf("/images")+8);
-            sb.delete(sb.indexOf(".png"),sb.length());
-
-
-             */
+            sb.append(ImageURLs.get(48));
+            uncoveredCount[48] = 1;
             return sb.toString();
 
         } else if (ButtonID.equals("b49")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(49));
+            Image Temp = new Image(ImageURLs.get(49));
             p5.setImage(Temp);
-            sb.append(ImageURL.get(49));
+            sb.append(ImageURLs.get(49));
             /*
 
             sb.delete(0,sb.indexOf("/images"));
@@ -1397,9 +1060,9 @@ public class GameController {
 
         } else if (ButtonID.equals("b50")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(50));
+            Image Temp = new Image(ImageURLs.get(50));
             p6.setImage(Temp);
-            sb.append(ImageURL.get(50));
+            sb.append(ImageURLs.get(50));
             /*
 
             sb.delete(0,sb.indexOf("/images"));
@@ -1412,9 +1075,9 @@ public class GameController {
 
         } else if (ButtonID.equals("b51")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(51));
+            Image Temp = new Image(ImageURLs.get(51));
             p7.setImage(Temp);
-            sb.append(ImageURL.get(51));
+            sb.append(ImageURLs.get(51));
             /*
 
             sb.delete(0,sb.indexOf("/images"));
@@ -1427,9 +1090,9 @@ public class GameController {
 
         } else if (ButtonID.equals("b52")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(52));
+            Image Temp = new Image(ImageURLs.get(52));
             p8.setImage(Temp);
-            sb.append(ImageURL.get(52));
+            sb.append(ImageURLs.get(52));
             /*
 
             sb.delete(0,sb.indexOf("/images"));
@@ -1442,9 +1105,9 @@ public class GameController {
 
         } else if (ButtonID.equals("b53")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(53));
+            Image Temp = new Image(ImageURLs.get(53));
             p9.setImage(Temp);
-            sb.append(ImageURL.get(53));
+            sb.append(ImageURLs.get(53));
             /*
 
             sb.delete(0,sb.indexOf("/images"));
@@ -1457,9 +1120,9 @@ public class GameController {
 
         } else if (ButtonID.equals("b54")) {
             sb.setLength(0);
-            Image Temp = new Image(ImageURL.get(54));
+            Image Temp = new Image(ImageURLs.get(54));
             p10.setImage(Temp);
-            sb.append(ImageURL.get(54));
+            sb.append(ImageURLs.get(54));
             /*
 
             sb.delete(0,sb.indexOf("/images"));
