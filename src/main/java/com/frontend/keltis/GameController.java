@@ -280,6 +280,7 @@ public class GameController {
             Scene scene = new Scene(fxmlLoader.load(), 720, 480);
             EndScreenController endController = fxmlLoader.getController();
             stage.setScene(scene);
+           // stage.setFullScreen(true);
             endController.gameEnd(Game.Players);
         }
 

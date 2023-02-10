@@ -79,6 +79,8 @@ public class PlayerController implements Initializable {
         Scene scene = new Scene(fxmlLoader.load(), 1920, 1080);
         GameController gameController = fxmlLoader.getController();
 
+        stage.setScene(scene);
+        //stage.setFullScreen(true);
         String name1Text = name1.getText();
         String age1Text = age1.getText();
         Player player1 = new Player(name1Text, Integer.parseInt(age1Text));
