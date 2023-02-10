@@ -6,48 +6,43 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="803.0" prefWidth="959.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.frontend.keltis.StartController">
+<AnchorPane id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="803.0" prefWidth="959.0" stylesheets="@CssStyle/GameCss.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.frontend.keltis.StartController">
    <children>
-      <Label alignment="CENTER" layoutX="324.0" layoutY="14.0" prefHeight="106.0" prefWidth="311.0" text="Keltis" textAlignment="JUSTIFY">
+      <Label alignment="CENTER" layoutX="324.0" layoutY="14.0" prefHeight="106.0" prefWidth="311.0" text="Keltis" textAlignment="JUSTIFY" textFill="WHITE">
          <font>
             <Font name="Times New Roman" size="71.0" />
          </font>
       </Label>
-      <Text fontSmoothingType="LCD" layoutX="71.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The oldest player starts the game and all 55 stones are covered." wrappingWidth="635.2109375">
+      <Text fill="WHITE" fontSmoothingType="LCD" layoutX="71.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The oldest player starts the game and all 55 stones are covered." wrappingWidth="635.2109375">
          <font>
             <Font name="Century Gothic" size="18.0" />
          </font></Text>
-      <Text fontSmoothingType="LCD" layoutX="71.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0" text="On their turn, the starting player must uncover a stone and decide whether they want to take it or not." wrappingWidth="686.2109375">
+      <Text fill="WHITE" fontSmoothingType="LCD" layoutX="71.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0" text="On their turn, the starting player must uncover a stone and decide whether they want to take it or not." wrappingWidth="686.2109375">
          <font>
             <Font name="Century Gothic" size="18.0" />
          </font>
       </Text>
-      <Text fontSmoothingType="LCD" layoutX="71.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" text="If the player takes the stone, they must then move their playing piece the corresponding number of spaces indicated on the stone." wrappingWidth="686.2109375">
+      <Text fill="WHITE" fontSmoothingType="LCD" layoutX="71.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" text="If the player takes the stone, they must then move their playing piece the corresponding number of spaces indicated on the stone." wrappingWidth="686.2109375">
          <font>
             <Font name="Century Gothic" size="18.0" />
          </font>
       </Text>
-      <Text fontSmoothingType="LCD" layoutX="71.0" layoutY="366.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The game continues with each player taking turns to uncover stones and decide whether or nThe game continues with each player taking turns to uncover stones and decide whether or not to take them." wrappingWidth="686.2109375">
+      <Text fill="WHITE" fontSmoothingType="LCD" layoutX="71.0" layoutY="366.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The game continues with each player taking turns to uncover stones and decide whether or nThe game continues with each player taking turns to uncover stones and decide whether or not to take them." wrappingWidth="686.2109375">
          <font>
             <Font name="Century Gothic" size="18.0" />
          </font>
       </Text>
-      <Text fontSmoothingType="LCD" layoutX="71.0" layoutY="462.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The game continues with each player taking turns to uncover stones and decide whether or nThe game continues with each player taking turns to uncover stones and decide whether or not to take them." wrappingWidth="680.2109375">
+      <Text fill="WHITE" fontSmoothingType="LCD" layoutX="71.0" layoutY="462.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The game continues with each player taking turns to uncover stones and decide whether or nThe game continues with each player taking turns to uncover stones and decide whether or not to take them." wrappingWidth="680.2109375">
          <font>
             <Font name="Century Gothic" size="18.0" />
          </font>
       </Text>
-      <Text fontSmoothingType="LCD" layoutX="71.0" layoutY="559.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The game continues with each player taking turns to uncover stones and decide whether or nThe game continues with each player taking turns to uncover stones and decide whether or not to take them." wrappingWidth="686.2109375">
+      <Text fill="WHITE" fontSmoothingType="LCD" layoutX="68.0" layoutY="559.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The game ends when all 55 stones have been uncovered and all players have taken their turn." wrappingWidth="686.2109375">
          <font>
             <Font name="Century Gothic" size="18.0" />
          </font>
       </Text>
-      <Text fontSmoothingType="LCD" layoutX="71.0" layoutY="640.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The game ends when all 55 stones have been uncovered and all players have taken their turn." wrappingWidth="686.2109375">
-         <font>
-            <Font name="Century Gothic" size="18.0" />
-         </font>
-      </Text>
-      <Text fontSmoothingType="LCD" layoutX="71.0" layoutY="697.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The player with the most points at the end of the game wins. Points are scored based on the number of stones collected and their position on the game board." wrappingWidth="686.2109375">
+      <Text fill="WHITE" fontSmoothingType="LCD" layoutX="68.0" layoutY="642.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The player with the most points at the end of the game wins. Points are scored based on the number of stones collected and their position on the game board." wrappingWidth="686.2109375">
          <font>
             <Font name="Century Gothic" size="18.0" />
          </font>
