@@ -6,21 +6,21 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="pane" opacity="0.74" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.frontend.keltis.EndScreenController">
+<AnchorPane id="pane" opacity="0.92" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.frontend.keltis.EndScreenController">
    <children>
-      <Label fx:id="endLabel1" layoutX="271.0" layoutY="63.0" text="Label">
+      <Label fx:id="endLabel1" layoutX="271.0" layoutY="63.0" text="Label" textFill="#f5f0f0">
          <font>
             <Font name="Malgun Gothic Bold" size="36.0" />
          </font></Label>
-      <Label fx:id="endLabel2" layoutX="271.0" layoutY="138.0" text="Label">
+      <Label fx:id="endLabel2" layoutX="271.0" layoutY="138.0" text="Label" textFill="#fcfcfc">
          <font>
             <Font name="Malgun Gothic Bold" size="36.0" />
          </font></Label>
-      <Label fx:id="endLabel3" layoutX="271.0" layoutY="206.0" text="Label">
+      <Label fx:id="endLabel3" layoutX="271.0" layoutY="206.0" text="Label" textFill="WHITE">
          <font>
             <Font name="Malgun Gothic Bold" size="36.0" />
          </font></Label>
-      <Label fx:id="endLabel4" layoutX="271.0" layoutY="281.0" text="Label">
+      <Label fx:id="endLabel4" layoutX="271.0" layoutY="281.0" text="Label" textFill="WHITE">
          <font>
             <Font name="Malgun Gothic Bold" size="36.0" />
          </font></Label>

@@ -1,5 +1,8 @@
 package com.frontend.keltis;
-import com.backend.*;
+
+import com.backend.Game;
+import com.backend.Player;
+import com.backend.Stone;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,14 +14,17 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Optional;
+import javax.sound.sampled.*;
 
 public class GameController {
     @FXML
@@ -78,8 +84,10 @@ public class GameController {
     public static ArrayList<String> ImageURLs = new ArrayList<>(55);
 
     /**
-     * Sets the initial image of all ImageViews
+     * Sets the initial image of all ImageViews v
      */
+
+
     public void cover(){
         ImageView[] stones = {bl0,bl1,bl2,bl3,bl4,bl5,bl6,bl7,bl8,bl9,bl10,
                 br0, br1, br2, br3, br4, br5, br6, br7, br8, br9, br10,
@@ -91,6 +99,20 @@ public class GameController {
         for (ImageView image: stones) {
             image.setImage(Temp);
         }
+    }
+    /*
+    sets audio method
+    credits for music to Adrian von Ziegler https://www.youtube.com/watch?v=v2qOllkxwiw
+     */
+    public void audioControl() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
+
+        File file = new File("src/main/resources/com/frontend/keltis/sound/celticmusic_cut.wav");
+        AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
+        Clip clip = AudioSystem.getClip();
+        clip.open(audioStream);
+
+       clip.setLoopPoints(0,-1);
+       clip.start();
     }
 
     /**
@@ -125,10 +147,12 @@ public class GameController {
     /**
      * Instantiates a game object and creates the ImageURLs for the ImageViews
      */
-    public void initialize() {
+    public void initialize() throws UnsupportedAudioFileException, LineUnavailableException, IOException {
         gameInstance = new Game();
         gameInstance.generateStones();
         cover();
+        audioControl();
+
 
         for (int i = 0; i < 11; i++) {
             StringBuilder sb = new StringBuilder("images/blau");
@@ -1103,5 +1127,7 @@ public class GameController {
         }
         return null;
     }
+
+
 }
 
