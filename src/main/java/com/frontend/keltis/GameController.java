@@ -26,6 +26,7 @@ import java.util.Collections;
 import java.util.Optional;
 import javax.sound.sampled.*;
 
+
 public class GameController {
     @FXML
     public Label Score1,Score2,Score3,Score4;
@@ -105,11 +106,14 @@ public class GameController {
     credits for music to Adrian von Ziegler https://www.youtube.com/watch?v=v2qOllkxwiw
      */
     public void audioControl() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
-
-        File file = new File("src/main/resources/com/frontend/keltis/sound/celticmusic_cut.wav");
-        AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
+        //URL url = this.getClass().getClassLoader().getResource(Integer.toString(1)+".wav");
+        //File file = new File("src/main/resources/com/frontend/keltis/sound/celticmusic_cut.wav");
+        URL PicLocation = getClass().getResource("sound/celticmusic_cut.wav");
+        AudioInputStream audioStream = AudioSystem.getAudioInputStream(PicLocation);
+       // (audioControl().class.getResourceAsStream("src/main/resources/com/frontend/keltis/sound/celticmusic_cut.wav");
         Clip clip = AudioSystem.getClip();
         clip.open(audioStream);
+
 
        clip.setLoopPoints(0,-1);
        clip.start();
